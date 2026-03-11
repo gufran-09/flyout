@@ -1,3 +1,4 @@
+"use client";
 import React, { useRef, useState, useEffect } from "react";
 import { motion, useAnimation, useMotionValue } from "framer-motion";
 import { getCategories, Category } from "@/lib/categories";

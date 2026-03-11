@@ -1,11 +1,12 @@
+"use client";
 import { useState, useEffect, useRef, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, X, MapPin, Tag, Compass, Loader2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { supabase } from "@/integrations/supabase/client";
+import { createSupabaseBrowserClient } from "@/lib/supabase/client";
 
 interface SearchResult {
   id: string;
@@ -43,7 +44,8 @@ export function SearchAutocomplete({
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const inputRef = useRef<HTMLInputElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const navigate = useNavigate();
+  const router = useRouter();
+  const supabase = createSupabaseBrowserClient();
 
   const searchTours = useCallback(async (searchQuery: string) => {
     if (!searchQuery.trim()) {
@@ -55,10 +57,10 @@ export function SearchAutocomplete({
     setIsLoading(true);
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/search?q=${encodeURIComponent(searchQuery)}&limit=8`,
+        `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/search?q=${encodeURIComponent(searchQuery)}&limit=8`,
         {
           headers: {
-            "Authorization": `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+            "Authorization": `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
             "Content-Type": "application/json",
           },
         }
@@ -111,14 +113,14 @@ export function SearchAutocomplete({
     setShowDropdown(false);
     setQuery("");
     onClose?.();
-    navigate(result.redirectUrl);
+    router.push(result.redirectUrl);
   };
 
   const handleSearch = () => {
     if (query.trim()) {
       setShowDropdown(false);
       onClose?.();
-      navigate(`/search?q=${encodeURIComponent(query.trim())}`);
+      router.push(`/search?q=${encodeURIComponent(query.trim())}`);
     }
   };
 

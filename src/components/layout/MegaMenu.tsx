@@ -1,5 +1,6 @@
+"use client";
 import * as React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import {
     NavigationMenu,
@@ -101,7 +102,7 @@ function MenuRow({ item, isGrid }: { item: MenuItem; isGrid?: boolean }) {
     if (isGrid) {
         return (
             <Link
-                to={item.href}
+                href={item.href}
                 className="group flex items-center gap-4 p-2 rounded-xl hover:bg-[#0A1F44]/10 transition-colors duration-300"
             >
                 <div className="h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-gray-100 border border-gray-100 shadow-sm">
@@ -127,7 +128,7 @@ function MenuRow({ item, isGrid }: { item: MenuItem; isGrid?: boolean }) {
 
     return (
         <Link
-            to={item.href}
+            href={item.href}
             className="group flex items-start gap-4 rounded-xl px-4 py-3 transition-all duration-300 hover:bg-[#0A1F44]/10"
         >
             {(item.image || item.icon) && (

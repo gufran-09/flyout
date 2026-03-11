@@ -1,7 +1,6 @@
 import { Layout } from "@/components/layout/Layout";
 import { HeroSection } from "@/components/home/HeroSection";
 import { SectionTitle } from "@/components/home/SectionTitle";
-
 import { TestimonialsSection } from "@/components/home/TestimonialsSection";
 import UaeShowcaseSection from "@/components/home/UaeShowcaseSection";
 import CategoriesCarousel from "@/components/home/CategoriesCarousel";
@@ -11,13 +10,12 @@ import CuratedCollectionsSection from "@/components/home/CuratedCollectionsSecti
 import MostBookedSection from "@/components/home/MostBookedSection";
 import EventsEntertainmentSection from "@/components/home/EventsEntertainmentSection";
 import TravelEssentialsSection from "@/components/home/TravelEssentialsSection";
-import { BrandStorySection } from "@/components/home/BrandStorySection"
+import { BrandStorySection } from "@/components/home/BrandStorySection";
 
-const Index = () => {
+export default function HomePage() {
   return (
     <Layout>
       <HeroSection />
-
       <SectionTitle />
       <UaeShowcaseSection />
       <CategoriesCarousel />
@@ -31,6 +29,4 @@ const Index = () => {
       <BrandStorySection />
     </Layout>
   );
-};
-
-export default Index;
+}

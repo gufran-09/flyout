@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Percent, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -105,7 +105,7 @@ export function ComboDealsSection() {
             viewport={{ once: true }}
             className="hidden md:block"
           >
-            <Link to="/deals">
+            <Link href="/deals">
               <Button
                 variant="ghost"
                 className="group text-primary hover:bg-primary/10 hover:text-primary text-lg font-semibold"
@@ -159,7 +159,7 @@ export function ComboDealsSection() {
 
         {/* Mobile View All Button */}
         <div className="mt-8 md:hidden text-center">
-          <Link to="/deals">
+          <Link href="/deals">
             <Button
               size="lg"
               className="w-full sm:w-auto bg-primary text-primary-foreground font-bold shadow-lg shadow-primary/20"

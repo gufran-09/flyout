@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -8,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 
 const loginSchema = z.object({
     email: z.string().email("Please enter a valid email address"),
@@ -25,7 +26,7 @@ export function LoginForm() {
     const [otp, setOtp] = useState("");
 
     const { signIn, verifyEmailOTP, resendEmailOTP } = useAuth();
-    const navigate = useNavigate();
+    const router = useRouter();
 
     const form = useForm<LoginForm>({
         resolver: zodResolver(loginSchema),
@@ -52,7 +53,7 @@ export function LoginForm() {
             }
         } else {
             toast.success("Welcome back!");
-            navigate("/");
+            router.push("/");
         }
     };
 
@@ -74,7 +75,7 @@ export function LoginForm() {
             // After verification, try to sign in again automatically or just redirect
             // Since verifyOtp returns a session, we might be logged in already.
             // Let's check if we have a session or just redirect.
-            navigate("/");
+            router.push("/");
         }
     };
 
@@ -197,7 +198,7 @@ export function LoginForm() {
 
             <button
                 type="button"
-                onClick={() => navigate("/auth?mode=reset")}
+                onClick={() => router.push("/auth?mode=reset")}
                 className="text-sm text-primary hover:underline"
             >
                 Forgot password?

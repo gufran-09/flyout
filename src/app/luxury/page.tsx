@@ -1,7 +1,8 @@
+"use client";
 import React from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { CurrencySymbol } from "@/components/ui/CurrencySymbol";
 import { PremiumCard } from "@/components/ui/PremiumCard";

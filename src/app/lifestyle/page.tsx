@@ -1,8 +1,9 @@
+"use client";
 import React from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ArrowUpRight, Heart } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { PriceDisplay } from "@/components/ui/PriceDisplay";
 import { CurrencySymbol } from "@/components/ui/CurrencySymbol";

@@ -1,4 +1,6 @@
-import { Link, useNavigate } from "react-router-dom";
+"use client";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { SignupForm } from "@/components/auth/SignupForm";
 import { SocialAuth } from "@/components/auth/SocialAuth";
 import { useAuth } from "@/contexts/AuthContext";
@@ -6,20 +8,20 @@ import { useEffect } from "react";
 
 export default function SignUp() {
     const { user } = useAuth();
-    const navigate = useNavigate();
+    const router = useRouter();
 
     useEffect(() => {
         if (user) {
-            navigate("/");
+            router.push("/");
         }
-    }, [user, navigate]);
+    }, [user, router]);
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-accent/5 flex items-center justify-center p-4">
             <div className="w-full max-w-md animate-in fade-in slide-in-from-bottom-4 duration-500">
                 {/* Logo */}
                 <div className="text-center mb-8">
-                    <Link to="/" className="inline-block">
+                    <Link href="/" className="inline-block">
                         <img
                             src="/logo.png"
                             alt="Flyout Tours"
@@ -41,7 +43,7 @@ export default function SignUp() {
                     <p className="text-center mt-6 text-muted-foreground">
                         Already have an account?{" "}
                         <Link
-                            to="/sign-in"
+                            href="/sign-in"
                             className="text-primary hover:underline font-medium"
                         >
                             Sign In

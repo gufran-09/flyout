@@ -1,5 +1,8 @@
 
-import { supabase } from "@/lib/supabase";
+import { createSupabaseBrowserClient } from "@/lib/supabase/client";
+
+const supabase = createSupabaseBrowserClient();
+
 import {
     Plane,
     Building2,

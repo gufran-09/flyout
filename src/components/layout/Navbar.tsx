@@ -1,5 +1,7 @@
+"use client";
 import { useState, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   User,
@@ -65,8 +67,8 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [categories, setCategories] = useState<Category[]>([]);
-  const location = useLocation();
-  const navigate = useNavigate();
+  const pathname = usePathname();
+  const router = useRouter();
   const { user, signOut } = useAuth();
   const { totalItems } = useCart();
 
@@ -88,12 +90,12 @@ export function Navbar() {
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
-  }, [location]);
+  }, [pathname]);
 
   const handleSignOut = async () => {
     await signOut();
     toast.success("Signed out successfully");
-    navigate("/");
+    router.push("/");
   };
 
   const navLinks = [
@@ -102,7 +104,7 @@ export function Navbar() {
   ];
 
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (location.pathname === "/") {
+    if (pathname === "/") {
       e.preventDefault();
       window.scrollTo({
         top: 0,
@@ -126,7 +128,7 @@ export function Navbar() {
             <div className="flex items-center justify-between gap-4">
 
               {/* Left: Logo & Tagline */}
-              <Link to="/" onClick={handleLogoClick} className="flex-shrink-0 flex items-center -ml-2 group">
+              <Link href="/" onClick={handleLogoClick} className="flex-shrink-0 flex items-center -ml-2 group">
                 <div className="flex flex-col">
                   <img src="/logo.png" alt="Flyout Tours" className="h-[4.5rem] w-auto object-contain" />
                 </div>
@@ -147,7 +149,7 @@ export function Navbar() {
                     whileHover={{ x: 3 }}
                     transition={{ type: "spring", stiffness: 320, damping: 16 }}
                   >
-                    <Link to="/partner" className="flex items-center gap-2 group">
+                    <Link href="/partner" className="flex items-center gap-2 group">
                       <Store className="h-4 w-4 text-[#1A2B47] group-hover:text-[#B88E2F] transition-colors" />
                       <span className="text-[12.5px] font-bold text-[#0A1F44] group-hover:text-[#B88E2F] tracking-wide transition-colors uppercase py-2">
                         Partner With Flyout
@@ -160,7 +162,7 @@ export function Navbar() {
                     whileHover={{ x: 3 }}
                     transition={{ type: "spring", stiffness: 320, damping: 16 }}
                   >
-                    <Link to="/credit" className="flex items-center gap-2 group">
+                    <Link href="/credit" className="flex items-center gap-2 group">
                       <Coins className="h-4 w-4 text-[#B88E2F] transition-transform" />
                       <span className="text-[12.5px] font-bold text-[#0A1F44] group-hover:text-[#B88E2F] tracking-wide transition-colors uppercase">
                         Flyout CREDITS
@@ -176,7 +178,7 @@ export function Navbar() {
                   </Button>
 
                   <Button variant="ghost" size="icon" className="relative rounded-full w-11 h-11 hover:bg-[#0A1F44]/5 hover:shadow-[0_6px_18px_rgba(10,31,68,0.15)] transition-all duration-300" asChild>
-                    <Link to="/cart">
+                    <Link href="/cart">
                       <Package className="h-5 w-5 text-[#1A2B47]" />
                       {totalItems > 0 && (
                         <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-[#B88E2F] text-[10px] font-bold text-white flex items-center justify-center shadow-sm">
@@ -228,7 +230,7 @@ export function Navbar() {
                             <p className="text-sm font-semibold text-[#1A2B47]">My Account</p>
                           </div>
                           <DropdownMenuItem asChild className="focus:bg-[#1A2B47]/5 focus:text-[#1A2B47] cursor-pointer">
-                            <Link to="/dashboard" className="flex items-center gap-2 py-2">
+                            <Link href="/dashboard" className="flex items-center gap-2 py-2">
                               <LayoutDashboard className="h-4 w-4" />
                               Dashboard
                             </Link>
@@ -244,10 +246,10 @@ export function Navbar() {
                       ) : (
                         <>
                           <DropdownMenuItem asChild className="focus:bg-[#1A2B47]/5 focus:text-[#1A2B47] cursor-pointer">
-                            <Link to="/sign-in" className="py-2 font-medium">Sign In</Link>
+                            <Link href="/sign-in" className="py-2 font-medium">Sign In</Link>
                           </DropdownMenuItem>
                           <DropdownMenuItem asChild className="focus:bg-[#1A2B47]/5 focus:text-[#1A2B47] cursor-pointer">
-                            <Link to="/sign-up" className="py-2 font-medium">Sign Up</Link>
+                            <Link href="/sign-up" className="py-2 font-medium">Sign Up</Link>
                           </DropdownMenuItem>
                         </>
                       )}
@@ -326,12 +328,12 @@ export function Navbar() {
                 ]}
               />
 
-              <Link to="/staycations" className="text-sm font-medium text-white/90 hover:text-[#B88E2F] transition-colors relative group py-2">
+              <Link href="/staycations" className="text-sm font-medium text-white/90 hover:text-[#B88E2F] transition-colors relative group py-2">
                 Staycations
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#B88E2F] transition-all duration-300 group-hover:w-full"></span>
               </Link>
 
-              <Link to="/blogs" className="text-sm font-medium text-white/90 hover:text-[#B88E2F] transition-colors relative group py-2">
+              <Link href="/blogs" className="text-sm font-medium text-white/90 hover:text-[#B88E2F] transition-colors relative group py-2">
                 Journal
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#B88E2F] transition-all duration-300 group-hover:w-full"></span>
               </Link>
@@ -356,7 +358,7 @@ export function Navbar() {
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <Link to="/" className="px-4 py-3 bg-gray-50 rounded-lg text-sm font-medium">Home</Link>
+                  <Link href="/" className="px-4 py-3 bg-gray-50 rounded-lg text-sm font-medium">Home</Link>
                 </div>
 
                 {/* Mobile Destinations */}
@@ -366,7 +368,7 @@ export function Navbar() {
                     {destinationsCategories.map((item) => (
                       <Link
                         key={item.name}
-                        to={item.href}
+                        href={item.href}
                         className="flex items-center gap-2 p-3 bg-gray-50 rounded-lg active:scale-95 transition-transform"
                       >
                         <item.icon className="h-4 w-4 text-[#B88E2F]" />
@@ -378,15 +380,15 @@ export function Navbar() {
 
                 {/* Mobile Quick Links */}
                 <div className="border-t border-border pt-4 mt-2 px-4 space-y-2">
-                  <Link to="/sell" className="flex items-center gap-3 py-2 text-sm font-medium">
+                  <Link href="/sell" className="flex items-center gap-3 py-2 text-sm font-medium">
                     <Store className="h-4 w-4 text-[#B88E2F]" />
                     Partner With Flyout
                   </Link>
-                  <Link to="/credit" className="flex items-center gap-3 py-2 text-sm font-medium">
+                  <Link href="/credit" className="flex items-center gap-3 py-2 text-sm font-medium">
                     <Coins className="h-4 w-4 text-[#B88E2F]" />
                     Flyout Points
                   </Link>
-                  <Link to="/staycations" className="flex items-center gap-3 py-2 text-sm font-medium">
+                  <Link href="/staycations" className="flex items-center gap-3 py-2 text-sm font-medium">
                     <Palmtree className="h-4 w-4 text-[#B88E2F]" />
                     Staycations
                   </Link>
@@ -398,7 +400,7 @@ export function Navbar() {
                   {user ? (
                     <>
                       <Button variant="outline" className="w-full justify-start" asChild>
-                        <Link to="/dashboard">
+                        <Link href="/dashboard">
                           <LayoutDashboard className="h-4 w-4 mr-2" />
                           Dashboard
                         </Link>
@@ -411,10 +413,10 @@ export function Navbar() {
                   ) : (
                     <div className="grid grid-cols-2 gap-3">
                       <Button variant="outline" className="w-full" asChild>
-                        <Link to="/sign-in">Sign In</Link>
+                        <Link href="/sign-in">Sign In</Link>
                       </Button>
                       <Button className="w-full bg-[#1A2B47] text-white" asChild>
-                        <Link to="/sign-up">Sign Up</Link>
+                        <Link href="/sign-up">Sign Up</Link>
                       </Button>
                     </div>
                   )}

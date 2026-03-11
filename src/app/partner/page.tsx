@@ -1,5 +1,6 @@
+"use client";
 import { useState } from "react";
-import { supabase } from "@/lib/supabase";
+import { createSupabaseBrowserClient } from "@/lib/supabase/client";
 import { useToast } from "@/components/ui/use-toast";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
@@ -21,6 +22,7 @@ import {
 
 export default function Partner() {
     const { toast } = useToast();
+    const supabase = createSupabaseBrowserClient();
     const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
         firstName: "",

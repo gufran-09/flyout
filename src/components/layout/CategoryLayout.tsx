@@ -1,5 +1,6 @@
+"use client";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { useState } from "react";
 import { MapPin, Star, Clock, ShoppingCart, SlidersHorizontal, X, Heart } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";

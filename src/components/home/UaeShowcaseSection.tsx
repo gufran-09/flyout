@@ -1,6 +1,6 @@
 
 
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const items = [
     { title: "Dubai", image: "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/media/destinations/dubai.webp", span: "col-span-1 md:col-span-2 md:row-span-1", link: "/dubai" },
@@ -18,7 +18,7 @@ export default function UaeShowcaseSection() {
                 {items.map((item, i) => (
                     <Link
                         key={i}
-                        to={item.link}
+                        href={item.link}
                         className={`relative overflow-hidden rounded-2xl group min-h-[200px] md:min-h-0 ${item.span} block`}
                     >
                         {/* Image */}

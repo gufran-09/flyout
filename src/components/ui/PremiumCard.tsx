@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { MapPin, Star, ArrowUpRight, Crown } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 export interface PremiumCardProps {
     id: string | number;
@@ -43,7 +43,7 @@ export const PremiumCard = ({
         typeof originalPrice === "number" ? originalPrice.toLocaleString() : originalPrice;
 
     return (
-        <Link to={link} className={cn("block group relative h-full ", className)}>
+        <Link href={link} className={cn("block group relative h-full ", className)}>
             <motion.div
                 whileHover={{ y: -6 }}
                 transition={{ type: "spring", stiffness: 280, damping: 22 }}

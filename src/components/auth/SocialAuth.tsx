@@ -1,14 +1,15 @@
+"use client";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Phone } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 
 export function SocialAuth() {
     const [isLoading, setIsLoading] = useState(false);
     const { signInWithGoogle } = useAuth();
-    const navigate = useNavigate();
+    const router = useRouter();
 
     const handleGoogleSignIn = async () => {
         setIsLoading(true);
@@ -63,7 +64,7 @@ export function SocialAuth() {
                 <Button
                     type="button"
                     variant="outline"
-                    onClick={() => navigate("/auth?mode=phone")} // Keep using old auth page for phone for now
+                    onClick={() => router.push("/auth?mode=phone")} // Keep using old auth page for phone for now
                     disabled={isLoading}
                     className="w-full"
                 >

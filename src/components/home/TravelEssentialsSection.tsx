@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Car, Plane, Hotel, ShieldCheck, Briefcase, ArrowRight, CheckCircle2 } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 const essentials = [
@@ -55,7 +55,7 @@ const essentials = [
 
 const ServiceCard = ({ item }: { item: typeof essentials[0] }) => (
     <Link
-        to={item.link}
+        href={item.link}
         className="group relative flex items-center p-4 bg-white border border-neutral-200 rounded-xl hover:bg-neutral-50 hover:border-flyout-gold/30 transition-all duration-300 overflow-hidden shadow-sm hover:shadow-md"
     >
         {/* Hover Gradient Background */}

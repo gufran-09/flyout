@@ -1,11 +1,12 @@
-import { Link } from "react-router-dom";
+"use client";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Trash2, Plus, Minus, ShoppingBag, ArrowRight, Users } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
 import { useAuth } from "@/contexts/AuthContext";
-import { supabase } from "@/integrations/supabase/client";
+import { createSupabaseBrowserClient } from "@/lib/supabase/client";
 import { toast } from "sonner";
 import { useState } from "react";
 import { CurrencySymbol } from "@/components/ui/CurrencySymbol";
@@ -13,6 +14,7 @@ import { CurrencySymbol } from "@/components/ui/CurrencySymbol";
 export default function Cart() {
   const { items, removeFromCart, updateQuantity, updateGuests, totalPrice, clearCart } = useCart();
   const { user } = useAuth();
+  const supabase = createSupabaseBrowserClient();
   const [loading, setLoading] = useState(false);
 
   const handleCheckout = async () => {
@@ -65,7 +67,7 @@ export default function Cart() {
               Looks like you haven't added any tours yet. Explore our amazing experiences!
             </p>
             <Button asChild>
-              <Link to="/">
+              <Link href="/">
                 Browse Tours
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
@@ -234,7 +236,7 @@ export default function Cart() {
 
               {!user && (
                 <p className="text-xs text-muted-foreground text-center mt-4">
-                  <Link to="/auth" className="text-primary hover:underline">
+                  <Link href="/auth" className="text-primary hover:underline">
                     Sign in
                   </Link>{" "}
                   to save your bookings and access them later

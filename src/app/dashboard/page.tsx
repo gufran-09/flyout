@@ -1,5 +1,7 @@
+"use client";
 import { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   User,
@@ -22,7 +24,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAuth } from "@/contexts/AuthContext";
-import { supabase } from "@/integrations/supabase/client";
+import { createSupabaseBrowserClient } from "@/lib/supabase/client";
 import { toast } from "sonner";
 import {
   dubaiThemeParks,
@@ -73,7 +75,8 @@ interface WishlistItem {
 
 export default function Dashboard() {
   const { user, signOut, loading: authLoading } = useAuth();
-  const navigate = useNavigate();
+  const router = useRouter();
+  const supabase = createSupabaseBrowserClient();
   const [profile, setProfile] = useState<Profile | null>(null);
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [wishlist, setWishlist] = useState<WishlistItem[]>([]);
@@ -87,9 +90,9 @@ export default function Dashboard() {
 
   useEffect(() => {
     if (!authLoading && !user) {
-      navigate("/auth");
+      router.push("/auth");
     }
-  }, [user, authLoading, navigate]);
+  }, [user, authLoading, router]);
 
   useEffect(() => {
     if (user) {
@@ -202,7 +205,7 @@ export default function Dashboard() {
 
   const handleSignOut = async () => {
     await signOut();
-    navigate("/");
+    router.push("/");
     toast.success("Signed out successfully");
   };
 
@@ -296,7 +299,7 @@ export default function Dashboard() {
                     <Calendar className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
                     <p className="text-muted-foreground">No active bookings</p>
                     <Button asChild className="mt-4">
-                      <Link to="/deals">Explore Tours</Link>
+                      <Link href="/deals">Explore Tours</Link>
                     </Button>
                   </div>
                 ) : (
@@ -353,7 +356,7 @@ export default function Dashboard() {
                     <Heart className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
                     <p className="text-muted-foreground">No saved tours</p>
                     <Button asChild className="mt-4">
-                      <Link to="/deals">Explore Tours</Link>
+                      <Link href="/deals">Explore Tours</Link>
                     </Button>
                   </div>
                 ) : (
@@ -383,7 +386,7 @@ export default function Dashboard() {
                               </span>
                               <div className="flex gap-2">
                                 <Button size="sm" asChild>
-                                  <Link to={`/tour/${tour.id}`}>View</Link>
+                                  <Link href={`/tour/${tour.id}`}>View</Link>
                                 </Button>
                                 <Button
                                   size="sm"

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Star, Clock, Flame, Users, MapPin, Heart, Crown } from "lucide-react";
 import { PriceDisplay } from "@/components/ui/PriceDisplay";
@@ -50,7 +50,7 @@ export const ProductCard = ({
 
     return (
         <Link
-            to={link}
+            href={link}
             className={cn(
                 "group relative flex flex-col h-full bg-white rounded-xl overflow-hidden shadow-luxury border border-flyout-gold/20 hover:shadow-luxury-hover hover:border-flyout-gold/30 transition-all duration-500 ease-out hover:-translate-y-1",
                 className

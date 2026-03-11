@@ -1,3 +1,4 @@
+"use client";
 import { useRef, useEffect, useState } from "react";
 import { motion, useAnimation, useMotionValue, PanInfo } from "framer-motion";
 import { Star, MapPin, Quote, ExternalLink } from "lucide-react";

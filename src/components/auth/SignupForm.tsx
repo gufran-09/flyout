@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -8,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 
 const signupSchema = z.object({
     fullName: z.string().min(2, "Name must be at least 2 characters"),
@@ -30,7 +31,7 @@ export function SignupForm() {
     const [otp, setOtp] = useState("");
 
     const { signUp, verifyEmailOTP } = useAuth();
-    const navigate = useNavigate();
+    const router = useRouter();
 
     const form = useForm<SignupForm>({
         resolver: zodResolver(signupSchema),
@@ -70,7 +71,7 @@ export function SignupForm() {
             toast.error(error.message || "Invalid OTP. Please try again.");
         } else {
             toast.success("Email verified successfully! Welcome to Flyout Tours.");
-            navigate("/");
+            router.push("/");
         }
     };
 

@@ -1,27 +1,34 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { supabase } from "@/integrations/supabase/client";
-import { Loader2 } from "lucide-react";
+import { createServerClient } from '@supabase/ssr'
+import { cookies } from 'next/headers'
+import { NextResponse, type NextRequest } from 'next/server'
 
-export default function AuthCallback() {
-    const navigate = useNavigate();
+export async function GET(request: NextRequest) {
+  const { searchParams } = new URL(request.url)
+  const code = searchParams.get('code')
+  const next = searchParams.get('next') ?? '/'
 
-    useEffect(() => {
-        supabase.auth.onAuthStateChange((event, session) => {
-            if (session) {
-                navigate("/");
-            } else {
-                navigate("/auth");
-            }
-        });
-    }, [navigate]);
+  if (code) {
+    const cookieStore = await cookies()
+    const supabase = createServerClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+      {
+        cookies: {
+          getAll: () => cookieStore.getAll(),
+          setAll: (cookiesToSet) => {
+            cookiesToSet.forEach(({ name, value, options }) =>
+              cookieStore.set(name, value, options)
+            )
+          },
+        },
+      }
+    )
 
-    return (
-        <div className="min-h-screen flex items-center justify-center bg-background">
-            <div className="flex flex-col items-center gap-4">
-                <Loader2 className="h-8 w-8 animate-spin text-primary" />
-                <p className="text-muted-foreground">Authenticating...</p>
-            </div>
-        </div>
-    );
+    const { error } = await supabase.auth.exchangeCodeForSession(code)
+    if (!error) {
+      return NextResponse.redirect(new URL(next, request.url))
+    }
+  }
+
+  return NextResponse.redirect(new URL('/sign-in', request.url))
 }

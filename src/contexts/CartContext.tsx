@@ -1,3 +1,4 @@
+"use client";
 import { createContext, useContext, useState, useEffect, ReactNode, useMemo } from "react";
 import { Tour } from "@/components/home/ExperienceSection";
 

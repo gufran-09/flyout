@@ -1,7 +1,8 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Plane, Users, Sun, Music, Coffee, Star } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import {
@@ -14,7 +15,7 @@ import { getCategories, Category } from "@/lib/categories";
 
 const CollectionCard = ({ item }: { item: Category }) => (
     <Link
-        to={item.link || '#'}
+        href={item.link || '#'}
         className="group relative flex flex-col h-full bg-white rounded-[28px] overflow-hidden 
     shadow-md border border-flyout-gold/20 hover:shadow-xl hover:border-black/5
     transition-all duration-500 ease-out hover:-translate-y-1.5"

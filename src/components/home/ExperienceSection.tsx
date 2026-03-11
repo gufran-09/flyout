@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -65,7 +65,7 @@ export function ExperienceSection({
             viewport={{ once: true }}
             className="hidden md:block"
           >
-            <Link to={viewMoreLink}>
+            <Link href={viewMoreLink}>
               <Button
                 variant="ghost"
                 className="group text-flyout-gold hover:bg-flyout-gold/10 hover:text-flyout-gold text-base font-medium"
@@ -119,7 +119,7 @@ export function ExperienceSection({
 
         {/* Mobile View More Button */}
         <div className="mt-8 md:hidden text-center px-4">
-          <Link to={viewMoreLink}>
+          <Link href={viewMoreLink}>
             <Button
               variant="outline"
               className="w-full border-neutral-200 text-neutral-900 hover:bg-neutral-50"

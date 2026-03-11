@@ -1,5 +1,6 @@
+"use client";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { CheckCircle, ArrowRight, Home } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
@@ -42,21 +43,21 @@ export default function PaymentSuccess() {
           <div className="space-y-3">
             {user ? (
               <Button asChild className="w-full">
-                <Link to="/dashboard">
+                <Link href="/dashboard">
                   View My Bookings
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
             ) : (
               <Button asChild className="w-full">
-                <Link to="/auth">
+                <Link href="/auth">
                   Sign in to view bookings
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
             )}
             <Button variant="outline" asChild className="w-full">
-              <Link to="/">
+              <Link href="/">
                 <Home className="mr-2 h-4 w-4" />
                 Continue Exploring
               </Link>

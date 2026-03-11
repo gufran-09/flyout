@@ -1,8 +1,9 @@
+"use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { PriceDisplay } from "@/components/ui/PriceDisplay";
 import { ArrowUpRight, Star, Heart } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import {
     Carousel,

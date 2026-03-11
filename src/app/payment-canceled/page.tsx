@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+"use client";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { XCircle, ArrowLeft, ShoppingCart } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
@@ -30,13 +31,13 @@ export default function PaymentCanceled() {
 
           <div className="space-y-3">
             <Button asChild className="w-full">
-              <Link to="/cart">
+              <Link href="/cart">
                 <ShoppingCart className="mr-2 h-4 w-4" />
                 Return to Cart
               </Link>
             </Button>
             <Button variant="outline" asChild className="w-full">
-              <Link to="/">
+              <Link href="/">
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Continue Shopping
               </Link>

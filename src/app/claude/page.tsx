@@ -1,4 +1,6 @@
 
+"use client";
+
 import React, { useState } from 'react';
 import { callClaude, analyzeProject } from '@/lib/claude';
 import { Button } from '@/components/ui/button';

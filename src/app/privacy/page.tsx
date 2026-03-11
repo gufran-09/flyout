@@ -1,3 +1,4 @@
+"use client";
 import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { Shield, Lock, Eye, Server, Globe, Users, FileText, Mail, Phone, MapPin } from "lucide-react";

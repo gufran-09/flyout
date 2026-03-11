@@ -1,7 +1,10 @@
+"use client";
 import { createContext, useContext, useEffect, useState, ReactNode, useMemo } from "react";
 import { User, Session } from "@supabase/supabase-js";
-import { supabase } from "@/integrations/supabase/client";
+import { createSupabaseBrowserClient } from "@/lib/supabase/client";
 import { toast } from "sonner";
+
+const supabase = createSupabaseBrowserClient();
 
 interface AuthContextType {
   user: User | null;

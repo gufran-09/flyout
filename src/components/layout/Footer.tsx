@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import {
   MapPin,
   Phone,
@@ -31,7 +31,7 @@ export function Footer() {
 
           {/* Left: Brand Narrative */}
           <div className="space-y-8">
-            <Link to="/" className="block">
+            <Link href="/" className="block">
               <img src="/logo-footer.png" alt="Flyout Tours" className="h-[72px] w-auto object-contain -ml-2" />
             </Link>
 
@@ -201,7 +201,7 @@ shadow-lg shadow-flyout-gold/20 hover:shadow-flyout-gold/40 whitespace-nowrap">
               <ul className="space-y-4">
                 {section.links.map(link => (
                   <li key={link.name}>
-                    <Link to={link.href} className="text-slate-400 font-light hover:text-flyout-gold hover:pl-2 transition-all duration-300 text-sm block">
+                    <Link href={link.href} className="text-slate-400 font-light hover:text-flyout-gold hover:pl-2 transition-all duration-300 text-sm block">
                       {link.name}
                     </Link>
                   </li>
@@ -255,9 +255,9 @@ shadow-lg shadow-flyout-gold/20 hover:shadow-flyout-gold/40 whitespace-nowrap">
 
 
             <div className="flex gap-6">
-              <Link to="/privacy" className="text-[11px] text-slate-600 hover:text-flyout-gold transition-colors uppercase tracking-wider font-medium">Privacy</Link>
-              <Link to="/terms" className="text-[11px] text-slate-600 hover:text-flyout-gold transition-colors uppercase tracking-wider font-medium">Terms</Link>
-              <Link to="/cookies" className="text-[11px] text-slate-600 hover:text-flyout-gold transition-colors uppercase tracking-wider font-medium">Cookies</Link>
+              <Link href="/privacy" className="text-[11px] text-slate-600 hover:text-flyout-gold transition-colors uppercase tracking-wider font-medium">Privacy</Link>
+              <Link href="/terms" className="text-[11px] text-slate-600 hover:text-flyout-gold transition-colors uppercase tracking-wider font-medium">Terms</Link>
+              <Link href="/cookies" className="text-[11px] text-slate-600 hover:text-flyout-gold transition-colors uppercase tracking-wider font-medium">Cookies</Link>
             </div>
           </div>
         </div>

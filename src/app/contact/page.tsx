@@ -1,3 +1,4 @@
+"use client";
 import { Layout } from "@/components/layout/Layout";
 import { Mail, Phone, MapPin, Clock, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";

@@ -1,6 +1,6 @@
 import React from "react";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 
@@ -65,7 +65,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
                 {/* View More Link */}
                 {viewMoreLink && (
                     <Link
-                        to={viewMoreLink}
+                        href={viewMoreLink}
                         className="flex items-center gap-2 group text-sm font-medium text-neutral-900 hover:text-flyout-gold transition-colors uppercase tracking-wider"
                     >
                         {viewMoreLabel}

@@ -1,8 +1,9 @@
+"use client";
 import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { Calendar, User, ArrowRight, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const blogPosts = [
   {
@@ -160,7 +161,7 @@ export default function Blogs() {
                   </div>
                   
                   <Link 
-                    to={`/blogs/${post.id}`}
+                    href={`/blogs/${post.id}`}
                     className="flex items-center gap-1 text-primary text-sm font-medium hover:gap-2 transition-all"
                   >
                     Read More
