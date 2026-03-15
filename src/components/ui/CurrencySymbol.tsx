@@ -1,5 +1,5 @@
 import React from 'react';
-import uaeCurrencySymbol from '../../assets/uae-currency-symbol.png';
+import Image from 'next/image';
 
 interface CurrencySymbolProps {
     className?: string;
@@ -8,9 +8,11 @@ interface CurrencySymbolProps {
 
 export const CurrencySymbol: React.FC<CurrencySymbolProps> = ({ className = '', height = 16 }) => {
     return (
-        <img
-            src={uaeCurrencySymbol}
+        <Image
+            src="/currency-symbol.png"
             alt="AED"
+            width={height}
+            height={height}
             className={`inline-block align-middle ${className}`}
             style={{ height: `${height}px`, width: 'auto' }}
         />

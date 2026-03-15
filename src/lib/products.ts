@@ -1,6 +1,6 @@
 import { supabase } from "./supabase";
 
-export async function getProductBySlug(slug) {
+export async function getProductBySlug(slug: string) {
     const { data, error } = await supabase
         .from("products")
         .select(`

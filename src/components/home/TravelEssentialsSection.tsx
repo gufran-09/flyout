@@ -1,4 +1,6 @@
 
+"use client";
+
 import React from "react";
 import { motion } from "framer-motion";
 import { Car, Plane, Hotel, ShieldCheck, Briefcase, ArrowRight, CheckCircle2 } from "lucide-react";

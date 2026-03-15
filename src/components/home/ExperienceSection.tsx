@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
@@ -26,6 +28,8 @@ export interface Tour {
   badge?: string;
   subtitle?: string;
   link?: string;
+  productSupplierId?: string;
+  productPricingId?: string;
 }
 
 interface ExperienceSectionProps {
