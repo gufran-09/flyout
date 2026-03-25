@@ -11,7 +11,6 @@ import {
     CarouselItem,
     type CarouselApi,
 } from "@/components/ui/carousel";
-import { CurrencySymbol } from "@/components/ui/CurrencySymbol";
 
 // Data for Most Booked Experiences
 const mostBookedItems = [

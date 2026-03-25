@@ -37,51 +37,84 @@ export interface Category {
 
 // Map slugs to icons
 const ICON_MAP: Record<string, LucideIcon> = {
+    // Database category slugs
     'attraction': Star,
-    'theme-parks': Palmtree,
-    'water-parks': Ship,
+    'attractions': Star,
+    'parks': Palmtree,
     'yacht': Ship,
-    'luxury': Star,
-    'holiday-package': Ticket, // fallback for packages if needed
+    'holiday-package': Ticket,
     'holiday-packages': Ticket,
     'water-adventures': Compass,
     'hotel': Building2,
+    'hotels': Building2,
+    'car': Car,
     'car-rental': Car,
     'dinner-cruise': Utensils,
+    'sky-adventure': Plane,
     'sky-adventures': Plane,
+    'vise-services': Ticket,
     'visa': Ticket,
     'city-tours': MapPin,
+    'adventure': Zap,
     'adventures': Zap,
-    'transfers': Car,
-    'safari': Compass,
+    'safari': Sun,
+    'desert-safari': Sun,
+    'restaurant': Utensils,
     'restaurants': Utensils,
+    'games': Music,
+    'shows': Music,
+    'Cruises': Ship,
+    // Additional mappings
+    'theme-parks': Palmtree,
+    'water-parks': Ship,
+    'water-sports': Compass,
+    'transfers': Car,
+    'limousine': Car,
+    'supercars': Car,
     'concert': Music,
     'concerts': Music,
     'nightlife': Moon,
     'relax': Coffee,
     'family': Users,
     'desert': Sun,
+    'luxury': Star,
 };
 
 // Map slugs to descriptions for the carousel
 const DESCRIPTION_MAP: Record<string, string> = {
     'attraction': "Visit top-rated tourist spots and landmarks.",
+    'attractions': "Visit top-rated tourist spots and landmarks.",
+    'parks': "Experience thrill and fun at world-class parks.",
     'theme-parks': "Experience thrill and fun at world-class parks.",
     'water-parks': "Cool off with exciting water slides and pools.",
     'yacht': "Luxury yacht rentals for private cruising.",
+    'holiday-package': "All-inclusive vacation deals for every budget.",
     'holiday-packages': "All-inclusive vacation deals for every budget.",
+    'packages': "All-inclusive vacation deals for every budget.",
     'water-adventures': "Jet skis, flyboarding, and marine activities.",
     'hotel': "Stay at the finest hotels and resorts.",
+    'hotels': "Stay at the finest hotels and resorts.",
+    'car': "Premium and economy cars for your journey.",
     'car-rental': "Premium and economy cars for your journey.",
     'dinner-cruise': "Dine under the stars on a traditional dhow.",
+    'sky-adventure': "Helicopter tours, skydiving, and balloon rides.",
     'sky-adventures': "Helicopter tours, skydiving, and balloon rides.",
+    'vise-services': "Hassle-free visa services for your travel.",
     'visa': "Hassle-free visa services for your travel.",
     'city-tours': "Explore the city's heritage and modern marvels.",
+    'adventure': "Adrenaline-pumping activities for thrill-seekers.",
     'adventures': "Adrenaline-pumping activities for thrill-seekers.",
     'transfers': "Seamless airport and city transfers.",
     'safari': "Desert safaris with dune bashing and BBQ.",
+    'desert-safari': "Desert safaris with dune bashing and BBQ.",
+    'restaurant': "Culinary delights from top-rated restaurants.",
     'restaurants': "Culinary delights from top-rated restaurants.",
+    'games': "Live music, performances, and cultural shows.",
+    'shows': "Live music, performances, and cultural shows.",
+    'Cruises': "Cruise experiences and maritime adventures.",
     'concert': "Live music, performances, and cultural shows.",
+    'limousine': "Luxury limousine services and transfers.",
+    'supercars': "Drive exotic supercars and luxury vehicles.",
 };
 
 // Map slugs to colors for the carousel
@@ -105,7 +138,7 @@ const COLOR_MAP: Record<string, string> = {
     'concert': "from-violet-600 to-purple-500",
 };
 
-// Map DB slugs to Frontend slugs (matching App.tsx routes)
+// Map DB slugs to Frontend slugs (matching page routes)
 const SLUG_MAPPING: Record<string, string> = {
     'water-adventure': 'water-adventures',
     'attraction': 'attractions',
@@ -114,7 +147,10 @@ const SLUG_MAPPING: Record<string, string> = {
     'hotel': 'hotels',
     'adventure': 'adventures',
     'holiday-package': 'packages',
-    'holiday-packages': 'packages',
+    'vise-services': 'visa',
+    'car': 'car-rental',
+    'parks': 'theme-parks', // Default parks to theme-parks
+    'games': 'shows',
 };
 
 import { toast } from "sonner";

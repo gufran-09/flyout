@@ -1,12 +1,16 @@
 import { CategoryLayout } from "@/components/layout/CategoryLayout";
-import { dubaiVisaServices } from "@/data/tours";
+import { getProductsByCategory } from "@backend/api/products";
+import { productsToTours } from "@/lib/product-adapters";
 
-export default function VisaPage() {
+export default async function VisaPage() {
+    const products = await getProductsByCategory("visa");
+    const tours = productsToTours(products);
+
     return (
         <CategoryLayout
             title="Dubai Visa Services"
             subtitle="Hassle-free visa services for your UAE trip"
-            tours={dubaiVisaServices}
+            tours={tours}
         />
     );
 }

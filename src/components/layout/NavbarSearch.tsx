@@ -1,32 +1,82 @@
-import { Search } from "lucide-react";
-import { Button } from "@/components/ui/button";
+'use client'
+import { useRouter } from 'next/navigation'
+import { useState } from 'react'
+import { Search } from 'lucide-react'
 
-export function NavbarSearch() {
-    return (
-        <div className="relative w-full max-w-2xl mx-auto group">
-            <div className="relative flex items-center w-full h-12 rounded-full bg-[#0A1F44] border-2 border-[#B88E2F] shadow-[0_0_15px_rgba(184,142,47,0.15)] overflow-hidden transition-all duration-300 hover:shadow-[0_0_20px_rgba(184,142,47,0.3)]">
+export default function NavbarSearch() {
+  const [query, setQuery] = useState('')
+  const router = useRouter()
 
-                {/* Search Icon */}
-                <div className="pl-5 pr-3">
-                    <Search className="w-5 h-5 text-[#B88E2F] group-focus-within:text-white transition-colors" />
-                </div>
+  const searchBoxStyle: React.CSSProperties = {
+    alignItems: 'center',
+    animationDuration: '0.3s',
+    backgroundColor: 'rgb(10, 31, 68)',
+    borderColor: 'rgb(184, 142, 47)',
+    borderStyle: 'solid',
+    borderWidth: '2px',
+    borderRadius: '9999px',
+    boxShadow: 'rgba(184, 142, 47, 0.15) 0px 0px 15px 0px',
+    boxSizing: 'border-box',
+    color: 'rgb(31, 36, 46)',
+    display: 'flex',
+    fontFamily: 'Manrope, Inter, system-ui, sans-serif',
+    fontFeatureSettings: '"calt", "rlig"',
+    fontVariationSettings: 'normal',
+    height: '48px',
+    letterSpacing: '0.4px',
+    lineHeight: '24px',
+    overflowX: 'hidden',
+    overflowY: 'hidden',
+    position: 'relative',
+    tabSize: 4,
+    textSizeAdjust: '100%',
+    transitionDuration: '0.3s',
+    transitionProperty: 'all',
+    transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+    unicodeBidi: 'isolate',
+    width: '100%',
+  maxWidth: '600px',
+    WebkitFontSmoothing: 'antialiased',
+    WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
+    WebkitTextSizeAdjust: '100%',
+  }
 
-                {/* Input Field */}
-                <input
-                    type="text"
-                    placeholder="Search tours, destinations, activities"
-                    className="flex-1 w-full h-full bg-transparent text-white  placeholder:text-gray-400  focus:outline-none text-sm font-medium tracking-wide pl-1 pr-4"
-                />
+  function handleSearch(e: React.FormEvent) {
+    e.preventDefault()
+    if (!query.trim()) return
+    router.push(`/search?q=${encodeURIComponent(query)}`)
+  }
 
-                {/* Search Button */}
-                <div className="p-1.5">
-                    <Button
-                        className="rounded-full bg-gradient-to-r from-[#1A2B47] to-[#ad7103] border border-[#B88E2F] text-white hover:from-[#ffa500] hover:to-[#ffa500] hover:border-[#ffa500]px-8 h-9 font-bold tracking-wide transition-all duration-300 shadow-md transform active:scale-95"
-                    >
-                        Search
-                    </Button>
-                </div>
-            </div>
-        </div>
-    );
+  return (
+    <form
+      onSubmit={handleSearch}
+      className="px-3"
+      style={searchBoxStyle}
+    >
+      <Search className="ml-2 h-5 w-5 shrink-0 text-[#B88E2F]" />
+      <input
+        value={query}
+        onChange={e => setQuery(e.target.value)}
+          placeholder="Search tours, destinations, activities"
+        className="flex-1 bg-transparent pl-2 text-sm font-semibold text-[#D8E3F2] placeholder:text-[#9FB2CC] focus:outline-none"
+        aria-label="Search tours, destinations, activities"
+      />
+      <button
+  type="submit"
+  className="
+    relative h-9 px-5 rounded-full
+    text-sm font-semibold text-white
+    overflow-hidden
+    border border-[#B88E2F]
+    bg-gradient-to-r from-[#0A1F44] via-[#16376D] to-[#0A1F44]
+    transition-all duration-300
+    hover:from-[#B88E2F] hover:via-[#D4AF37] hover:to-[#B88E2F]
+    hover:text-[#0A1F44]
+    whitespace-nowrap
+  "
+>
+  Search
+</button>
+    </form>
+  )
 }

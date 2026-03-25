@@ -1,12 +1,16 @@
 import { CategoryLayout } from "@/components/layout/CategoryLayout";
-import { dubaiSupercars } from "@/data/tours";
+import { getProductsByCategory } from "@backend/api/products";
+import { productsToTours } from "@/lib/product-adapters";
 
-export default function SupercarsPage() {
+export default async function SupercarsPage() {
+    const products = await getProductsByCategory("supercars");
+    const tours = productsToTours(products);
+
     return (
         <CategoryLayout
             title="Dubai Supercars"
             subtitle="Drive your dream supercar through Dubai's stunning roads"
-            tours={dubaiSupercars}
+            tours={tours}
         />
     );
 }

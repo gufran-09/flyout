@@ -37,11 +37,11 @@
   --color-ocean-foreground: hsl(var(--ocean-foreground));
   --color-desert: hsl(var(--desert));
   --color-desert-foreground: hsl(var(--desert-foreground));
-  --color-gold: hsl(var(--gold));
+  --color-gold: #C5A059;
   --color-gold-foreground: hsl(var(--gold-foreground));
   --color-sky: hsl(var(--sky));
   --color-sky-foreground: hsl(var(--sky-foreground));
-  --color-flyout-gold: hsl(var(--gold));
+  --color-flyout-gold: #C5A059;
 
   --shadow-elegant: 0 18px 40px -18px rgb(15 23 42 / 0.28);
   --shadow-luxury: var(--shadow-card);

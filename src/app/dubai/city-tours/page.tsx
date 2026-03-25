@@ -1,12 +1,16 @@
 import { CategoryLayout } from "@/components/layout/CategoryLayout";
-import { dubaiCityTours } from "@/data/tours";
+import { getProductsByCategory } from "@backend/api/products";
+import { productsToTours } from "@/lib/product-adapters";
 
-export default function CityToursPage() {
+export default async function CityToursPage() {
+    const products = await getProductsByCategory("city-tours");
+    const tours = productsToTours(products);
+
     return (
         <CategoryLayout
             title="Dubai City Tours"
             subtitle="Explore the city of gold with guided tours"
-            tours={dubaiCityTours}
+            tours={tours}
         />
     );
 }

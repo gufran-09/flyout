@@ -66,7 +66,11 @@ export type Product = {
   is_refundable: boolean
   mobile_ticket: boolean
   confirmation_hours: number
-  original_price: number | null
+  product_type?: string
+  is_active?: boolean
+  is_featured?: boolean
+  created_at?: string
+  metadata?: any
   category: Category
   destination: Destination
   product_suppliers: ProductSupplier[]

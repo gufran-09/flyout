@@ -32,7 +32,7 @@ export function Footer() {
           {/* Left: Brand Narrative */}
           <div className="space-y-8">
             <Link href="/" className="block">
-              <img src="/logo-footer.png" alt="Flyout Tours" className="h-[72px] w-auto object-contain -ml-2" />
+              <img src="/logo.png" alt="Flyout Tours" className="h-[72px] w-auto object-contain -ml-2" />
             </Link>
 
             <div className="space-y-4">

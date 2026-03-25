@@ -1,12 +1,16 @@
 import { CategoryLayout } from "@/components/layout/CategoryLayout";
-import { rasAlKhaimahExperiences } from "@/data/tours";
+import { getProductsByCategory } from "@backend/api/products";
+import { productsToTours } from "@/lib/product-adapters";
 
-export default function RasAlKhaimahPage() {
+export default async function RasAlKhaimahPage() {
+    const products = await getProductsByCategory("ras-al-khaimah");
+    const tours = productsToTours(products);
+
     return (
         <CategoryLayout
             title="Ras Al Khaimah Experiences"
             subtitle="Adventure and nature in the northernmost emirate"
-            tours={rasAlKhaimahExperiences}
+            tours={tours}
         />
     );
 }

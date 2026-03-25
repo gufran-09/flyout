@@ -1,12 +1,16 @@
 import { CategoryLayout } from "@/components/layout/CategoryLayout";
-import { ajmanExperiences } from "@/data/tours";
+import { getProductsByCategory } from "@backend/api/products";
+import { productsToTours } from "@/lib/product-adapters";
 
-export default function AjmanPage() {
+export default async function AjmanPage() {
+    const products = await getProductsByCategory("ajman");
+    const tours = productsToTours(products);
+
     return (
         <CategoryLayout
             title="Ajman Experiences"
             subtitle="Discover the hidden gem of the UAE"
-            tours={ajmanExperiences}
+            tours={tours}
         />
     );
 }

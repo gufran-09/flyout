@@ -1,12 +1,16 @@
 import { CategoryLayout } from "@/components/layout/CategoryLayout";
-import { dubaiYacht } from "@/data/tours";
+import { getProductsByCategory } from "@backend/api/products";
+import { productsToTours } from "@/lib/product-adapters";
 
-export default function YachtPage() {
+export default async function YachtPage() {
+    const products = await getProductsByCategory("yacht");
+    const tours = productsToTours(products);
+
     return (
         <CategoryLayout
             title="Dubai Yacht Experiences"
             subtitle="Sail the Arabian Gulf on a luxury yacht"
-            tours={dubaiYacht}
+            tours={tours}
         />
     );
 }

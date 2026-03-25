@@ -1,12 +1,16 @@
 import { CategoryLayout } from "@/components/layout/CategoryLayout";
-import { dubaiTransfers } from "@/data/tours";
+import { getProductsByCategory } from "@backend/api/products";
+import { productsToTours } from "@/lib/product-adapters";
 
-export default function TransfersPage() {
+export default async function TransfersPage() {
+    const products = await getProductsByCategory("transfers");
+    const tours = productsToTours(products);
+
     return (
         <CategoryLayout
             title="Dubai Transfers"
             subtitle="Comfortable airport and city transfers in Dubai"
-            tours={dubaiTransfers}
+            tours={tours}
         />
     );
 }

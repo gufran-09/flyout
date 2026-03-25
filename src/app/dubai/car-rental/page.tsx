@@ -1,12 +1,16 @@
 import { CategoryLayout } from "@/components/layout/CategoryLayout";
-import { dubaiCarRental } from "@/data/tours";
+import { getProductsByCategory } from "@backend/api/products";
+import { productsToTours } from "@/lib/product-adapters";
 
-export default function CarRentalPage() {
+export default async function CarRentalPage() {
+    const products = await getProductsByCategory("car-rental");
+    const tours = productsToTours(products);
+
     return (
         <CategoryLayout
             title="Dubai Car Rental"
             subtitle="Rent premium cars for exploring Dubai at your own pace"
-            tours={dubaiCarRental}
+            tours={tours}
         />
     );
 }

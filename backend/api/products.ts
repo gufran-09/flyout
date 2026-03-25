@@ -1,9 +1,33 @@
-import { createSupabaseBrowserClient } from '@backend/lib/supabase/client'
+import { createSupabaseServerClient } from '@backend/lib/supabase/server'
 import { Product } from '@backend/types'
 
-async function getServerSupabase() {
-  const { createSupabaseServerClient } = await import('@backend/lib/supabase/server')
-  return createSupabaseServerClient()
+// Map page route slugs to database category slugs
+const CATEGORY_SLUG_MAP: Record<string, string> = {
+  'theme-parks': 'parks',
+  'water-parks': 'parks',
+  'water-sports': 'water-adventures',
+  'attractions': 'attraction',
+  'desert-safari': 'safari',
+  'sky-adventures': 'sky-adventure',
+  'dinner-cruise': 'dinner-cruise',
+  'yacht': 'yacht',
+  'hotels': 'hotel',
+  'restaurants': 'restaurant',
+  'holiday-packages': 'holiday-package',
+  'visa': 'vise-services',
+  'car-rental': 'car',
+  'city-tours': 'city-tours',
+  'limousine': 'car',
+  'transfers': 'car',
+  'supercars': 'car',
+  'adventures': 'adventure',
+  'water-adventures': 'water-adventures',
+  'shows': 'games',
+  'packages': 'holiday-package',
+  // Emirate slugs
+  'abu-dhabi': 'attraction', // Default to attraction for now
+  'ajman': 'attraction',
+  'ras-al-khaimah': 'attraction',
 }
 
 const PRODUCT_SELECT = `
@@ -21,23 +45,25 @@ const PRODUCT_SELECT = `
   what_to_bring,
   facilities,
   cancellation_policy,
-  is_refundable,
-  mobile_ticket,
   confirmation_hours,
-  original_price,
-  category:categories(id, name, slug, image_url),
-  destination:destinations(id, name, slug, hero_image, description),
+  mobile_ticket,
+  is_refundable,
+  product_type,
+  metadata,
+  is_active,
+  is_featured,
+  created_at,
+  category:categories(id, name, slug),
+  destination:destinations(id, name, slug),
   product_suppliers(
     id,
     price,
     display_title,
     variant_description,
     thumbnail_url,
-    specific_meeting_point,
     location,
-    commission_percent,
     is_active,
-    supplier:suppliers(id, name, code),
+    supplier:suppliers(id, name),
     product_pricing(
       id,
       price,
@@ -49,86 +75,59 @@ const PRODUCT_SELECT = `
   )
 `
 
-export async function getFeaturedProducts(): Promise<Product[]> {
-  const supabase = await getServerSupabase()
-  const { data, error } = await supabase
-    .from('products')
-    .select(PRODUCT_SELECT)
-    .order('review_count', { ascending: false })
-    .limit(8)
+// One function handles ALL categories
+export async function getProductsByCategory(
+  categorySlug: string
+): Promise<Product[]> {
+  const supabase = await createSupabaseServerClient()
 
-  if (error) {
-    console.error('getFeaturedProducts:', error.message)
+  // Map the route slug to the database category slug
+  const dbCategorySlug = CATEGORY_SLUG_MAP[categorySlug] || categorySlug
+
+  // First, get the category ID
+  const { data: category } = await supabase
+    .from('categories')
+    .select('id')
+    .eq('slug', dbCategorySlug)
+    .single()
+
+  if (!category) {
+    console.error(`Category not found for slug: ${dbCategorySlug}`)
     return []
   }
 
-  return (data as unknown as Product[]) ?? []
-}
-
-export async function getMostBookedProducts(): Promise<Product[]> {
-  const supabase = await getServerSupabase()
-  const { data, error } = await supabase
+  // Query products by category_id
+  let query = supabase
     .from('products')
     .select(PRODUCT_SELECT)
-    .order('review_count', { ascending: false })
-    .limit(8)
+    .eq('category_id', category.id)
 
-  if (error) {
-    console.error('getMostBookedProducts:', error.message)
-    return []
+  // Special filtering for water parks vs theme parks
+  if (categorySlug === 'water-parks') {
+    // Water parks: filter for waterpark names
+    query = query.or(
+      'title.ilike.%water%,title.ilike.%aqua%,title.ilike.%splash%'
+    )
+  } else if (categorySlug === 'theme-parks') {
+    // Theme parks: exclude water parks
+    query = query
+      .not('title', 'ilike', '%water%')
+      .not('title', 'ilike', '%aqua%')
   }
 
-  return (data as unknown as Product[]) ?? []
-}
-
-export async function getLuxuryProducts(): Promise<Product[]> {
-  const supabase = await getServerSupabase()
-  const { data, error } = await supabase
-    .from('products')
-    .select(PRODUCT_SELECT)
-    .order('rating', { ascending: false })
-    .limit(6)
-
-  if (error) {
-    console.error('getLuxuryProducts:', error.message)
-    return []
-  }
-
-  return (data as unknown as Product[]) ?? []
-}
-
-export async function getProductsByCategory(categorySlug: string): Promise<Product[]> {
-  const supabase = await getServerSupabase()
-  const { data, error } = await supabase
-    .from('products')
-    .select(`${PRODUCT_SELECT}, category:categories!inner(id, name, slug, image_url)`)
-    .eq('categories.slug', categorySlug)
+  const { data, error } = await query.order('created_at', { ascending: false })
 
   if (error) {
     console.error('getProductsByCategory:', error.message)
     return []
   }
-
-  return (data as unknown as Product[]) ?? []
+  return (data ?? []) as any
 }
 
-export async function getProductsByDestination(destinationSlug: string): Promise<Product[]> {
-  const supabase = await getServerSupabase()
-  const { data, error } = await supabase
-    .from('products')
-    .select(`${PRODUCT_SELECT}, destination:destinations!inner(id, name, slug)`)
-    .eq('destinations.slug', destinationSlug)
-
-  if (error) {
-    console.error('getProductsByDestination:', error.message)
-    return []
-  }
-
-  return (data as unknown as Product[]) ?? []
-}
-
+// Same select for product detail page
 export async function getProductBySlug(slug: string): Promise<Product | null> {
-  const supabase = await getServerSupabase()
+  const supabase = await createSupabaseServerClient()
+
   const { data, error } = await supabase
     .from('products')
     .select(`
@@ -142,22 +141,20 @@ export async function getProductBySlug(slug: string): Promise<Product | null> {
     console.error('getProductBySlug:', error.message)
     return null
   }
-
-  return data as unknown as Product
+  return data as any
 }
 
-export async function searchProducts(query: string): Promise<Product[]> {
-  const supabase = createSupabaseBrowserClient()
+// Same select for homepage sections
+export async function getFeaturedProducts(): Promise<Product[]> {
+  const supabase = await createSupabaseServerClient()
+
   const { data, error } = await supabase
     .from('products')
     .select(PRODUCT_SELECT)
-    .or(`title.ilike.%${query}%,overview.ilike.%${query}%`)
-    .limit(20)
+    .eq('is_featured', true)
+    .eq('is_active', true)
+    .limit(8)
 
-  if (error) {
-    console.error('searchProducts:', error.message)
-    return []
-  }
-
-  return (data as unknown as Product[]) ?? []
+  if (error) return []
+  return (data ?? []) as any
 }
