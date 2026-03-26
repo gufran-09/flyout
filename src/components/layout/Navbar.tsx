@@ -122,25 +122,25 @@ export function Navbar() {
         {/* === TOP BAR === */}
         <div className="bg-white/80 backdrop-blur-xl shadow-[0_8px_30px_rgba(10,31,68,0.10)]">
 
-          <div className="section-container py-4">
-
-            <div className="flex items-center justify-between gap-4">
+          <div className="max-w-[1200px] mx-auto px-4 py-4">
+              <div className="flex items-center">
 
               {/* Left: Logo & Tagline */}
-              <Link href="/" onClick={handleLogoClick} className="flex-shrink-0 flex items-center -ml-2 group">
+              <Link href="/" onClick={handleLogoClick} className="flex-shrink-0 flex items-center group">
                 <div className="flex flex-col">
                   <img src="/logo.png" alt="Flyout Tours" className="h-[4.5rem] w-auto object-contain" />
                 </div>
               </Link>
 
               {/* Center: Search Bar */}
-              <div className="hidden lg:flex flex-1 justify-center px-8">
-                <NavbarSearch />
-              </div>
+              <div className="hidden lg:flex flex-1 justify-center">
+  <div className="w-full max-w-[640px] mx-6">
+    <NavbarSearch />
+  </div>
+</div>
 
               {/* Right: Actions */}
-              <div className="hidden lg:flex items-center gap-6">
-
+                <div className="hidden lg:flex items-center gap-6 ml-8">
                 {/* Vertical Stack: Partner & Points */}
                 <div className="flex flex-col items-start gap-1">
                   {/* Partner Link */}
@@ -274,7 +274,7 @@ export function Navbar() {
         {/* === BOTTOM BAR === */}
         <div className="relative bg-[#0A1F44] shadow-[0_12px_45px_rgba(0,0,0,0.35)] hidden lg:block">
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-5"></div>
-          <div className="section-container">
+            <div className="max-w-[1200px] mx-auto px-4">
             <div className="flex items-center justify-center gap-8 py-3 text-white relative">
 
               <MegaMenu

@@ -50,23 +50,23 @@ export default function NavbarSearch() {
   return (
     <form
       onSubmit={handleSearch}
-      className="px-3"
+      className=""
       style={searchBoxStyle}
     >
-      <Search className="ml-2 h-5 w-5 shrink-0 text-[#B88E2F]" />
+      <Search className="ml-3 mr-1 h-5 w-5 shrink-0 text-[#B88E2F]" />
       <input
-        value={query}
-        onChange={e => setQuery(e.target.value)}
-          placeholder="Search tours, destinations, activities"
-        className="flex-1 bg-transparent pl-2 text-sm font-semibold text-[#D8E3F2] placeholder:text-[#9FB2CC] focus:outline-none"
-        aria-label="Search tours, destinations, activities"
-      />
+  value={query}
+  onChange={e => setQuery(e.target.value)}
+  placeholder="Search tours, destinations, activities"
+  className="flex-1 bg-transparent pl-3 pr-4 text-sm font-semibold text-[#D8E3F2] placeholder:text-[#9FB2CC] focus:outline-none"
+  aria-label="Search tours, destinations, activities"
+/>
       <button
   type="submit"
   className="
-    relative h-9 px-5 rounded-full
+    ml-2 mr-1
+    h-9 px-5 rounded-full
     text-sm font-semibold text-white
-    overflow-hidden
     border border-[#B88E2F]
     bg-gradient-to-r from-[#0A1F44] via-[#16376D] to-[#0A1F44]
     transition-all duration-300

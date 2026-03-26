@@ -19,7 +19,6 @@ const PRODUCT_SELECT = `
   is_refundable,
   mobile_ticket,
   confirmation_hours,
-  original_price,
   category:categories(id, name, slug, image_url),
   destination:destinations(id, name, slug, hero_image, description),
   product_suppliers(

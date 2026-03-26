@@ -6,10 +6,14 @@ const CATEGORY_SLUG_MAP: Record<string, string> = {
   'theme-parks': 'parks',
   'water-parks': 'parks',
   'water-sports': 'water-adventures',
+  'water-adventure': 'water-adventures',
   'attractions': 'attraction',
   'desert-safari': 'safari',
+  'safari': 'safari',
   'sky-adventures': 'sky-adventure',
   'dinner-cruise': 'dinner-cruise',
+  'cruise': 'Cruises',
+  'cruises': 'Cruises',
   'yacht': 'yacht',
   'hotels': 'hotel',
   'restaurants': 'restaurant',
@@ -23,6 +27,7 @@ const CATEGORY_SLUG_MAP: Record<string, string> = {
   'adventures': 'adventure',
   'water-adventures': 'water-adventures',
   'shows': 'games',
+  'games': 'games',
   'packages': 'holiday-package',
   // Emirate slugs
   'abu-dhabi': 'attraction', // Default to attraction for now
@@ -84,15 +89,34 @@ export async function getProductsByCategory(
   // Map the route slug to the database category slug
   const dbCategorySlug = CATEGORY_SLUG_MAP[categorySlug] || categorySlug
 
-  // First, get the category ID
-  const { data: category } = await supabase
-    .from('categories')
-    .select('id')
-    .eq('slug', dbCategorySlug)
-    .single()
+  // Try a direct lookup first, then fallback aliases for known variants.
+  const categorySlugCandidates = Array.from(
+    new Set([
+      dbCategorySlug,
+      categorySlug,
+      categorySlug.replace(/-$/, ''),
+      categorySlug.endsWith('s') ? categorySlug.slice(0, -1) : `${categorySlug}s`,
+    ])
+  )
+
+  let category: { id: string } | null = null
+  for (const candidate of categorySlugCandidates) {
+    const { data } = await supabase
+      .from('categories')
+      .select('id')
+      .eq('slug', candidate)
+      .maybeSingle()
+
+    if (data) {
+      category = data
+      break
+    }
+  }
 
   if (!category) {
-    console.error(`Category not found for slug: ${dbCategorySlug}`)
+    console.error(
+      `Category not found for slug: ${categorySlug}. Tried: ${categorySlugCandidates.join(', ')}`
+    )
     return []
   }
 

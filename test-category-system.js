@@ -51,20 +51,50 @@ async function testCategorySystem() {
   
   console.table(categoryCounts);
   
-  // Test 3: Test specific category page queries
-  console.log('\n🔍 TEST 3: Simulating Category Page Queries');
+  // Test 3: Simulate ALL category page queries
+  // Mirrors backend/api/products.ts CATEGORY_SLUG_MAP exactly
+  console.log('\n🔍 TEST 3: Simulating ALL Category Page Queries');
   console.log('─'.repeat(70));
   
   const CATEGORY_SLUG_MAP = {
     'theme-parks': 'parks',
+    'water-parks': 'parks',
     'water-sports': 'water-adventures',
+    'water-adventure': 'water-adventures',
     'attractions': 'attraction',
     'desert-safari': 'safari',
+    'safari': 'safari',
+    'sky-adventures': 'sky-adventure',
+    'dinner-cruise': 'dinner-cruise',
     'yacht': 'yacht',
-    'hotels': 'hotel'
+    'hotels': 'hotel',
+    'restaurants': 'restaurant',
+    'holiday-packages': 'holiday-package',
+    'visa': 'vise-services',
+    'car-rental': 'car',
+    'city-tours': 'city-tours',
+    'limousine': 'car',
+    'transfers': 'car',
+    'supercars': 'car',
+    'adventures': 'adventure',
+    'water-adventures': 'water-adventures',
+    'shows': 'games',
+    'games': 'games',
+    'packages': 'holiday-package',
   };
+
+  // Every frontend route slug under /dubai/
+  const allPageSlugs = [
+    'attractions', 'adventures', 'car-rental', 'city-tours',
+    'desert-safari', 'dinner-cruise', 'games', 'holiday-packages',
+    'hotels', 'limousine', 'packages', 'restaurants', 'shows',
+    'sky-adventures', 'supercars', 'theme-parks', 'transfers',
+    'visa', 'water-adventures', 'water-parks', 'yacht',
+  ];
   
-  for (const [pageSlug, dbSlug] of Object.entries(CATEGORY_SLUG_MAP)) {
+  for (const pageSlug of allPageSlugs) {
+    const dbSlug = CATEGORY_SLUG_MAP[pageSlug] || pageSlug;
+
     // Get category
     const { data: category } = await supabase
       .from('categories')
@@ -73,7 +103,7 @@ async function testCategorySystem() {
       .single();
     
     if (!category) {
-      console.log(`❌ /${pageSlug} → Category "${dbSlug}" not found`);
+      console.log(`❌ /dubai/${pageSlug} → Category "${dbSlug}" not found`);
       continue;
     }
     
