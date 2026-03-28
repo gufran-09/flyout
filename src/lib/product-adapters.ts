@@ -34,7 +34,8 @@ export function productToTour(product: BackendProduct): Tour {
     reviewCount: product.review_count,
     duration: duration,
     image: product.thumbnail_url || product.product_images?.[0]?.image_url || '',
-    badge: product.badge || undefined
+    badge: product.badge || undefined,
+    link: `/tour/${product.slug}`
   }
 }
 

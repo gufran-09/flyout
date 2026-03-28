@@ -168,6 +168,39 @@ export async function getProductBySlug(slug: string): Promise<Product | null> {
   return data as any
 }
 
+// Get products by destination
+export async function getProductsByDestination(
+  destinationSlug: string
+): Promise<Product[]> {
+  const supabase = await createSupabaseServerClient()
+
+  // Get destination by slug
+  const { data: destination } = await supabase
+    .from('destinations')
+    .select('id')
+    .eq('slug', destinationSlug)
+    .maybeSingle()
+
+  if (!destination) {
+    console.error(`Destination not found for slug: ${destinationSlug}`)
+    return []
+  }
+
+  // Query products by destination_id
+  const { data, error } = await supabase
+    .from('products')
+    .select(PRODUCT_SELECT)
+    .eq('destination_id', destination.id)
+    .eq('is_active', true)
+    .order('created_at', { ascending: false })
+
+  if (error) {
+    console.error('getProductsByDestination:', error.message)
+    return []
+  }
+  return (data ?? []) as any
+}
+
 // Same select for homepage sections
 export async function getFeaturedProducts(): Promise<Product[]> {
   const supabase = await createSupabaseServerClient()

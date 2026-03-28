@@ -1,9 +1,9 @@
 import { CategoryLayout } from "@/components/layout/CategoryLayout";
-import { getProductsByCategory } from "@backend/api/products";
+import { getProductsByDestination } from "@backend/api/products";
 import { productsToTours } from "@/lib/product-adapters";
 
 export default async function AbuDhabiPage() {
-    const products = await getProductsByCategory("abu-dhabi");
+    const products = await getProductsByDestination("abu-dhabi");
     const tours = productsToTours(products);
 
     return (

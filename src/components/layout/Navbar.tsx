@@ -10,7 +10,6 @@ import {
   X,
   Plane,
   MapPin,
-  Building2,
   Palmtree,
   Ship,
   Compass,
@@ -23,8 +22,6 @@ import {
   Zap,
   Utensils,
   Car,
-  FileText,
-  Ticket,
   Package,
   Star
 } from "lucide-react";
@@ -43,6 +40,8 @@ import { useCart } from "@/contexts/CartContext";
 import { toast } from "sonner";
 import { SearchAutocomplete } from "@/components/search/SearchAutocomplete";
 import NavbarSearch from "@/components/layout/NavbarSearch";
+import { getCategories, Category } from "@/lib/categories";
+import { createSupabaseBrowserClient } from "@/lib/supabase/client";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -50,19 +49,27 @@ const manrope = Manrope({
 });
 
 
-const destinationsCategories = [
-  { name: "Dubai", href: "/dubai", icon: Building2 },
-  { name: "Abu Dhabi", href: "/abu-dhabi", icon: MapPin },
-  { name: "Sharjah", href: "/sharjah", icon: MapPin },
-  { name: "Ras Al Khaimah", href: "/ras-al-khaimah", icon: MapPin },
-];
+type DestinationMenuItem = {
+  id: string;
+  title: string;
+  href: string;
+  image?: string;
+  badge?: string;
+};
 
-import { getCategories, Category } from "@/lib/categories";
+const destinationFallbackItems: DestinationMenuItem[] = [
+  { title: "Dubai", href: "/dubai", badge: "Popular", image: "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/1.jpg", id: "fallback-dubai" },
+  { title: "Abu Dhabi", href: "/abu-dhabi", image: "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/2.jpg", id: "fallback-abu-dhabi" },
+  { title: "Sharjah", href: "/sharjah", image: "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/3.jpg", id: "fallback-sharjah" },
+  { title: "Ras Al Khaimah", href: "/ras-al-khaimah", image: "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/4.jpg", id: "fallback-ras-al-khaimah" },
+  { title: "Ajman", href: "/ajman", image: "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/5.avif", id: "fallback-ajman" },
+];
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [categories, setCategories] = useState<Category[]>([]);
+  const [destinationItems, setDestinationItems] = useState<DestinationMenuItem[]>(destinationFallbackItems);
   const pathname = usePathname();
   const router = useRouter();
   const { user, signOut } = useAuth();
@@ -74,6 +81,37 @@ export function Navbar() {
       setCategories(fetchedCategories);
     };
     fetchCategories();
+  }, []);
+
+  useEffect(() => {
+    const fetchDestinations = async () => {
+      const supabase = createSupabaseBrowserClient();
+      const { data, error } = await supabase
+        .from("destinations")
+        .select("id, name, slug, hero_image")
+        .order("name");
+
+      if (error) {
+        console.error("Error fetching destinations:", error.message);
+        return;
+      }
+
+      const mapped = (data || [])
+        .filter((dest) => Boolean(dest.slug))
+        .map((dest) => ({
+          id: dest.id,
+          title: dest.name,
+          href: `/${dest.slug}`,
+          image: dest.hero_image || undefined,
+          badge: dest.slug === "dubai" ? "Popular" : undefined,
+        }));
+
+      if (mapped.length > 0) {
+        setDestinationItems(mapped);
+      }
+    };
+
+    fetchDestinations();
   }, []);
 
   useEffect(() => {
@@ -293,13 +331,7 @@ export function Navbar() {
                 triggerLabel="Select Emirate"
                 type="list"
                 showDivider={false}
-                items={[
-                  { title: "Dubai", href: "/dubai", badge: "Popular", image: "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/1.jpg" },
-                  { title: "Abu Dhabi", href: "/abu-dhabi", image: "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/2.jpg" },
-                  { title: "Sharjah", href: "/sharjah", image: "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/3.jpg" },
-                  { title: "Ras Al Khaimah", href: "/ras-al-khaimah", image: "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/4.jpg" },
-                  { title: "Ajman", href: "/ajman", image: "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/5.avif" },
-                ]}
+                items={destinationItems}
               />
 
               <MegaMenu
@@ -384,14 +416,14 @@ export function Navbar() {
                 <div className="border-t border-border pt-4 mt-2">
                   <p className="px-4 py-2 text-xs font-bold text-muted-foreground uppercase tracking-widest">Destinations</p>
                   <div className="grid grid-cols-2 gap-2 px-2">
-                    {destinationsCategories.map((item) => (
+                    {destinationItems.map((item) => (
                       <Link
-                        key={item.name}
+                        key={item.id}
                         href={item.href}
                         className="flex items-center gap-2 p-3 bg-gray-50 rounded-lg active:scale-95 transition-transform"
                       >
-                        <item.icon className="h-4 w-4 text-[#B88E2F]" />
-                        <span className="text-sm font-medium">{item.name}</span>
+                        <MapPin className="h-4 w-4 text-[#B88E2F]" />
+                        <span className="text-sm font-medium">{item.title}</span>
                       </Link>
                     ))}
                   </div>

@@ -1,49 +1,55 @@
 "use client";
 import React, { useRef, useState, useEffect } from "react";
 import { motion, useAnimation, useMotionValue } from "framer-motion";
+import Link from "next/link";
 import { getCategories, Category } from "@/lib/categories";
 import { cn } from "@/lib/utils";
 
 
 
 const CategoryCard = ({ category }: { category: Category }) => {
+    const href = category.link || `/dubai/${category.slug}`;
+
     return (
-        <motion.div
-            className="relative w-[280px] h-[350px] md:w-[320px] md:h-[400px] flex-shrink-0 rounded-2xl overflow-hidden cursor-pointer group"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        >
-            {/* Image Background */}
-            <div className="absolute inset-0 w-full h-full">
-                <motion.img
-                    src={category.image_url}
-                    alt={category.name}
-                    className="w-full h-full object-cover"
-                    whileHover={{ scale: 1.15 }}
-                    transition={{ duration: 0.7, ease: "easeOut" }}
-                />
-            </div>
-
-            {/* Dark Gradient Overlay - Always visible but stronger at bottom */}
-            {/* Subtle Gradient at Bottom Only - For text readability */}
-            <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/80 to-transparent opacity-90 transition-opacity duration-300" />
-
-            {/* Hover Glow Effect */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 border-2 border-primary/30 rounded-2xl shadow-[0_0_30px_rgba(255,191,25,0.2)]" />
-
-            {/* Content Content layout */}
-            <div className="absolute inset-0 p-6 flex flex-col justify-end items-center text-center z-10">
-                {/* Glassmorphic Text Container */}
-                <div className="relative overflow-hidden px-6 py-4 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 group-hover:bg-white/10 transition-colors duration-300 w-full">
-                    <h3 className="text-white text-lg font-bold uppercase tracking-wider font-serif drop-shadow-md">
-                        {category.name}
-                    </h3>
-                    <motion.div
-                        className="h-[2px] bg-primary mt-2 mx-auto w-0 group-hover:w-1/2 transition-all duration-300"
+        <Link href={href} className="block" aria-label={`Explore ${category.name}`}>
+            <motion.div
+                className="relative w-[280px] h-[350px] md:w-[320px] md:h-[400px] flex-shrink-0 rounded-2xl overflow-hidden cursor-pointer group"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+                {/* Image Background */}
+                <div className="absolute inset-0 w-full h-full">
+                    <motion.img
+                        src={category.image_url}
+                        alt={category.name}
+                        className="w-full h-full object-cover"
+                        whileHover={{ scale: 1.15 }}
+                        transition={{ duration: 0.7, ease: "easeOut" }}
                     />
                 </div>
-            </div>
-        </motion.div>
+
+                {/* Dark Gradient Overlay - Always visible but stronger at bottom */}
+                {/* Subtle Gradient at Bottom Only - For text readability */}
+                <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/80 to-transparent opacity-90 transition-opacity duration-300" />
+
+                {/* Hover Glow Effect */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 border-2 border-primary/30 rounded-2xl shadow-[0_0_30px_rgba(255,191,25,0.2)]" />
+
+                {/* Content Content layout */}
+                <div className="absolute inset-0 p-6 flex flex-col justify-end items-center text-center z-10">
+                    {/* Glassmorphic Text Container */}
+                    <div className="relative overflow-hidden px-6 py-4 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 group-hover:bg-white/10 transition-colors duration-300 w-full">
+                        <h3 className="text-white text-lg font-bold uppercase tracking-wider font-serif drop-shadow-md">
+                            {category.name}
+                        </h3>
+                        <motion.div
+                            className="h-[2px] bg-primary mt-2 mx-auto w-0 group-hover:w-1/2 transition-all duration-300"
+                        />
+                    </div>
+
+                </div>
+            </motion.div>
+        </Link>
     );
 };
 
@@ -69,8 +75,8 @@ const CategoriesCarousel = () => {
         <section className="w-full py-20 bg-white overflow-hidden relative">
             {/* Decorative Gradients */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-blue-50 via-white to-white opacity-40 pointer-events-none" />
-            <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-white to-transparent z-10 z-[20]" />
-            <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-white to-transparent z-10 z-[20]" />
+            <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-white to-transparent z-[20]" />
+            <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-white to-transparent z-[20]" />
 
             <div className="container mx-auto px-6 mb-12 relative z-20 text-center md:text-left">
                 <motion.h2
