@@ -31,12 +31,12 @@ type Pricing = {
   id: string
   price: number
   original_price: number | null
-  discount_percent: number | null
+  discount_percent?: number | null
   duration_minutes: number | null
   pax: number
   is_active: boolean
   label?: string | null
-  passenger_type: 'adult' | 'child' | 'infant' | 'senior' | 'student' | 'group'
+  passenger_type?: string
   min_age?: number | null
   max_age?: number | null
 }
@@ -127,10 +127,10 @@ function ImageCarousel({ images, thumbnail, title }: {
   images: ProductImage[]; thumbnail: string | null; title: string
 }) {
   const sorted = [...images].sort((a, b) => a.position - b.position)
-  // Use ALL images from product_images — if none, fall back to thumbnail
-  const allImages: string[] = sorted.length > 0
-    ? sorted.map(i => i.image_url)
-    : thumbnail ? [thumbnail] : []
+  // Combine thumbnail and product images, avoiding duplicates
+  const baseImages = thumbnail ? [thumbnail] : []
+  const additionalImages = sorted.map(i => i.image_url).filter(img => img !== thumbnail)
+  const allImages: string[] = [...baseImages, ...additionalImages]
 
   if (allImages.length === 0) return (
     <div className="w-full h-[300px] md:h-[400px] bg-gray-100 flex items-center justify-center">
@@ -164,8 +164,12 @@ function ImageCarousel({ images, thumbnail, title }: {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="pointer-events-auto absolute left-4 top-1/2 -translate-y-1/2 z-50 bg-white/90 hover:bg-white text-neutral-900 hover:text-neutral-900 border-0 opacity-0 group-hover:opacity-100 transition-opacity shadow-md" />
-        <CarouselNext className="pointer-events-auto absolute right-4 top-1/2 -translate-y-1/2 z-50 bg-white/90 hover:bg-white text-neutral-900 hover:text-neutral-900 border-0 opacity-0 group-hover:opacity-100 transition-opacity shadow-md" />
+        {allImages.length > 1 && (
+          <>
+            <CarouselPrevious className="pointer-events-auto absolute left-4 top-1/2 -translate-y-1/2 z-50 bg-white/90 hover:bg-white text-neutral-900 hover:text-neutral-900 border-0 opacity-0 group-hover:opacity-100 transition-opacity shadow-md" />
+            <CarouselNext className="pointer-events-auto absolute right-4 top-1/2 -translate-y-1/2 z-50 bg-white/90 hover:bg-white text-neutral-900 hover:text-neutral-900 border-0 opacity-0 group-hover:opacity-100 transition-opacity shadow-md" />
+          </>
+        )}
       </Carousel>
     </div>
   )
@@ -228,7 +232,7 @@ function CarMeta({ meta }: { meta: Record<string, any> }) {
   return (
     <div className="space-y-3">
       <div className="grid grid-cols-2 gap-3">
-        {meta.vehicle_class && <div className="bg-[#1A2B47] rounded-xl p-3 text-center"><p className="text-sm font-bold text-[#D4A853] capitalize">{meta.vehicle_class.replace('_',' ')}</p><p className="text-xs text-gray-300">Vehicle Class</p></div>}
+        {meta.vehicle_class && <div className="bg-[#1A2B47] rounded-xl p-3 text-center"><p className="text-sm font-bold text-[#D4A853] capitalize">{meta.vehicle_class.replace('_', ' ')}</p><p className="text-xs text-gray-300">Vehicle Class</p></div>}
         {meta.minimum_age && <div className="bg-[#EEF4FB] rounded-xl p-3 text-center"><p className="text-lg font-bold text-[#1A2B47]">{meta.minimum_age}+</p><p className="text-xs text-gray-500">Minimum Age</p></div>}
       </div>
       {meta.license_required && <div className="flex items-start gap-2 bg-blue-50 rounded-xl p-3"><FileText className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" /><div><p className="text-xs font-medium text-blue-700">License Required</p><p className="text-sm text-blue-600">{meta.license_required}</p></div></div>}
@@ -254,7 +258,7 @@ function WaterMeta({ meta }: { meta: Record<string, any> }) {
     <div className="space-y-3">
       <div className="grid grid-cols-2 gap-3">
         {meta.minimum_age && <div className="bg-cyan-50 rounded-xl p-3 text-center"><p className="text-lg font-bold text-cyan-700">{meta.minimum_age}+</p><p className="text-xs text-gray-500">Min Age</p></div>}
-        {meta.activity_type && <div className="bg-cyan-50 rounded-xl p-3 text-center"><p className="text-sm font-bold text-cyan-700 capitalize">{meta.activity_type.replace('_',' ')}</p><p className="text-xs text-gray-500">Activity Type</p></div>}
+        {meta.activity_type && <div className="bg-cyan-50 rounded-xl p-3 text-center"><p className="text-sm font-bold text-cyan-700 capitalize">{meta.activity_type.replace('_', ' ')}</p><p className="text-xs text-gray-500">Activity Type</p></div>}
       </div>
       <div className="grid grid-cols-2 gap-2">
         {meta.equipment_provided && <div className="flex items-center gap-2 p-2 rounded-lg bg-green-50"><Check className="w-3 h-3 text-green-500" /><span className="text-xs">Equipment Provided</span></div>}
@@ -558,12 +562,12 @@ export default function ProductDetailPage({ product }: { product: Product }) {
 
   const metaTitle =
     product.category?.slug === 'hotel' ? 'Hotel Details'
-    : product.category?.slug === 'yacht' ? 'Yacht Details'
-    : product.category?.slug === 'safari' ? 'Safari Details'
-    : product.category?.slug === 'car' ? 'Vehicle Details'
-    : product.category?.slug === 'vise-services' ? 'Visa Details'
-    : product.category?.slug === 'holiday-package' ? 'Package Details'
-    : 'Activity Details'
+      : product.category?.slug === 'yacht' ? 'Yacht Details'
+        : product.category?.slug === 'safari' ? 'Safari Details'
+          : product.category?.slug === 'car' ? 'Vehicle Details'
+            : product.category?.slug === 'vise-services' ? 'Visa Details'
+              : product.category?.slug === 'holiday-package' ? 'Package Details'
+                : 'Activity Details'
 
   return (
     <div className="bg-white min-h-screen pb-20">

@@ -2,25 +2,30 @@
 // SERVER COMPONENT — fetches all data from Supabase
 
 import { notFound } from 'next/navigation'
-import { createSupabaseServerClient } from '@/lib/supabase/server'
 import ProductDetailPage from '@/components/product/ProductDetailPage'
 import { Layout } from '@/components/layout/Layout'
 
 // ─── TYPES ─────────────────────────────────────────────────────────────────────
 
 interface PageProps {
-  params: {
+  params: Promise<{
     destination: string
     category: string
     slug: string
-  }
+  }>
 }
 
 // ─── STATIC PARAMS ─────────────────────────────────────────────────────────────
 // Pre-builds all 200+ product pages at deploy time for SEO
 
+import { createClient } from '@supabase/supabase-js'
+
 export async function generateStaticParams() {
-  const supabase = await createSupabaseServerClient()
+  // Use a fresh standard client instead of cookie-based one for static generation
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  )
 
   const { data: products } = await supabase
     .from('products')
@@ -44,8 +49,13 @@ export async function generateStaticParams() {
 
 // ─── METADATA ──────────────────────────────────────────────────────────────────
 
-export async function generateMetadata({ params }: PageProps) {
-  const supabase = await createSupabaseServerClient()
+export async function generateMetadata(props: PageProps) {
+  const params = await props.params;
+
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  )
 
   const { data } = await supabase
     .from('products')
@@ -69,7 +79,10 @@ export async function generateMetadata({ params }: PageProps) {
 // ─── DATA FETCHING ──────────────────────────────────────────────────────────────
 
 async function getProduct(slug: string) {
-  const supabase = await createSupabaseServerClient()
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  )
 
   const { data, error } = await supabase
     .from('products')
@@ -108,14 +121,9 @@ async function getProduct(slug: string) {
         supplier:suppliers(name, code),
         product_pricing(
           id,
-          label,
           price,
           original_price,
-          discount_percent,
           duration_minutes,
-          passenger_type,
-          min_age,
-          max_age,
           pax,
           is_active
         )
@@ -135,7 +143,8 @@ async function getProduct(slug: string) {
 
 // ─── PAGE ───────────────────────────────────────────────────────────────────────
 
-export default async function ExperiencePage({ params }: PageProps) {
+export default async function ExperiencePage(props: PageProps) {
+  const params = await props.params;
   const product = await getProduct(params.slug)
 
   if (!product) notFound()

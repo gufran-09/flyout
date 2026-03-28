@@ -58,8 +58,8 @@ export default async function HomePage() {
     <Layout>
       <HeroSection />
       <SectionTitle />
-      <UaeShowcaseSection destinations={destinations ?? []} />
-      <CategoriesCarousel categories={categories ?? []} />
+      <UaeShowcaseSection />
+      <CategoriesCarousel />
       <MostBookedSection products={mostBooked ?? []} />
       <LuxuryExperiencesSection products={luxury ?? []} />
       <RomanticLifestyleSection products={lifestyle ?? []} />
