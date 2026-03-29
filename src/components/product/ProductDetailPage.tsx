@@ -88,6 +88,16 @@ function formatDuration(minutes: number | null): string {
 // ─── BREADCRUMB ─────────────────────────────────────────────────────────────────
 
 function Breadcrumb({ product }: { product: Product }) {
+  const rawCategorySlug = product.category?.slug?.toLowerCase()
+  const categorySlugMapping: Record<string, string> = {
+    parks: "theme-parks",
+    cruises: "cruise",
+  }
+  const normalizedCategorySlug = rawCategorySlug
+    ? categorySlugMapping[rawCategorySlug] || rawCategorySlug
+    : ""
+  const categoryHref = normalizedCategorySlug ? `/dubai/${normalizedCategorySlug}` : "/dubai"
+
   return (
     <div className="bg-gray-50 border-b">
       <div className="container mx-auto px-4 py-3">
@@ -105,7 +115,7 @@ function Breadcrumb({ product }: { product: Product }) {
           {product.category && (
             <>
               <Link
-                href={`/${product.destination?.slug}/${product.category.slug}`}
+                href={categoryHref}
                 className="hover:text-primary capitalize transition-colors"
               >
                 {product.category.name}

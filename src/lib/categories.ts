@@ -149,6 +149,7 @@ const SLUG_MAPPING: Record<string, string> = {
     'holiday-package': 'packages',
     'vise-services': 'visa',
     'car': 'car-rental',
+    'car rental': 'car-rental',
     'parks': 'theme-parks', // Default parks to theme-parks
     'games': 'shows',
 };
@@ -170,6 +171,10 @@ export async function getCategories(): Promise<Category[]> {
     return (data || []).map((cat: any) => {
         // Use mapped slug if available, otherwise original
         const appSlug = SLUG_MAPPING[cat.slug] || cat.slug;
+        const isCarRentalCategory =
+            appSlug === 'car-rental' ||
+            cat.slug === 'car rental' ||
+            cat.name?.toLowerCase() === 'car rental';
 
         return {
             ...cat,
@@ -177,7 +182,7 @@ export async function getCategories(): Promise<Category[]> {
             icon: ICON_MAP[appSlug] || Star, // Use appSlug for lookups
             description: DESCRIPTION_MAP[appSlug] || "Explore our amazing collection.",
             color: COLOR_MAP[appSlug] || "from-blue-600 to-cyan-500",
-            link: `/dubai/${appSlug}` // Dynamic link based on appSlug
+            link: isCarRentalCategory ? '/dubai/car-rental' : `/dubai/${appSlug}`
         };
     });
 }
