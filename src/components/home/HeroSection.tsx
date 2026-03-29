@@ -14,7 +14,7 @@ export function HeroSection() {
   return (
     <section className="relative pt-6 lg:pt-4 pb-8 lg:pb-12">
       <div className="section-container">
-        <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[16/9] lg:aspect-[21/9]">
+        <div className="relative mx-auto w-full lg:w-[90%] rounded-2xl overflow-hidden shadow-2xl aspect-[16/9] lg:aspect-[21/9]">
           <video
             ref={videoRef}
             className="absolute inset-0 w-full h-full object-cover"

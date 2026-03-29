@@ -160,8 +160,8 @@ export function Navbar() {
         {/* === TOP BAR === */}
         <div className="bg-white/80 backdrop-blur-xl shadow-[0_8px_30px_rgba(10,31,68,0.10)]">
 
-          <div className="max-w-[1200px] mx-auto px-4 py-4">
-              <div className="flex items-center">
+          <div className="section-container py-4">
+              <div className="flex items-center w-full lg:w-[90%] mx-auto">
 
               {/* Left: Logo & Tagline */}
               <Link href="/" onClick={handleLogoClick} className="flex-shrink-0 flex items-center group">
@@ -172,7 +172,7 @@ export function Navbar() {
 
               {/* Center: Search Bar */}
               <div className="hidden lg:flex flex-1 justify-center">
-  <div className="w-full max-w-[640px] mx-6">
+  <div className="w-full max-w-[940px] mx-6">
     <NavbarSearch />
   </div>
 </div>

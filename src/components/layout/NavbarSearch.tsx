@@ -35,7 +35,7 @@ export default function NavbarSearch() {
     transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
     unicodeBidi: 'isolate',
     width: '100%',
-  maxWidth: '600px',
+    maxWidth: '940px',
     WebkitFontSmoothing: 'antialiased',
     WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
     WebkitTextSizeAdjust: '100%',
