@@ -37,11 +37,11 @@
   --color-ocean-foreground: hsl(var(--ocean-foreground));
   --color-desert: hsl(var(--desert));
   --color-desert-foreground: hsl(var(--desert-foreground));
-  --color-gold: #C5A059;
+  --color-gold: #c5a059;
   --color-gold-foreground: hsl(var(--gold-foreground));
   --color-sky: hsl(var(--sky));
   --color-sky-foreground: hsl(var(--sky-foreground));
-  --color-flyout-gold: #C5A059;
+  --color-flyout-gold: #c5a059;
 
   --shadow-elegant: 0 18px 40px -18px rgb(15 23 42 / 0.28);
   --shadow-luxury: var(--shadow-card);
@@ -95,8 +95,8 @@
 @layer base {
   :root {
     /* Core Colors */
-    --font-sans: 'Inter', sans-serif;
-    --font-display: 'Playfair Display', serif;
+    --font-sans: "Inter", sans-serif;
+    --font-display: "Playfair Display", serif;
 
     --background: 0 0% 100%;
     --foreground: 220 20% 15%;
@@ -158,15 +158,31 @@
     --sky-foreground: 0 0% 100%;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(45 90% 55%), hsl(35 40% 85%));
-    --gradient-hero: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.5) 100%);
-    --gradient-card: linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, 0.7) 100%);
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(45 90% 55%),
+      hsl(35 40% 85%)
+    );
+    --gradient-hero: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(0, 0, 0, 0.2) 50%,
+      rgba(0, 0, 0, 0.5) 100%
+    );
+    --gradient-card: linear-gradient(
+      180deg,
+      transparent 60%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
 
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --shadow-md:
+      0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg:
+      0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl:
+      0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
     --shadow-card: 0 4px 20px -2px rgb(0 0 0 / 0.08);
     --shadow-card-hover: 0 12px 40px -8px rgb(0 0 0 / 0.15);
   }
@@ -229,7 +245,9 @@
 
   body {
     @apply bg-background text-foreground antialiased font-sans;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
   }
 
   h1,
@@ -243,7 +261,6 @@
 }
 
 @layer components {
-
   /* Card hover effects */
   .card-hover {
     @apply transition-all duration-300 ease-out;
@@ -334,7 +351,6 @@
 }
 
 @layer utilities {
-
   /* Animation utilities */
   .animate-fade-in {
     animation: fadeIn 0.5s ease-out;

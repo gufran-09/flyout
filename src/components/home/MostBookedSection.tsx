@@ -15,7 +15,9 @@ function getLowestPrice(product: any): number {
   const prices = (product.product_suppliers ?? [])
     .filter((s: any) => s.is_active)
     .flatMap((s: any) =>
-      (s.product_pricing ?? []).filter((p: any) => p.is_active).map((p: any) => Number(p.price))
+      (s.product_pricing ?? [])
+        .filter((p: any) => p.is_active)
+        .map((p: any) => Number(p.price)),
     );
   return prices.length > 0 ? Math.min(...prices) : 0;
 }
@@ -26,7 +28,7 @@ function getOriginalPrice(product: any): number | null {
     .flatMap((s: any) =>
       (s.product_pricing ?? [])
         .filter((p: any) => p.is_active && p.original_price)
-        .map((p: any) => Number(p.original_price))
+        .map((p: any) => Number(p.original_price)),
     );
   return originals.length > 0 ? Math.min(...originals) : null;
 }
@@ -86,7 +88,9 @@ export const MostBookedSection = ({ products }: Props) => {
                     <ProductCard
                       id={product.id}
                       title={product.title}
-                      location={product.location ?? product.destination?.name ?? "Dubai"}
+                      location={
+                        product.location ?? product.destination?.name ?? "Dubai"
+                      }
                       image={product.thumbnail_url ?? ""}
                       price={`AED ${price.toLocaleString()}`}
                       originalPrice={original ?? undefined}
@@ -98,8 +102,8 @@ export const MostBookedSection = ({ products }: Props) => {
                         product.review_count > 200
                           ? "50k+"
                           : product.review_count > 100
-                          ? "20k+"
-                          : "10k+"
+                            ? "20k+"
+                            : "10k+"
                       }
                       duration={undefined}
                     />

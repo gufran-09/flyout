@@ -35,7 +35,7 @@ export function SearchAutocomplete({
   className,
   onClose,
   autoFocus = false,
-  fullScreen = false
+  fullScreen = false,
 }: SearchAutocompleteProps) {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<SearchResult[]>([]);
@@ -60,10 +60,10 @@ export function SearchAutocomplete({
         `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/search?q=${encodeURIComponent(searchQuery)}&limit=8`,
         {
           headers: {
-            "Authorization": `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
             "Content-Type": "application/json",
           },
-        }
+        },
       );
 
       if (!response.ok) throw new Error("Search failed");
@@ -169,7 +169,7 @@ export function SearchAutocomplete({
         </span>
       ) : (
         part
-      )
+      ),
     );
   };
 
@@ -184,15 +184,16 @@ export function SearchAutocomplete({
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={handleKeyDown}
-          onFocus={() => query.trim() && results.length > 0 && setShowDropdown(true)}
+          onFocus={() =>
+            query.trim() && results.length > 0 && setShowDropdown(true)
+          }
           autoFocus={autoFocus}
-          className={cn(
-            "pl-10 pr-20 h-10",
-            fullScreen && "h-12 text-base"
-          )}
+          className={cn("pl-10 pr-20 h-10", fullScreen && "h-12 text-base")}
         />
         <div className="absolute right-1 flex items-center gap-1">
-          {isLoading && <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />}
+          {isLoading && (
+            <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
+          )}
           {query && !isLoading && (
             <Button
               variant="ghost"
@@ -224,7 +225,7 @@ export function SearchAutocomplete({
             exit={{ opacity: 0, y: -10 }}
             className={cn(
               "absolute top-full left-0 right-0 mt-2 bg-popover border border-border rounded-lg shadow-xl overflow-hidden z-50",
-              fullScreen && "max-h-[60vh] overflow-y-auto"
+              fullScreen && "max-h-[60vh] overflow-y-auto",
             )}
           >
             {results.map((result, index) => (
@@ -234,7 +235,7 @@ export function SearchAutocomplete({
                 className={cn(
                   "w-full flex items-center gap-3 p-3 text-left transition-colors",
                   "hover:bg-accent",
-                  selectedIndex === index && "bg-accent"
+                  selectedIndex === index && "bg-accent",
                 )}
               >
                 <div className="relative h-12 w-12 rounded-lg overflow-hidden flex-shrink-0">

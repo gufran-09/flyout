@@ -1,7 +1,14 @@
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Trash2, Plus, Minus, ShoppingBag, ArrowRight, Users } from "lucide-react";
+import {
+  Trash2,
+  Plus,
+  Minus,
+  ShoppingBag,
+  ArrowRight,
+  Users,
+} from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
@@ -12,7 +19,14 @@ import { useState } from "react";
 import { CurrencySymbol } from "@/components/ui/CurrencySymbol";
 
 export default function Cart() {
-  const { items, removeFromCart, updateQuantity, updateGuests, totalPrice, clearCart } = useCart();
+  const {
+    items,
+    removeFromCart,
+    updateQuantity,
+    updateGuests,
+    totalPrice,
+    clearCart,
+  } = useCart();
   const { user } = useAuth();
   const supabase = createSupabaseBrowserClient();
   const [loading, setLoading] = useState(false);
@@ -34,9 +48,12 @@ export default function Cart() {
         guests: item.guests,
       }));
 
-      const { data, error } = await supabase.functions.invoke("create-checkout", {
-        body: { items: cartData },
-      });
+      const { data, error } = await supabase.functions.invoke(
+        "create-checkout",
+        {
+          body: { items: cartData },
+        },
+      );
 
       if (error) throw error;
       if (data?.url) {
@@ -64,7 +81,8 @@ export default function Cart() {
             </div>
             <h1 className="text-2xl font-bold mb-4">Your cart is empty</h1>
             <p className="text-muted-foreground mb-8">
-              Looks like you haven't added any tours yet. Explore our amazing experiences!
+              Looks like you haven't added any tours yet. Explore our amazing
+              experiences!
             </p>
             <Button asChild>
               <Link href="/">
@@ -129,7 +147,9 @@ export default function Cart() {
                     {/* Guests */}
                     <div className="flex items-center gap-2">
                       <Users className="h-4 w-4 text-muted-foreground" />
-                      <span className="text-sm text-muted-foreground">Guests:</span>
+                      <span className="text-sm text-muted-foreground">
+                        Guests:
+                      </span>
                       <div className="flex items-center gap-1 border border-border rounded-lg">
                         <Button
                           variant="ghost"
@@ -156,13 +176,17 @@ export default function Cart() {
 
                     {/* Quantity */}
                     <div className="flex items-center gap-2">
-                      <span className="text-sm text-muted-foreground">Qty:</span>
+                      <span className="text-sm text-muted-foreground">
+                        Qty:
+                      </span>
                       <div className="flex items-center gap-1 border border-border rounded-lg">
                         <Button
                           variant="ghost"
                           size="icon"
                           className="h-8 w-8"
-                          onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                          onClick={() =>
+                            updateQuantity(item.id, item.quantity - 1)
+                          }
                         >
                           <Minus className="h-3 w-3" />
                         </Button>
@@ -173,7 +197,9 @@ export default function Cart() {
                           variant="ghost"
                           size="icon"
                           className="h-8 w-8"
-                          onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                          onClick={() =>
+                            updateQuantity(item.id, item.quantity + 1)
+                          }
                         >
                           <Plus className="h-3 w-3" />
                         </Button>
@@ -183,10 +209,17 @@ export default function Cart() {
                     {/* Price */}
                     <div className="text-right">
                       <p className="text-lg font-bold text-neutral-900 flex items-center justify-end gap-1">
-                        <CurrencySymbol className="w-4 h-4" /> {(item.tour.price * item.quantity * item.guests).toLocaleString()}
+                        <CurrencySymbol className="w-4 h-4" />{" "}
+                        {(
+                          item.tour.price *
+                          item.quantity *
+                          item.guests
+                        ).toLocaleString()}
                       </p>
                       <p className="text-xs text-muted-foreground flex items-center justify-end gap-1">
-                        <CurrencySymbol className="w-3 h-3 opacity-70" /> {item.tour.price} × {item.quantity} × {item.guests} guest(s)
+                        <CurrencySymbol className="w-3 h-3 opacity-70" />{" "}
+                        {item.tour.price} × {item.quantity} × {item.guests}{" "}
+                        guest(s)
                       </p>
                     </div>
                   </div>
@@ -208,10 +241,16 @@ export default function Cart() {
                 {items.map((item) => (
                   <div key={item.id} className="flex justify-between text-sm">
                     <span className="text-muted-foreground line-clamp-1 flex-1 mr-2">
-                      {item.tour.name} (×{item.quantity}, {item.guests} guest{item.guests > 1 ? 's' : ''})
+                      {item.tour.name} (×{item.quantity}, {item.guests} guest
+                      {item.guests > 1 ? "s" : ""})
                     </span>
                     <span className="font-medium flex items-center gap-1">
-                      <CurrencySymbol className="w-3.5 h-3.5" /> {(item.tour.price * item.quantity * item.guests).toLocaleString()}
+                      <CurrencySymbol className="w-3.5 h-3.5" />{" "}
+                      {(
+                        item.tour.price *
+                        item.quantity *
+                        item.guests
+                      ).toLocaleString()}
                     </span>
                   </div>
                 ))}
@@ -220,7 +259,8 @@ export default function Cart() {
               <div className="flex justify-between mb-6">
                 <span className="text-xl font-bold">Total</span>
                 <span className="text-2xl font-bold text-neutral-900 flex items-center gap-1">
-                  <CurrencySymbol className="w-6 h-6" /> {totalPrice.toLocaleString()}
+                  <CurrencySymbol className="w-6 h-6" />{" "}
+                  {totalPrice.toLocaleString()}
                 </span>
               </div>
 

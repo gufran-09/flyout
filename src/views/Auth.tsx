@@ -10,7 +10,9 @@ export default function Auth() {
         <div className="w-full max-w-md space-y-6">
           <div className="text-center">
             <h1 className="text-3xl font-bold">Welcome Back</h1>
-            <p className="text-slate-500 mt-2">Sign in to your Flyout Tours account</p>
+            <p className="text-slate-500 mt-2">
+              Sign in to your Flyout Tours account
+            </p>
           </div>
           <LoginForm />
           <SocialAuth />

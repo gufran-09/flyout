@@ -56,7 +56,8 @@ const comboDeals = [
   {
     id: "combo-4",
     title: "Family Fun Pass",
-    image: "https://images.unsplash.com/photo-1513889961551-628c1e5e2ee9?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1513889961551-628c1e5e2ee9?w=800&q=80",
     originalPrice: 1200,
     discountedPrice: 899,
     rating: 4.7,
@@ -67,7 +68,8 @@ const comboDeals = [
   {
     id: "combo-5",
     title: "Cultural Heritage Tour",
-    image: "https://images.unsplash.com/photo-1578556795304-30491fae929d?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1578556795304-30491fae929d?w=800&q=80",
     originalPrice: 450,
     discountedPrice: 299,
     rating: 4.6,
@@ -97,7 +99,8 @@ export function ComboDealsSection() {
               Trending Experiences
             </h2>
             <p className="text-neutral-600 text-lg">
-              Unlock exclusive savings on our most popular hand-picked tour packages.
+              Unlock exclusive savings on our most popular hand-picked tour
+              packages.
             </p>
           </motion.div>
 
@@ -135,7 +138,10 @@ export function ComboDealsSection() {
           >
             <CarouselContent className="-ml-4 py-6">
               {comboDeals.map((deal) => (
-                <CarouselItem key={deal.id} className="pl-4 md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
+                <CarouselItem
+                  key={deal.id}
+                  className="pl-4 md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+                >
                   <ProductCard
                     id={deal.id}
                     title={deal.title}

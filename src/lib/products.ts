@@ -1,9 +1,10 @@
 import { supabase } from "./supabase";
 
 export async function getProductBySlug(slug: string) {
-    const { data, error } = await supabase
-        .from("products")
-        .select(`
+  const { data, error } = await supabase
+    .from("products")
+    .select(
+      `
       title,
       subtitle,
       overview,
@@ -21,11 +22,12 @@ export async function getProductBySlug(slug: string) {
         price,
         original_price
       )
-    `)
-        .eq("slug", slug)
-        .single();
+    `,
+    )
+    .eq("slug", slug)
+    .single();
 
-    if (error) throw error;
+  if (error) throw error;
 
-    return data;
+  return data;
 }

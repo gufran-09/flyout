@@ -97,9 +97,7 @@
       "name": "BusinessProcessId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "BusinessProcess"
-      ],
+      "referenceTo": ["BusinessProcess"],
       "relationshipName": null,
       "sortable": true,
       "type": "reference"
@@ -2419,9 +2417,7 @@
       "name": "CreatedById",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "CreatedBy",
       "sortable": true,
       "type": "reference"
@@ -2455,9 +2451,7 @@
       "name": "LastModifiedById",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "LastModifiedBy",
       "sortable": true,
       "type": "reference"

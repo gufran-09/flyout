@@ -25,8 +25,8 @@ export default function PaymentCanceled() {
 
           <h1 className="text-3xl font-bold mb-4">Payment Canceled</h1>
           <p className="text-muted-foreground mb-8">
-            Your payment was not completed. Don't worry - your items are still in your cart.
-            Feel free to try again when you're ready.
+            Your payment was not completed. Don't worry - your items are still
+            in your cart. Feel free to try again when you're ready.
           </p>
 
           <div className="space-y-3">

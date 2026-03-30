@@ -17,8 +17,8 @@ export function SectionTitle() {
             <span className="text-flyout-gold">Top Destinations</span>
           </h2>
           <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-            Start your journey today — discover untold stories, breathtaking places,
-            and adventures that stay with you forever.
+            Start your journey today — discover untold stories, breathtaking
+            places, and adventures that stay with you forever.
           </p>
         </motion.div>
       </div>

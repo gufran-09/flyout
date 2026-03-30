@@ -36,8 +36,9 @@ export default function PaymentSuccess() {
 
           <h1 className="text-3xl font-bold mb-4">Payment Successful!</h1>
           <p className="text-muted-foreground mb-8">
-            Thank you for your booking! Your payment has been processed successfully.
-            You will receive a confirmation email shortly with all the details.
+            Thank you for your booking! Your payment has been processed
+            successfully. You will receive a confirmation email shortly with all
+            the details.
           </p>
 
           <div className="space-y-3">

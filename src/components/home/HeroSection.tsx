@@ -38,7 +38,9 @@ export function HeroSection() {
             <Button
               size="lg"
               className="relative bg-[#0A1F44] text-white text-lg px-10 py-7 rounded-full shadow-lg ring-1 ring-white/10 transition-all duration-300 ease-in-outhover:bg-blackhover:ring-[#B88E2F]hover:-translate-y-1active:scale-95overflow-hidden "
-            >Explore Dubai</Button>
+            >
+              Explore Dubai
+            </Button>
           </div>
         </div>
       </div>

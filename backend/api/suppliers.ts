@@ -1,10 +1,11 @@
-import { createSupabaseServerClient } from '@backend/lib/supabase/server'
+import { createSupabaseServerClient } from "@backend/lib/supabase/server";
 
 export async function getSuppliersByProduct(productId: string) {
-  const supabase = await createSupabaseServerClient()
+  const supabase = await createSupabaseServerClient();
   const { data, error } = await supabase
-    .from('product_suppliers')
-    .select(`
+    .from("product_suppliers")
+    .select(
+      `
       id,
       price,
       display_title,
@@ -23,14 +24,15 @@ export async function getSuppliersByProduct(productId: string) {
         pax,
         is_active
       )
-    `)
-    .eq('product_id', productId)
-    .eq('is_active', true)
+    `,
+    )
+    .eq("product_id", productId)
+    .eq("is_active", true);
 
   if (error) {
-    console.error('getSuppliersByProduct:', error.message)
-    return []
+    console.error("getSuppliersByProduct:", error.message);
+    return [];
   }
 
-  return data ?? []
+  return data ?? [];
 }

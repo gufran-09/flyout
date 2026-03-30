@@ -1,5 +1,5 @@
-import { createSupabaseBrowserClient } from '@backend/lib/supabase/client'
-import { Product } from '@backend/types'
+import { createSupabaseBrowserClient } from "@backend/lib/supabase/client";
+import { Product } from "@backend/types";
 
 const PRODUCT_SELECT = `
   id,
@@ -41,20 +41,20 @@ const PRODUCT_SELECT = `
       is_active
     )
   )
-`
+`;
 
 export async function searchProducts(query: string): Promise<Product[]> {
-  const supabase = createSupabaseBrowserClient()
+  const supabase = createSupabaseBrowserClient();
   const { data, error } = await supabase
-    .from('products')
+    .from("products")
     .select(PRODUCT_SELECT)
     .or(`title.ilike.%${query}%,overview.ilike.%${query}%`)
-    .limit(20)
+    .limit(20);
 
   if (error) {
-    console.error('searchProducts:', error.message)
-    return []
+    console.error("searchProducts:", error.message);
+    return [];
   }
 
-  return (data as unknown as Product[]) ?? []
+  return (data as unknown as Product[]) ?? [];
 }

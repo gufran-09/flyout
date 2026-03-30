@@ -1,1 +1,1 @@
-export { getCategories, getCategoryBySlug } from '@backend/api/categories'
+export { getCategories, getCategoryBySlug } from "@backend/api/categories";
