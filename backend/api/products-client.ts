@@ -45,10 +45,15 @@ const PRODUCT_SELECT = `
 
 export async function searchProducts(query: string): Promise<Product[]> {
   const supabase = createSupabaseBrowserClient();
+  // Whitelist-sanitize user input to prevent PostgREST filter injection.
+  // Only allow alphanumeric characters, spaces, and hyphens in search queries.
+  const sanitizedQuery = query.replace(/[^a-zA-Z0-9 \-]/g, "");
   const { data, error } = await supabase
     .from("products")
     .select(PRODUCT_SELECT)
-    .or(`title.ilike.%${query}%,overview.ilike.%${query}%`)
+    .or(
+      `title.ilike.%${sanitizedQuery}%,overview.ilike.%${sanitizedQuery}%`,
+    )
     .limit(20);
 
   if (error) {

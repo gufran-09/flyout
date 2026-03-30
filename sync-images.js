@@ -36,9 +36,9 @@ async function syncImages() {
   }
 
   console.log(
-    `Found ${products.length} products. Checking storage for missing images in chunks...`,
+    `Found ${products.length} products. Checking storage for images in chunks...`,
   );
-  const missingImages = [];
+  const foundImages = [];
   const chunkSize = 10;
 
   for (let i = 0; i < products.length; i += chunkSize) {
@@ -62,7 +62,7 @@ async function syncImages() {
               try {
                 const res = await fetch(testUrl, { method: "HEAD" });
                 if (res.ok) {
-                  missingImages.push({
+                  foundImages.push({
                     product_id: product.id,
                     image_url: testUrl,
                     alt_text: product.title,
@@ -78,8 +78,8 @@ async function syncImages() {
     );
   }
 
-  console.log(`Sync complete! Found ${missingImages.length} images.`);
-  fs.writeFileSync("sync-results.json", JSON.stringify(missingImages, null, 2));
+  console.log(`Sync complete! Found ${foundImages.length} images.`);
+  fs.writeFileSync("sync-results.json", JSON.stringify(foundImages, null, 2));
   console.log("Results saved to sync-results.json");
 }
 

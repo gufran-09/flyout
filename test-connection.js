@@ -12,18 +12,13 @@ console.log("Key Length:", supabaseKey ? supabaseKey.length : "MISSING");
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 async function testConnection() {
-  const { data, error } = await supabase
+  const { count, error } = await supabase
     .from("products")
-    .select("count", { count: "exact", head: true });
+    .select("*", { count: "exact", head: true });
   if (error) {
     console.error("Connection Error:", error.message);
   } else {
-    console.log(
-      "Connected! Product Count:",
-      data ? 0 : "N/A",
-      "Total count from meta:",
-      error ? "N/A" : data,
-    );
+    console.log("Connected! Product Count:", count ?? "N/A");
     // Actually get one product
     const { data: p } = await supabase
       .from("products")

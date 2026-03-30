@@ -6,9 +6,16 @@ export interface ClaudeResponse {
   [key: string]: any;
 }
 
+// In production the API routes are on the same origin, so an empty base URL
+// results in relative calls (/api/...). Override via NEXT_PUBLIC_API_BASE_URL
+// when the backend is hosted on a separate origin.
+const API_BASE_URL =
+  process.env.NEXT_PUBLIC_API_BASE_URL ||
+  (process.env.NODE_ENV === "development" ? "http://localhost:3001" : "");
+
 export async function callClaude(prompt: string): Promise<string> {
   try {
-    const response = await fetch("http://localhost:3001/api/claude", {
+    const response = await fetch(`${API_BASE_URL}/api/claude`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,7 +52,7 @@ export async function analyzeProject(
   type: "full-audit" | "security" | "performance" | "refactor",
 ): Promise<string> {
   try {
-    const response = await fetch("http://localhost:3001/api/claude/analyze", {
+    const response = await fetch(`${API_BASE_URL}/api/claude/analyze`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
