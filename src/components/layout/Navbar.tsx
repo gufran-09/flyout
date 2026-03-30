@@ -23,7 +23,7 @@ import {
   Utensils,
   Car,
   Package,
-  Star
+  Star,
 } from "lucide-react";
 import { MegaMenu } from "./MegaMenu";
 import { Button } from "@/components/ui/button";
@@ -48,7 +48,6 @@ const manrope = Manrope({
   weight: ["400", "500", "600", "700", "800"],
 });
 
-
 type DestinationMenuItem = {
   id: string;
   title: string;
@@ -58,18 +57,51 @@ type DestinationMenuItem = {
 };
 
 const destinationFallbackItems: DestinationMenuItem[] = [
-  { title: "Dubai", href: "/dubai", badge: "Popular", image: "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/1.jpg", id: "fallback-dubai" },
-  { title: "Abu Dhabi", href: "/abu-dhabi", image: "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/2.jpg", id: "fallback-abu-dhabi" },
-  { title: "Sharjah", href: "/sharjah", image: "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/3.jpg", id: "fallback-sharjah" },
-  { title: "Ras Al Khaimah", href: "/ras-al-khaimah", image: "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/4.jpg", id: "fallback-ras-al-khaimah" },
-  { title: "Ajman", href: "/ajman", image: "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/5.avif", id: "fallback-ajman" },
+  {
+    title: "Dubai",
+    href: "/dubai",
+    badge: "Popular",
+    image:
+      "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/1.jpg",
+    id: "fallback-dubai",
+  },
+  {
+    title: "Abu Dhabi",
+    href: "/abu-dhabi",
+    image:
+      "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/2.jpg",
+    id: "fallback-abu-dhabi",
+  },
+  {
+    title: "Sharjah",
+    href: "/sharjah",
+    image:
+      "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/3.jpg",
+    id: "fallback-sharjah",
+  },
+  {
+    title: "Ras Al Khaimah",
+    href: "/ras-al-khaimah",
+    image:
+      "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/4.jpg",
+    id: "fallback-ras-al-khaimah",
+  },
+  {
+    title: "Ajman",
+    href: "/ajman",
+    image:
+      "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/5.avif",
+    id: "fallback-ajman",
+  },
 ];
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [categories, setCategories] = useState<Category[]>([]);
-  const [destinationItems, setDestinationItems] = useState<DestinationMenuItem[]>(destinationFallbackItems);
+  const [destinationItems, setDestinationItems] = useState<
+    DestinationMenuItem[]
+  >(destinationFallbackItems);
   const pathname = usePathname();
   const router = useRouter();
   const { user, signOut } = useAuth();
@@ -154,31 +186,37 @@ export function Navbar() {
         animate={{ y: 0 }}
         className={cn(
           "fixed top-0 left-0 right-0 z-50 flex flex-col shadow-[0_10px_40px_rgba(0,0,0,0.25)] tracking-wide",
-          manrope.className
+          manrope.className,
         )}
       >
         {/* === TOP BAR === */}
         <div className="bg-white/80 backdrop-blur-xl shadow-[0_8px_30px_rgba(10,31,68,0.10)]">
-
           <div className="section-container py-4">
-              <div className="flex items-center w-full lg:w-[90%] mx-auto">
-
+            <div className="flex items-center w-full lg:w-[90%] mx-auto">
               {/* Left: Logo & Tagline */}
-              <Link href="/" onClick={handleLogoClick} className="flex-shrink-0 flex items-center group">
+              <Link
+                href="/"
+                onClick={handleLogoClick}
+                className="flex-shrink-0 flex items-center group"
+              >
                 <div className="flex flex-col">
-                  <img src="/logo.png" alt="Flyout Tours" className="h-[4.5rem] w-auto object-contain" />
+                  <img
+                    src="/logo.png"
+                    alt="Flyout Tours"
+                    className="h-[4.5rem] w-auto object-contain"
+                  />
                 </div>
               </Link>
 
               {/* Center: Search Bar */}
               <div className="hidden lg:flex flex-1 justify-center">
-  <div className="w-full max-w-[940px] mx-6">
-    <NavbarSearch />
-  </div>
-</div>
+                <div className="w-full max-w-[940px] mx-6">
+                  <NavbarSearch />
+                </div>
+              </div>
 
               {/* Right: Actions */}
-                <div className="hidden lg:flex items-center gap-6 ml-8">
+              <div className="hidden lg:flex items-center gap-6 ml-8">
                 {/* Vertical Stack: Partner & Points */}
                 <div className="flex flex-col items-start gap-1">
                   {/* Partner Link */}
@@ -186,7 +224,10 @@ export function Navbar() {
                     whileHover={{ x: 3 }}
                     transition={{ type: "spring", stiffness: 320, damping: 16 }}
                   >
-                    <Link href="/partner" className="flex items-center gap-2 group">
+                    <Link
+                      href="/partner"
+                      className="flex items-center gap-2 group"
+                    >
                       <Store className="h-4 w-4 text-[#1A2B47] group-hover:text-[#B88E2F] transition-colors" />
                       <span className="text-[12.5px] font-bold text-[#0A1F44] group-hover:text-[#B88E2F] tracking-wide transition-colors uppercase py-2">
                         Partner With Flyout
@@ -199,7 +240,10 @@ export function Navbar() {
                     whileHover={{ x: 3 }}
                     transition={{ type: "spring", stiffness: 320, damping: 16 }}
                   >
-                    <Link href="/credit" className="flex items-center gap-2 group">
+                    <Link
+                      href="/credit"
+                      className="flex items-center gap-2 group"
+                    >
                       <Coins className="h-4 w-4 text-[#B88E2F] transition-transform" />
                       <span className="text-[12.5px] font-bold text-[#0A1F44] group-hover:text-[#B88E2F] tracking-wide transition-colors uppercase">
                         Flyout CREDITS
@@ -210,11 +254,20 @@ export function Navbar() {
 
                 {/* Icons */}
                 <div className="flex items-center gap-3 pl-4 border-l border-gray-200">
-                  <Button variant="ghost" size="icon" className="rounded-full w-11 h-11 hover:bg-[#0A1F44]/5 hover:shadow-[0_6px_18px_rgba(10,31,68,0.15)] transition-all duration-300">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="rounded-full w-11 h-11 hover:bg-[#0A1F44]/5 hover:shadow-[0_6px_18px_rgba(10,31,68,0.15)] transition-all duration-300"
+                  >
                     <BellRing className="h-5 w-5 text-[#1A2B47]" />
                   </Button>
 
-                  <Button variant="ghost" size="icon" className="relative rounded-full w-11 h-11 hover:bg-[#0A1F44]/5 hover:shadow-[0_6px_18px_rgba(10,31,68,0.15)] transition-all duration-300" asChild>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="relative rounded-full w-11 h-11 hover:bg-[#0A1F44]/5 hover:shadow-[0_6px_18px_rgba(10,31,68,0.15)] transition-all duration-300"
+                    asChild
+                  >
                     <Link href="/cart">
                       <Package className="h-5 w-5 text-[#1A2B47]" />
                       {totalItems > 0 && (
@@ -230,44 +283,56 @@ export function Navbar() {
                     <DropdownMenuTrigger asChild>
                       <button className="flex items-center outline-none">
                         <div className="relative group">
-
                           {/* OUTER BORDER RING */}
-                          <div className="absolute -inset-[3px] rounded-full 
+                          <div
+                            className="absolute -inset-[3px] rounded-full 
                   bg-gradient-to-tr from-[#B88E2F] via-[#f5d27a] to-[#1A2B47]
-                  opacity-90"></div>
+                  opacity-90"
+                          ></div>
 
                           {/* SOFT GLOW */}
-                          <div className="absolute -inset-[1px] rounded-full 
+                          <div
+                            className="absolute -inset-[1px] rounded-full 
                   bg-gradient-to-tr from-[#B88E2F]/50 to-[#1A2B47]/40 
-                  blur-sm opacity-50 group-hover:opacity-80 transition-all duration-500"></div>
+                  blur-sm opacity-50 group-hover:opacity-80 transition-all duration-500"
+                          ></div>
 
                           {/* AVATAR CONTAINER */}
-                          <div className="relative w-12 h-12 rounded-full overflow-hidden 
+                          <div
+                            className="relative w-12 h-12 rounded-full overflow-hidden 
                   bg-white/70 backdrop-blur-xl
                   border border-white/40
                   shadow-[0_10px_28px_rgba(10,31,68,0.30)]
-                  group-hover:scale-105 transition-all duration-300">
-
+                  group-hover:scale-105 transition-all duration-300"
+                          >
                             <img
                               src="/new.png"
                               alt="Profile"
                               className="w-full h-full object-cover scale-[1.6]"
                             />
                           </div>
-
                         </div>
-
-
                       </button>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end" className="w-56 mt-2 bg-white border border-white/10 shadow-xl rounded-xl">
+                    <DropdownMenuContent
+                      align="end"
+                      className="w-56 mt-2 bg-white border border-white/10 shadow-xl rounded-xl"
+                    >
                       {user ? (
                         <>
                           <div className="px-3 py-2 border-b border-gray-100">
-                            <p className="text-sm font-semibold text-[#1A2B47]">My Account</p>
+                            <p className="text-sm font-semibold text-[#1A2B47]">
+                              My Account
+                            </p>
                           </div>
-                          <DropdownMenuItem asChild className="focus:bg-[#1A2B47]/5 focus:text-[#1A2B47] cursor-pointer">
-                            <Link href="/dashboard" className="flex items-center gap-2 py-2">
+                          <DropdownMenuItem
+                            asChild
+                            className="focus:bg-[#1A2B47]/5 focus:text-[#1A2B47] cursor-pointer"
+                          >
+                            <Link
+                              href="/dashboard"
+                              className="flex items-center gap-2 py-2"
+                            >
                               <LayoutDashboard className="h-4 w-4" />
                               Dashboard
                             </Link>
@@ -282,11 +347,21 @@ export function Navbar() {
                         </>
                       ) : (
                         <>
-                          <DropdownMenuItem asChild className="focus:bg-[#1A2B47]/5 focus:text-[#1A2B47] cursor-pointer">
-                            <Link href="/sign-in" className="py-2 font-medium">Sign In</Link>
+                          <DropdownMenuItem
+                            asChild
+                            className="focus:bg-[#1A2B47]/5 focus:text-[#1A2B47] cursor-pointer"
+                          >
+                            <Link href="/sign-in" className="py-2 font-medium">
+                              Sign In
+                            </Link>
                           </DropdownMenuItem>
-                          <DropdownMenuItem asChild className="focus:bg-[#1A2B47]/5 focus:text-[#1A2B47] cursor-pointer">
-                            <Link href="/sign-up" className="py-2 font-medium">Sign Up</Link>
+                          <DropdownMenuItem
+                            asChild
+                            className="focus:bg-[#1A2B47]/5 focus:text-[#1A2B47] cursor-pointer"
+                          >
+                            <Link href="/sign-up" className="py-2 font-medium">
+                              Sign Up
+                            </Link>
                           </DropdownMenuItem>
                         </>
                       )}
@@ -302,9 +377,12 @@ export function Navbar() {
                 className="lg:hidden ml-auto text-[#1A2B47]"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               >
-                {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                {isMobileMenuOpen ? (
+                  <X className="h-6 w-6" />
+                ) : (
+                  <Menu className="h-6 w-6" />
+                )}
               </Button>
-
             </div>
           </div>
         </div>
@@ -312,18 +390,17 @@ export function Navbar() {
         {/* === BOTTOM BAR === */}
         <div className="relative bg-[#0A1F44] shadow-[0_12px_45px_rgba(0,0,0,0.35)] hidden lg:block">
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-5"></div>
-            <div className="max-w-[1200px] mx-auto px-4">
+          <div className="max-w-[1200px] mx-auto px-4">
             <div className="flex items-center justify-center gap-8 py-3 text-white relative">
-
               <MegaMenu
                 triggerLabel="Categories"
                 type="grid"
                 columns={4}
-                items={categories.map(cat => ({
+                items={categories.map((cat) => ({
                   title: cat.name,
-                  href: cat.link || '#',
+                  href: cat.link || "#",
                   icon: cat.icon || Star,
-                  image: cat.image_url
+                  image: cat.image_url,
                 }))}
               />
 
@@ -338,12 +415,48 @@ export function Navbar() {
                 triggerLabel="Experiences"
                 type="list"
                 items={[
-                  { title: "Signature Experiences", href: "/experiences/signature", icon: Star, image: "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/5.avif" },
-                  { title: "Sunset & Nightlife", href: "/experiences/sunset", icon: Moon, image: "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/5.avif" },
-                  { title: "Desert & Adventure", href: "/dubai/desert-safari", icon: Compass, image: "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/5.avif" },
-                  { title: "Luxury & Yacht", href: "/dubai/yacht", icon: Ship, image: "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/5.avif" },
-                  { title: "Thrill & Theme Parks", href: "/dubai/theme-parks", icon: Zap, image: "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/5.avif" },
-                  { title: "Dining & Cruises", href: "/dubai/dinner-cruise", icon: Utensils, image: "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/5.avif" },
+                  {
+                    title: "Signature Experiences",
+                    href: "/experiences/signature",
+                    icon: Star,
+                    image:
+                      "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/5.avif",
+                  },
+                  {
+                    title: "Sunset & Nightlife",
+                    href: "/experiences/sunset",
+                    icon: Moon,
+                    image:
+                      "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/5.avif",
+                  },
+                  {
+                    title: "Desert & Adventure",
+                    href: "/dubai/desert-safari",
+                    icon: Compass,
+                    image:
+                      "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/5.avif",
+                  },
+                  {
+                    title: "Luxury & Yacht",
+                    href: "/dubai/yacht",
+                    icon: Ship,
+                    image:
+                      "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/5.avif",
+                  },
+                  {
+                    title: "Thrill & Theme Parks",
+                    href: "/dubai/theme-parks",
+                    icon: Zap,
+                    image:
+                      "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/5.avif",
+                  },
+                  {
+                    title: "Dining & Cruises",
+                    href: "/dubai/dinner-cruise",
+                    icon: Utensils,
+                    image:
+                      "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/5.avif",
+                  },
                 ]}
               />
 
@@ -351,24 +464,60 @@ export function Navbar() {
                 triggerLabel="Luxury"
                 type="list"
                 items={[
-                  { title: "Yacht Experiences", href: "/dubai/yacht", icon: Ship, badge: "Exclusive", image: "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/5.avif" },
-                  { title: "Private Tours", href: "/dubai/city-tours", icon: User, image: "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/5.avif" },
-                  { title: "Helicopter Rides", href: "/dubai/sky-adventures", icon: Plane, image: "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/5.avif" },
-                  { title: "VIP Theme Parks", href: "/dubai/theme-parks", icon: Star, image: "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/5.avif" },
-                  { title: "Supercar Drives", href: "/dubai/supercars", icon: Car, image: "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/5.avif" },
+                  {
+                    title: "Yacht Experiences",
+                    href: "/dubai/yacht",
+                    icon: Ship,
+                    badge: "Exclusive",
+                    image:
+                      "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/5.avif",
+                  },
+                  {
+                    title: "Private Tours",
+                    href: "/dubai/city-tours",
+                    icon: User,
+                    image:
+                      "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/5.avif",
+                  },
+                  {
+                    title: "Helicopter Rides",
+                    href: "/dubai/sky-adventures",
+                    icon: Plane,
+                    image:
+                      "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/5.avif",
+                  },
+                  {
+                    title: "VIP Theme Parks",
+                    href: "/dubai/theme-parks",
+                    icon: Star,
+                    image:
+                      "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/5.avif",
+                  },
+                  {
+                    title: "Supercar Drives",
+                    href: "/dubai/supercars",
+                    icon: Car,
+                    image:
+                      "https://bfzhzxyjjkcctxnmzafb.supabase.co/storage/v1/object/public/Emirates/5.avif",
+                  },
                 ]}
               />
 
-              <Link href="/staycations" className="text-sm font-medium text-white/90 hover:text-[#B88E2F] transition-colors relative group py-2">
+              <Link
+                href="/staycations"
+                className="text-sm font-medium text-white/90 hover:text-[#B88E2F] transition-colors relative group py-2"
+              >
                 Staycations
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#B88E2F] transition-all duration-300 group-hover:w-full"></span>
               </Link>
 
-              <Link href="/blogs" className="text-sm font-medium text-white/90 hover:text-[#B88E2F] transition-colors relative group py-2">
+              <Link
+                href="/blogs"
+                className="text-sm font-medium text-white/90 hover:text-[#B88E2F] transition-colors relative group py-2"
+              >
                 Journal
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#B88E2F] transition-all duration-300 group-hover:w-full"></span>
               </Link>
-
             </div>
           </div>
         </div>
@@ -385,27 +534,38 @@ export function Navbar() {
               <div className="section-container py-4 space-y-2">
                 {/* Mobile Search - Reusing the autocomplete for mobile logic, or can switch to the new search if preferred, but usually Autocomplete is better for mobile details */}
                 <div className="mb-4">
-                  <SearchAutocomplete onClose={() => setIsMobileMenuOpen(false)} />
+                  <SearchAutocomplete
+                    onClose={() => setIsMobileMenuOpen(false)}
+                  />
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <Link href="/" className="px-4 py-3 bg-gray-50 rounded-lg text-sm font-medium">Home</Link>
+                  <Link
+                    href="/"
+                    className="px-4 py-3 bg-gray-50 rounded-lg text-sm font-medium"
+                  >
+                    Home
+                  </Link>
                 </div>
 
                 {/* Mobile Categories */}
                 <div className="border-t border-border pt-4 mt-2">
-                  <p className="px-4 py-2 text-xs font-bold text-muted-foreground uppercase tracking-widest">Categories</p>
+                  <p className="px-4 py-2 text-xs font-bold text-muted-foreground uppercase tracking-widest">
+                    Categories
+                  </p>
                   <div className="grid grid-cols-2 gap-2 px-2">
                     {categories.slice(0, 8).map((item) => {
                       const Icon = item.icon || Star;
                       return (
                         <Link
                           key={item.id}
-                          href={item.link || '#'}
+                          href={item.link || "#"}
                           className="flex items-center gap-2 p-3 bg-gray-50 rounded-lg active:scale-95 transition-transform"
                         >
                           <Icon className="h-4 w-4 text-[#B88E2F]" />
-                          <span className="text-sm font-medium">{item.name}</span>
+                          <span className="text-sm font-medium">
+                            {item.name}
+                          </span>
                         </Link>
                       );
                     })}
@@ -414,7 +574,9 @@ export function Navbar() {
 
                 {/* Mobile Destinations */}
                 <div className="border-t border-border pt-4 mt-2">
-                  <p className="px-4 py-2 text-xs font-bold text-muted-foreground uppercase tracking-widest">Destinations</p>
+                  <p className="px-4 py-2 text-xs font-bold text-muted-foreground uppercase tracking-widest">
+                    Destinations
+                  </p>
                   <div className="grid grid-cols-2 gap-2 px-2">
                     {destinationItems.map((item) => (
                       <Link
@@ -423,7 +585,9 @@ export function Navbar() {
                         className="flex items-center gap-2 p-3 bg-gray-50 rounded-lg active:scale-95 transition-transform"
                       >
                         <MapPin className="h-4 w-4 text-[#B88E2F]" />
-                        <span className="text-sm font-medium">{item.title}</span>
+                        <span className="text-sm font-medium">
+                          {item.title}
+                        </span>
                       </Link>
                     ))}
                   </div>
@@ -431,32 +595,48 @@ export function Navbar() {
 
                 {/* Mobile Quick Links */}
                 <div className="border-t border-border pt-4 mt-2 px-4 space-y-2">
-                  <Link href="/sell" className="flex items-center gap-3 py-2 text-sm font-medium">
+                  <Link
+                    href="/sell"
+                    className="flex items-center gap-3 py-2 text-sm font-medium"
+                  >
                     <Store className="h-4 w-4 text-[#B88E2F]" />
                     Partner With Flyout
                   </Link>
-                  <Link href="/credit" className="flex items-center gap-3 py-2 text-sm font-medium">
+                  <Link
+                    href="/credit"
+                    className="flex items-center gap-3 py-2 text-sm font-medium"
+                  >
                     <Coins className="h-4 w-4 text-[#B88E2F]" />
                     Flyout Points
                   </Link>
-                  <Link href="/staycations" className="flex items-center gap-3 py-2 text-sm font-medium">
+                  <Link
+                    href="/staycations"
+                    className="flex items-center gap-3 py-2 text-sm font-medium"
+                  >
                     <Palmtree className="h-4 w-4 text-[#B88E2F]" />
                     Staycations
                   </Link>
                 </div>
 
-
                 {/* Mobile Auth */}
                 <div className="border-t border-border pt-6 mt-4 space-y-3 px-4">
                   {user ? (
                     <>
-                      <Button variant="outline" className="w-full justify-start" asChild>
+                      <Button
+                        variant="outline"
+                        className="w-full justify-start"
+                        asChild
+                      >
                         <Link href="/dashboard">
                           <LayoutDashboard className="h-4 w-4 mr-2" />
                           Dashboard
                         </Link>
                       </Button>
-                      <Button variant="outline" className="w-full justify-start text-destructive hover:text-destructive" onClick={handleSignOut}>
+                      <Button
+                        variant="outline"
+                        className="w-full justify-start text-destructive hover:text-destructive"
+                        onClick={handleSignOut}
+                      >
                         <LogOut className="h-4 w-4 mr-2" />
                         Sign Out
                       </Button>
@@ -466,7 +646,10 @@ export function Navbar() {
                       <Button variant="outline" className="w-full" asChild>
                         <Link href="/sign-in">Sign In</Link>
                       </Button>
-                      <Button className="w-full bg-[#1A2B47] text-white" asChild>
+                      <Button
+                        className="w-full bg-[#1A2B47] text-white"
+                        asChild
+                      >
                         <Link href="/sign-up">Sign Up</Link>
                       </Button>
                     </div>

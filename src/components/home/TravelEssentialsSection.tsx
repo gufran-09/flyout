@@ -3,7 +3,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {
-  Car, Plane, Hotel, ShieldCheck, Briefcase, ArrowRight,
+  Car,
+  Plane,
+  Hotel,
+  ShieldCheck,
+  Briefcase,
+  ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -67,7 +72,7 @@ const ServiceCard = ({ item }: { item: (typeof essentials)[0] }) => (
       <div
         className={cn(
           "w-12 h-12 rounded-lg bg-neutral-100 flex items-center justify-center transition-colors group-hover:bg-white",
-          item.color
+          item.color,
         )}
       >
         <item.icon className="w-6 h-6" />
@@ -82,8 +87,10 @@ const ServiceCard = ({ item }: { item: (typeof essentials)[0] }) => (
         </p>
       </div>
 
-      <div className="w-8 h-8 rounded-full border border-neutral-200 flex items-center justify-center
-        text-neutral-400 group-hover:text-flyout-gold group-hover:border-flyout-gold/30 transition-all">
+      <div
+        className="w-8 h-8 rounded-full border border-neutral-200 flex items-center justify-center
+        text-neutral-400 group-hover:text-flyout-gold group-hover:border-flyout-gold/30 transition-all"
+      >
         <ArrowRight className="w-4 h-4" />
       </div>
     </div>
@@ -109,7 +116,8 @@ export const TravelEssentialsSection = () => {
               Everything You Need for a Perfect Trip
             </h3>
             <p className="text-neutral-600 text-lg font-light">
-              We don't just sell activities. We handle the whole journey with our premium travel services.
+              We don't just sell activities. We handle the whole journey with
+              our premium travel services.
             </p>
           </motion.div>
         </div>
@@ -123,7 +131,9 @@ export const TravelEssentialsSection = () => {
               transition={{ duration: 0.4, delay: index * 0.1 }}
               viewport={{ once: true }}
               className={cn(
-                index === essentials.length - 1 ? "md:col-span-2 lg:col-span-1" : ""
+                index === essentials.length - 1
+                  ? "md:col-span-2 lg:col-span-1"
+                  : "",
               )}
             >
               <ServiceCard item={item} />
@@ -141,8 +151,12 @@ export const TravelEssentialsSection = () => {
               className="group flex flex-col justify-center items-center p-6 bg-flyout-gold/5
                 border border-flyout-gold/20 rounded-xl hover:bg-flyout-gold/10 transition-all text-center h-full"
             >
-              <h3 className="font-semibold text-flyout-gold mb-1">View All Services</h3>
-              <p className="text-sm text-flyout-gold/70">Explore our full range of travel solutions</p>
+              <h3 className="font-semibold text-flyout-gold mb-1">
+                View All Services
+              </h3>
+              <p className="text-sm text-flyout-gold/70">
+                Explore our full range of travel solutions
+              </p>
             </Link>
           </motion.div>
         </div>

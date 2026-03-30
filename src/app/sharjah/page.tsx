@@ -3,14 +3,14 @@ import { getProductsByDestination } from "@backend/api/products";
 import { productsToTours } from "@/lib/product-adapters";
 
 export default async function SharjahPage() {
-    const products = await getProductsByDestination("sharjah");
-    const tours = productsToTours(products);
+  const products = await getProductsByDestination("sharjah");
+  const tours = productsToTours(products);
 
-    return (
-        <CategoryLayout
-            title="Sharjah Experiences"
-            subtitle="Explore cultural heritage and family-friendly attractions in Sharjah"
-            tours={tours}
-        />
-    );
+  return (
+    <CategoryLayout
+      title="Sharjah Experiences"
+      subtitle="Explore cultural heritage and family-friendly attractions in Sharjah"
+      tours={tours}
+    />
+  );
 }

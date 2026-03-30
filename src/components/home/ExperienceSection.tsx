@@ -57,10 +57,10 @@ export function ExperienceSection({
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-2xl sm:text-4xl font-bold mb-2 tracking-tight text-neutral-900">{title}</h2>
-            {subtitle && (
-              <p className="text-neutral-500 text-lg">{subtitle}</p>
-            )}
+            <h2 className="text-2xl sm:text-4xl font-bold mb-2 tracking-tight text-neutral-900">
+              {title}
+            </h2>
+            {subtitle && <p className="text-neutral-500 text-lg">{subtitle}</p>}
           </motion.div>
 
           <motion.div
@@ -97,7 +97,10 @@ export function ExperienceSection({
           >
             <CarouselContent className="-ml-4 py-6">
               {tours.map((tour) => (
-                <CarouselItem key={tour.id} className="pl-4 sm:basis-1/2 lg:basis-1/3 xl:basis-1/4">
+                <CarouselItem
+                  key={tour.id}
+                  className="pl-4 sm:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+                >
                   <ProductCard
                     id={tour.id}
                     title={tour.name}

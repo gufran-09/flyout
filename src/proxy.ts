@@ -1,44 +1,44 @@
-import { createServerClient } from '@supabase/ssr'
-import { NextResponse, type NextRequest } from 'next/server'
+import { createServerClient } from "@supabase/ssr";
+import { NextResponse, type NextRequest } from "next/server";
 
-const PROTECTED_ROUTES = ['/dashboard', '/cart']
-const AUTH_ROUTES = ['/sign-in', '/sign-up']
+const PROTECTED_ROUTES = ["/dashboard", "/cart"];
+const AUTH_ROUTES = ["/sign-in", "/sign-up"];
 
 export async function proxy(request: NextRequest) {
-  let supabaseResponse = NextResponse.next({ request })
+  let supabaseResponse = NextResponse.next({ request });
 
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
-  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
   if (!supabaseUrl || !supabaseAnonKey) {
-    return supabaseResponse
+    return supabaseResponse;
   }
 
-  const supabase = createServerClient(
-    supabaseUrl,
-    supabaseAnonKey,
-    {
-      cookies: {
-        getAll() { return request.cookies.getAll() },
-        setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value, options }) => {
-            request.cookies.set(name, value)
-            supabaseResponse.cookies.set(name, value, options)
-          })
-        },
+  const supabase = createServerClient(supabaseUrl, supabaseAnonKey, {
+    cookies: {
+      getAll() {
+        return request.cookies.getAll();
       },
-    }
-  )
-  const { data: { user } } = await supabase.auth.getUser()
-  const path = request.nextUrl.pathname
-  if (PROTECTED_ROUTES.some(r => path.startsWith(r)) && !user) {
-    return NextResponse.redirect(new URL('/sign-in', request.url))
+      setAll(cookiesToSet) {
+        cookiesToSet.forEach(({ name, value, options }) => {
+          request.cookies.set(name, value);
+          supabaseResponse.cookies.set(name, value, options);
+        });
+      },
+    },
+  });
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  const path = request.nextUrl.pathname;
+  if (PROTECTED_ROUTES.some((r) => path.startsWith(r)) && !user) {
+    return NextResponse.redirect(new URL("/sign-in", request.url));
   }
-  if (AUTH_ROUTES.some(r => path.startsWith(r)) && user) {
-    return NextResponse.redirect(new URL('/dashboard', request.url))
+  if (AUTH_ROUTES.some((r) => path.startsWith(r)) && user) {
+    return NextResponse.redirect(new URL("/dashboard", request.url));
   }
-  return supabaseResponse
+  return supabaseResponse;
 }
 
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
-}
+  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
+};

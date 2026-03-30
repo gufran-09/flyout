@@ -1,52 +1,52 @@
 declare module "@salesforce/schema/Domain.Id" {
-  const Id:any;
+  const Id: any;
   export default Id;
 }
 declare module "@salesforce/schema/Domain.DomainType" {
-  const DomainType:string;
+  const DomainType: string;
   export default DomainType;
 }
 declare module "@salesforce/schema/Domain.Domain" {
-  const Domain:string;
+  const Domain: string;
   export default Domain;
 }
 declare module "@salesforce/schema/Domain.OptionsHstsPreload" {
-  const OptionsHstsPreload:boolean;
+  const OptionsHstsPreload: boolean;
   export default OptionsHstsPreload;
 }
 declare module "@salesforce/schema/Domain.CnameTarget" {
-  const CnameTarget:string;
+  const CnameTarget: string;
   export default CnameTarget;
 }
 declare module "@salesforce/schema/Domain.HttpsOption" {
-  const HttpsOption:string;
+  const HttpsOption: string;
   export default HttpsOption;
 }
 declare module "@salesforce/schema/Domain.CreatedDate" {
-  const CreatedDate:any;
+  const CreatedDate: any;
   export default CreatedDate;
 }
 declare module "@salesforce/schema/Domain.CreatedBy" {
-  const CreatedBy:any;
+  const CreatedBy: any;
   export default CreatedBy;
 }
 declare module "@salesforce/schema/Domain.CreatedById" {
-  const CreatedById:any;
+  const CreatedById: any;
   export default CreatedById;
 }
 declare module "@salesforce/schema/Domain.LastModifiedDate" {
-  const LastModifiedDate:any;
+  const LastModifiedDate: any;
   export default LastModifiedDate;
 }
 declare module "@salesforce/schema/Domain.LastModifiedBy" {
-  const LastModifiedBy:any;
+  const LastModifiedBy: any;
   export default LastModifiedBy;
 }
 declare module "@salesforce/schema/Domain.LastModifiedById" {
-  const LastModifiedById:any;
+  const LastModifiedById: any;
   export default LastModifiedById;
 }
 declare module "@salesforce/schema/Domain.SystemModstamp" {
-  const SystemModstamp:any;
+  const SystemModstamp: any;
   export default SystemModstamp;
 }

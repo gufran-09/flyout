@@ -29,9 +29,7 @@
       "name": "AccountId",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "Account"
-      ],
+      "referenceTo": ["Account"],
       "relationshipName": "Account",
       "sortable": true,
       "type": "reference"
@@ -48,9 +46,7 @@
       "name": "Pricebook2Id",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Pricebook2"
-      ],
+      "referenceTo": ["Pricebook2"],
       "relationshipName": "Pricebook2",
       "sortable": true,
       "type": "reference"
@@ -409,9 +405,7 @@
       "name": "OwnerId",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "Owner",
       "sortable": true,
       "type": "reference"
@@ -467,9 +461,7 @@
       "name": "CompanySignedId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "CompanySigned",
       "sortable": true,
       "type": "reference"
@@ -503,9 +495,7 @@
       "name": "CustomerSignedId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Contact"
-      ],
+      "referenceTo": ["Contact"],
       "relationshipName": "CustomerSigned",
       "sortable": true,
       "type": "reference"
@@ -573,9 +563,7 @@
       "name": "ActivatedById",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "ActivatedBy",
       "sortable": true,
       "type": "reference"
@@ -803,9 +791,7 @@
       "name": "CreatedById",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "CreatedBy",
       "sortable": true,
       "type": "reference"
@@ -839,9 +825,7 @@
       "name": "LastModifiedById",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "LastModifiedBy",
       "sortable": true,
       "type": "reference"

@@ -29,10 +29,7 @@
       "name": "WhoId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Contact",
-        "Lead"
-      ],
+      "referenceTo": ["Contact", "Lead"],
       "relationshipName": "Who",
       "sortable": true,
       "type": "reference"
@@ -320,10 +317,7 @@
       "name": "OwnerId",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "Group",
-        "User"
-      ],
+      "referenceTo": ["Group", "User"],
       "relationshipName": "Owner",
       "sortable": true,
       "type": "reference"
@@ -374,9 +368,7 @@
       "name": "AccountId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Account"
-      ],
+      "referenceTo": ["Account"],
       "relationshipName": "Account",
       "sortable": true,
       "type": "reference"
@@ -427,9 +419,7 @@
       "name": "CreatedById",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "CreatedBy",
       "sortable": true,
       "type": "reference"
@@ -463,9 +453,7 @@
       "name": "LastModifiedById",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "LastModifiedBy",
       "sortable": true,
       "type": "reference"
@@ -640,9 +628,7 @@
       "name": "RecurrenceActivityId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Task"
-      ],
+      "referenceTo": ["Task"],
       "relationshipName": null,
       "sortable": true,
       "type": "reference"

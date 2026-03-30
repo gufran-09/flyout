@@ -1,752 +1,752 @@
 declare module "@salesforce/schema/User.Id" {
-  const Id:any;
+  const Id: any;
   export default Id;
 }
 declare module "@salesforce/schema/User.Username" {
-  const Username:string;
+  const Username: string;
   export default Username;
 }
 declare module "@salesforce/schema/User.LastName" {
-  const LastName:string;
+  const LastName: string;
   export default LastName;
 }
 declare module "@salesforce/schema/User.FirstName" {
-  const FirstName:string;
+  const FirstName: string;
   export default FirstName;
 }
 declare module "@salesforce/schema/User.Name" {
-  const Name:string;
+  const Name: string;
   export default Name;
 }
 declare module "@salesforce/schema/User.CompanyName" {
-  const CompanyName:string;
+  const CompanyName: string;
   export default CompanyName;
 }
 declare module "@salesforce/schema/User.Division" {
-  const Division:string;
+  const Division: string;
   export default Division;
 }
 declare module "@salesforce/schema/User.Department" {
-  const Department:string;
+  const Department: string;
   export default Department;
 }
 declare module "@salesforce/schema/User.Title" {
-  const Title:string;
+  const Title: string;
   export default Title;
 }
 declare module "@salesforce/schema/User.Street" {
-  const Street:string;
+  const Street: string;
   export default Street;
 }
 declare module "@salesforce/schema/User.City" {
-  const City:string;
+  const City: string;
   export default City;
 }
 declare module "@salesforce/schema/User.State" {
-  const State:string;
+  const State: string;
   export default State;
 }
 declare module "@salesforce/schema/User.PostalCode" {
-  const PostalCode:string;
+  const PostalCode: string;
   export default PostalCode;
 }
 declare module "@salesforce/schema/User.Country" {
-  const Country:string;
+  const Country: string;
   export default Country;
 }
 declare module "@salesforce/schema/User.Latitude" {
-  const Latitude:number;
+  const Latitude: number;
   export default Latitude;
 }
 declare module "@salesforce/schema/User.Longitude" {
-  const Longitude:number;
+  const Longitude: number;
   export default Longitude;
 }
 declare module "@salesforce/schema/User.GeocodeAccuracy" {
-  const GeocodeAccuracy:string;
+  const GeocodeAccuracy: string;
   export default GeocodeAccuracy;
 }
 declare module "@salesforce/schema/User.Address" {
-  const Address:any;
+  const Address: any;
   export default Address;
 }
 declare module "@salesforce/schema/User.Email" {
-  const Email:string;
+  const Email: string;
   export default Email;
 }
 declare module "@salesforce/schema/User.EmailPreferencesAutoBcc" {
-  const EmailPreferencesAutoBcc:boolean;
+  const EmailPreferencesAutoBcc: boolean;
   export default EmailPreferencesAutoBcc;
 }
 declare module "@salesforce/schema/User.EmailPreferencesAutoBccStayInTouch" {
-  const EmailPreferencesAutoBccStayInTouch:boolean;
+  const EmailPreferencesAutoBccStayInTouch: boolean;
   export default EmailPreferencesAutoBccStayInTouch;
 }
 declare module "@salesforce/schema/User.EmailPreferencesStayInTouchReminder" {
-  const EmailPreferencesStayInTouchReminder:boolean;
+  const EmailPreferencesStayInTouchReminder: boolean;
   export default EmailPreferencesStayInTouchReminder;
 }
 declare module "@salesforce/schema/User.SenderEmail" {
-  const SenderEmail:string;
+  const SenderEmail: string;
   export default SenderEmail;
 }
 declare module "@salesforce/schema/User.SenderName" {
-  const SenderName:string;
+  const SenderName: string;
   export default SenderName;
 }
 declare module "@salesforce/schema/User.Signature" {
-  const Signature:string;
+  const Signature: string;
   export default Signature;
 }
 declare module "@salesforce/schema/User.StayInTouchSubject" {
-  const StayInTouchSubject:string;
+  const StayInTouchSubject: string;
   export default StayInTouchSubject;
 }
 declare module "@salesforce/schema/User.StayInTouchSignature" {
-  const StayInTouchSignature:string;
+  const StayInTouchSignature: string;
   export default StayInTouchSignature;
 }
 declare module "@salesforce/schema/User.StayInTouchNote" {
-  const StayInTouchNote:string;
+  const StayInTouchNote: string;
   export default StayInTouchNote;
 }
 declare module "@salesforce/schema/User.Phone" {
-  const Phone:string;
+  const Phone: string;
   export default Phone;
 }
 declare module "@salesforce/schema/User.Fax" {
-  const Fax:string;
+  const Fax: string;
   export default Fax;
 }
 declare module "@salesforce/schema/User.MobilePhone" {
-  const MobilePhone:string;
+  const MobilePhone: string;
   export default MobilePhone;
 }
 declare module "@salesforce/schema/User.Alias" {
-  const Alias:string;
+  const Alias: string;
   export default Alias;
 }
 declare module "@salesforce/schema/User.CommunityNickname" {
-  const CommunityNickname:string;
+  const CommunityNickname: string;
   export default CommunityNickname;
 }
 declare module "@salesforce/schema/User.BadgeText" {
-  const BadgeText:string;
+  const BadgeText: string;
   export default BadgeText;
 }
 declare module "@salesforce/schema/User.IsActive" {
-  const IsActive:boolean;
+  const IsActive: boolean;
   export default IsActive;
 }
 declare module "@salesforce/schema/User.TimeZoneSidKey" {
-  const TimeZoneSidKey:string;
+  const TimeZoneSidKey: string;
   export default TimeZoneSidKey;
 }
 declare module "@salesforce/schema/User.UserRole" {
-  const UserRole:any;
+  const UserRole: any;
   export default UserRole;
 }
 declare module "@salesforce/schema/User.UserRoleId" {
-  const UserRoleId:any;
+  const UserRoleId: any;
   export default UserRoleId;
 }
 declare module "@salesforce/schema/User.LocaleSidKey" {
-  const LocaleSidKey:string;
+  const LocaleSidKey: string;
   export default LocaleSidKey;
 }
 declare module "@salesforce/schema/User.ReceivesInfoEmails" {
-  const ReceivesInfoEmails:boolean;
+  const ReceivesInfoEmails: boolean;
   export default ReceivesInfoEmails;
 }
 declare module "@salesforce/schema/User.ReceivesAdminInfoEmails" {
-  const ReceivesAdminInfoEmails:boolean;
+  const ReceivesAdminInfoEmails: boolean;
   export default ReceivesAdminInfoEmails;
 }
 declare module "@salesforce/schema/User.EmailEncodingKey" {
-  const EmailEncodingKey:string;
+  const EmailEncodingKey: string;
   export default EmailEncodingKey;
 }
 declare module "@salesforce/schema/User.Profile" {
-  const Profile:any;
+  const Profile: any;
   export default Profile;
 }
 declare module "@salesforce/schema/User.ProfileId" {
-  const ProfileId:any;
+  const ProfileId: any;
   export default ProfileId;
 }
 declare module "@salesforce/schema/User.UserType" {
-  const UserType:string;
+  const UserType: string;
   export default UserType;
 }
 declare module "@salesforce/schema/User.LanguageLocaleKey" {
-  const LanguageLocaleKey:string;
+  const LanguageLocaleKey: string;
   export default LanguageLocaleKey;
 }
 declare module "@salesforce/schema/User.EmployeeNumber" {
-  const EmployeeNumber:string;
+  const EmployeeNumber: string;
   export default EmployeeNumber;
 }
 declare module "@salesforce/schema/User.DelegatedApprover" {
-  const DelegatedApprover:any;
+  const DelegatedApprover: any;
   export default DelegatedApprover;
 }
 declare module "@salesforce/schema/User.DelegatedApproverId" {
-  const DelegatedApproverId:any;
+  const DelegatedApproverId: any;
   export default DelegatedApproverId;
 }
 declare module "@salesforce/schema/User.Manager" {
-  const Manager:any;
+  const Manager: any;
   export default Manager;
 }
 declare module "@salesforce/schema/User.ManagerId" {
-  const ManagerId:any;
+  const ManagerId: any;
   export default ManagerId;
 }
 declare module "@salesforce/schema/User.LastLoginDate" {
-  const LastLoginDate:any;
+  const LastLoginDate: any;
   export default LastLoginDate;
 }
 declare module "@salesforce/schema/User.LastPasswordChangeDate" {
-  const LastPasswordChangeDate:any;
+  const LastPasswordChangeDate: any;
   export default LastPasswordChangeDate;
 }
 declare module "@salesforce/schema/User.CreatedDate" {
-  const CreatedDate:any;
+  const CreatedDate: any;
   export default CreatedDate;
 }
 declare module "@salesforce/schema/User.CreatedBy" {
-  const CreatedBy:any;
+  const CreatedBy: any;
   export default CreatedBy;
 }
 declare module "@salesforce/schema/User.CreatedById" {
-  const CreatedById:any;
+  const CreatedById: any;
   export default CreatedById;
 }
 declare module "@salesforce/schema/User.LastModifiedDate" {
-  const LastModifiedDate:any;
+  const LastModifiedDate: any;
   export default LastModifiedDate;
 }
 declare module "@salesforce/schema/User.LastModifiedBy" {
-  const LastModifiedBy:any;
+  const LastModifiedBy: any;
   export default LastModifiedBy;
 }
 declare module "@salesforce/schema/User.LastModifiedById" {
-  const LastModifiedById:any;
+  const LastModifiedById: any;
   export default LastModifiedById;
 }
 declare module "@salesforce/schema/User.SystemModstamp" {
-  const SystemModstamp:any;
+  const SystemModstamp: any;
   export default SystemModstamp;
 }
 declare module "@salesforce/schema/User.NumberOfFailedLogins" {
-  const NumberOfFailedLogins:number;
+  const NumberOfFailedLogins: number;
   export default NumberOfFailedLogins;
 }
 declare module "@salesforce/schema/User.OfflineTrialExpirationDate" {
-  const OfflineTrialExpirationDate:any;
+  const OfflineTrialExpirationDate: any;
   export default OfflineTrialExpirationDate;
 }
 declare module "@salesforce/schema/User.OfflinePdaTrialExpirationDate" {
-  const OfflinePdaTrialExpirationDate:any;
+  const OfflinePdaTrialExpirationDate: any;
   export default OfflinePdaTrialExpirationDate;
 }
 declare module "@salesforce/schema/User.UserPermissionsMarketingUser" {
-  const UserPermissionsMarketingUser:boolean;
+  const UserPermissionsMarketingUser: boolean;
   export default UserPermissionsMarketingUser;
 }
 declare module "@salesforce/schema/User.UserPermissionsOfflineUser" {
-  const UserPermissionsOfflineUser:boolean;
+  const UserPermissionsOfflineUser: boolean;
   export default UserPermissionsOfflineUser;
 }
 declare module "@salesforce/schema/User.UserPermissionsCallCenterAutoLogin" {
-  const UserPermissionsCallCenterAutoLogin:boolean;
+  const UserPermissionsCallCenterAutoLogin: boolean;
   export default UserPermissionsCallCenterAutoLogin;
 }
 declare module "@salesforce/schema/User.UserPermissionsSFContentUser" {
-  const UserPermissionsSFContentUser:boolean;
+  const UserPermissionsSFContentUser: boolean;
   export default UserPermissionsSFContentUser;
 }
 declare module "@salesforce/schema/User.UserPermissionsKnowledgeUser" {
-  const UserPermissionsKnowledgeUser:boolean;
+  const UserPermissionsKnowledgeUser: boolean;
   export default UserPermissionsKnowledgeUser;
 }
 declare module "@salesforce/schema/User.UserPermissionsInteractionUser" {
-  const UserPermissionsInteractionUser:boolean;
+  const UserPermissionsInteractionUser: boolean;
   export default UserPermissionsInteractionUser;
 }
 declare module "@salesforce/schema/User.UserPermissionsSupportUser" {
-  const UserPermissionsSupportUser:boolean;
+  const UserPermissionsSupportUser: boolean;
   export default UserPermissionsSupportUser;
 }
 declare module "@salesforce/schema/User.UserPermissionsJigsawProspectingUser" {
-  const UserPermissionsJigsawProspectingUser:boolean;
+  const UserPermissionsJigsawProspectingUser: boolean;
   export default UserPermissionsJigsawProspectingUser;
 }
 declare module "@salesforce/schema/User.UserPermissionsSiteforceContributorUser" {
-  const UserPermissionsSiteforceContributorUser:boolean;
+  const UserPermissionsSiteforceContributorUser: boolean;
   export default UserPermissionsSiteforceContributorUser;
 }
 declare module "@salesforce/schema/User.UserPermissionsSiteforcePublisherUser" {
-  const UserPermissionsSiteforcePublisherUser:boolean;
+  const UserPermissionsSiteforcePublisherUser: boolean;
   export default UserPermissionsSiteforcePublisherUser;
 }
 declare module "@salesforce/schema/User.UserPermissionsWorkDotComUserFeature" {
-  const UserPermissionsWorkDotComUserFeature:boolean;
+  const UserPermissionsWorkDotComUserFeature: boolean;
   export default UserPermissionsWorkDotComUserFeature;
 }
 declare module "@salesforce/schema/User.ForecastEnabled" {
-  const ForecastEnabled:boolean;
+  const ForecastEnabled: boolean;
   export default ForecastEnabled;
 }
 declare module "@salesforce/schema/User.UserPreferencesActivityRemindersPopup" {
-  const UserPreferencesActivityRemindersPopup:boolean;
+  const UserPreferencesActivityRemindersPopup: boolean;
   export default UserPreferencesActivityRemindersPopup;
 }
 declare module "@salesforce/schema/User.UserPreferencesEventRemindersCheckboxDefault" {
-  const UserPreferencesEventRemindersCheckboxDefault:boolean;
+  const UserPreferencesEventRemindersCheckboxDefault: boolean;
   export default UserPreferencesEventRemindersCheckboxDefault;
 }
 declare module "@salesforce/schema/User.UserPreferencesTaskRemindersCheckboxDefault" {
-  const UserPreferencesTaskRemindersCheckboxDefault:boolean;
+  const UserPreferencesTaskRemindersCheckboxDefault: boolean;
   export default UserPreferencesTaskRemindersCheckboxDefault;
 }
 declare module "@salesforce/schema/User.UserPreferencesReminderSoundOff" {
-  const UserPreferencesReminderSoundOff:boolean;
+  const UserPreferencesReminderSoundOff: boolean;
   export default UserPreferencesReminderSoundOff;
 }
 declare module "@salesforce/schema/User.UserPreferencesDisableAllFeedsEmail" {
-  const UserPreferencesDisableAllFeedsEmail:boolean;
+  const UserPreferencesDisableAllFeedsEmail: boolean;
   export default UserPreferencesDisableAllFeedsEmail;
 }
 declare module "@salesforce/schema/User.UserPreferencesDisableFollowersEmail" {
-  const UserPreferencesDisableFollowersEmail:boolean;
+  const UserPreferencesDisableFollowersEmail: boolean;
   export default UserPreferencesDisableFollowersEmail;
 }
 declare module "@salesforce/schema/User.UserPreferencesDisableProfilePostEmail" {
-  const UserPreferencesDisableProfilePostEmail:boolean;
+  const UserPreferencesDisableProfilePostEmail: boolean;
   export default UserPreferencesDisableProfilePostEmail;
 }
 declare module "@salesforce/schema/User.UserPreferencesDisableChangeCommentEmail" {
-  const UserPreferencesDisableChangeCommentEmail:boolean;
+  const UserPreferencesDisableChangeCommentEmail: boolean;
   export default UserPreferencesDisableChangeCommentEmail;
 }
 declare module "@salesforce/schema/User.UserPreferencesDisableLaterCommentEmail" {
-  const UserPreferencesDisableLaterCommentEmail:boolean;
+  const UserPreferencesDisableLaterCommentEmail: boolean;
   export default UserPreferencesDisableLaterCommentEmail;
 }
 declare module "@salesforce/schema/User.UserPreferencesDisProfPostCommentEmail" {
-  const UserPreferencesDisProfPostCommentEmail:boolean;
+  const UserPreferencesDisProfPostCommentEmail: boolean;
   export default UserPreferencesDisProfPostCommentEmail;
 }
 declare module "@salesforce/schema/User.UserPreferencesContentNoEmail" {
-  const UserPreferencesContentNoEmail:boolean;
+  const UserPreferencesContentNoEmail: boolean;
   export default UserPreferencesContentNoEmail;
 }
 declare module "@salesforce/schema/User.UserPreferencesContentEmailAsAndWhen" {
-  const UserPreferencesContentEmailAsAndWhen:boolean;
+  const UserPreferencesContentEmailAsAndWhen: boolean;
   export default UserPreferencesContentEmailAsAndWhen;
 }
 declare module "@salesforce/schema/User.UserPreferencesApexPagesDeveloperMode" {
-  const UserPreferencesApexPagesDeveloperMode:boolean;
+  const UserPreferencesApexPagesDeveloperMode: boolean;
   export default UserPreferencesApexPagesDeveloperMode;
 }
 declare module "@salesforce/schema/User.UserPreferencesReceiveNoNotificationsAsApprover" {
-  const UserPreferencesReceiveNoNotificationsAsApprover:boolean;
+  const UserPreferencesReceiveNoNotificationsAsApprover: boolean;
   export default UserPreferencesReceiveNoNotificationsAsApprover;
 }
 declare module "@salesforce/schema/User.UserPreferencesReceiveNotificationsAsDelegatedApprover" {
-  const UserPreferencesReceiveNotificationsAsDelegatedApprover:boolean;
+  const UserPreferencesReceiveNotificationsAsDelegatedApprover: boolean;
   export default UserPreferencesReceiveNotificationsAsDelegatedApprover;
 }
 declare module "@salesforce/schema/User.UserPreferencesHideCSNGetChatterMobileTask" {
-  const UserPreferencesHideCSNGetChatterMobileTask:boolean;
+  const UserPreferencesHideCSNGetChatterMobileTask: boolean;
   export default UserPreferencesHideCSNGetChatterMobileTask;
 }
 declare module "@salesforce/schema/User.UserPreferencesDisableMentionsPostEmail" {
-  const UserPreferencesDisableMentionsPostEmail:boolean;
+  const UserPreferencesDisableMentionsPostEmail: boolean;
   export default UserPreferencesDisableMentionsPostEmail;
 }
 declare module "@salesforce/schema/User.UserPreferencesDisMentionsCommentEmail" {
-  const UserPreferencesDisMentionsCommentEmail:boolean;
+  const UserPreferencesDisMentionsCommentEmail: boolean;
   export default UserPreferencesDisMentionsCommentEmail;
 }
 declare module "@salesforce/schema/User.UserPreferencesHideCSNDesktopTask" {
-  const UserPreferencesHideCSNDesktopTask:boolean;
+  const UserPreferencesHideCSNDesktopTask: boolean;
   export default UserPreferencesHideCSNDesktopTask;
 }
 declare module "@salesforce/schema/User.UserPreferencesHideChatterOnboardingSplash" {
-  const UserPreferencesHideChatterOnboardingSplash:boolean;
+  const UserPreferencesHideChatterOnboardingSplash: boolean;
   export default UserPreferencesHideChatterOnboardingSplash;
 }
 declare module "@salesforce/schema/User.UserPreferencesHideSecondChatterOnboardingSplash" {
-  const UserPreferencesHideSecondChatterOnboardingSplash:boolean;
+  const UserPreferencesHideSecondChatterOnboardingSplash: boolean;
   export default UserPreferencesHideSecondChatterOnboardingSplash;
 }
 declare module "@salesforce/schema/User.UserPreferencesDisCommentAfterLikeEmail" {
-  const UserPreferencesDisCommentAfterLikeEmail:boolean;
+  const UserPreferencesDisCommentAfterLikeEmail: boolean;
   export default UserPreferencesDisCommentAfterLikeEmail;
 }
 declare module "@salesforce/schema/User.UserPreferencesDisableLikeEmail" {
-  const UserPreferencesDisableLikeEmail:boolean;
+  const UserPreferencesDisableLikeEmail: boolean;
   export default UserPreferencesDisableLikeEmail;
 }
 declare module "@salesforce/schema/User.UserPreferencesSortFeedByComment" {
-  const UserPreferencesSortFeedByComment:boolean;
+  const UserPreferencesSortFeedByComment: boolean;
   export default UserPreferencesSortFeedByComment;
 }
 declare module "@salesforce/schema/User.UserPreferencesDisableMessageEmail" {
-  const UserPreferencesDisableMessageEmail:boolean;
+  const UserPreferencesDisableMessageEmail: boolean;
   export default UserPreferencesDisableMessageEmail;
 }
 declare module "@salesforce/schema/User.UserPreferencesJigsawListUser" {
-  const UserPreferencesJigsawListUser:boolean;
+  const UserPreferencesJigsawListUser: boolean;
   export default UserPreferencesJigsawListUser;
 }
 declare module "@salesforce/schema/User.UserPreferencesDisableBookmarkEmail" {
-  const UserPreferencesDisableBookmarkEmail:boolean;
+  const UserPreferencesDisableBookmarkEmail: boolean;
   export default UserPreferencesDisableBookmarkEmail;
 }
 declare module "@salesforce/schema/User.UserPreferencesDisableSharePostEmail" {
-  const UserPreferencesDisableSharePostEmail:boolean;
+  const UserPreferencesDisableSharePostEmail: boolean;
   export default UserPreferencesDisableSharePostEmail;
 }
 declare module "@salesforce/schema/User.UserPreferencesEnableAutoSubForFeeds" {
-  const UserPreferencesEnableAutoSubForFeeds:boolean;
+  const UserPreferencesEnableAutoSubForFeeds: boolean;
   export default UserPreferencesEnableAutoSubForFeeds;
 }
 declare module "@salesforce/schema/User.UserPreferencesDisableFileShareNotificationsForApi" {
-  const UserPreferencesDisableFileShareNotificationsForApi:boolean;
+  const UserPreferencesDisableFileShareNotificationsForApi: boolean;
   export default UserPreferencesDisableFileShareNotificationsForApi;
 }
 declare module "@salesforce/schema/User.UserPreferencesShowTitleToExternalUsers" {
-  const UserPreferencesShowTitleToExternalUsers:boolean;
+  const UserPreferencesShowTitleToExternalUsers: boolean;
   export default UserPreferencesShowTitleToExternalUsers;
 }
 declare module "@salesforce/schema/User.UserPreferencesShowManagerToExternalUsers" {
-  const UserPreferencesShowManagerToExternalUsers:boolean;
+  const UserPreferencesShowManagerToExternalUsers: boolean;
   export default UserPreferencesShowManagerToExternalUsers;
 }
 declare module "@salesforce/schema/User.UserPreferencesShowEmailToExternalUsers" {
-  const UserPreferencesShowEmailToExternalUsers:boolean;
+  const UserPreferencesShowEmailToExternalUsers: boolean;
   export default UserPreferencesShowEmailToExternalUsers;
 }
 declare module "@salesforce/schema/User.UserPreferencesShowWorkPhoneToExternalUsers" {
-  const UserPreferencesShowWorkPhoneToExternalUsers:boolean;
+  const UserPreferencesShowWorkPhoneToExternalUsers: boolean;
   export default UserPreferencesShowWorkPhoneToExternalUsers;
 }
 declare module "@salesforce/schema/User.UserPreferencesShowMobilePhoneToExternalUsers" {
-  const UserPreferencesShowMobilePhoneToExternalUsers:boolean;
+  const UserPreferencesShowMobilePhoneToExternalUsers: boolean;
   export default UserPreferencesShowMobilePhoneToExternalUsers;
 }
 declare module "@salesforce/schema/User.UserPreferencesShowFaxToExternalUsers" {
-  const UserPreferencesShowFaxToExternalUsers:boolean;
+  const UserPreferencesShowFaxToExternalUsers: boolean;
   export default UserPreferencesShowFaxToExternalUsers;
 }
 declare module "@salesforce/schema/User.UserPreferencesShowStreetAddressToExternalUsers" {
-  const UserPreferencesShowStreetAddressToExternalUsers:boolean;
+  const UserPreferencesShowStreetAddressToExternalUsers: boolean;
   export default UserPreferencesShowStreetAddressToExternalUsers;
 }
 declare module "@salesforce/schema/User.UserPreferencesShowCityToExternalUsers" {
-  const UserPreferencesShowCityToExternalUsers:boolean;
+  const UserPreferencesShowCityToExternalUsers: boolean;
   export default UserPreferencesShowCityToExternalUsers;
 }
 declare module "@salesforce/schema/User.UserPreferencesShowStateToExternalUsers" {
-  const UserPreferencesShowStateToExternalUsers:boolean;
+  const UserPreferencesShowStateToExternalUsers: boolean;
   export default UserPreferencesShowStateToExternalUsers;
 }
 declare module "@salesforce/schema/User.UserPreferencesShowPostalCodeToExternalUsers" {
-  const UserPreferencesShowPostalCodeToExternalUsers:boolean;
+  const UserPreferencesShowPostalCodeToExternalUsers: boolean;
   export default UserPreferencesShowPostalCodeToExternalUsers;
 }
 declare module "@salesforce/schema/User.UserPreferencesShowCountryToExternalUsers" {
-  const UserPreferencesShowCountryToExternalUsers:boolean;
+  const UserPreferencesShowCountryToExternalUsers: boolean;
   export default UserPreferencesShowCountryToExternalUsers;
 }
 declare module "@salesforce/schema/User.UserPreferencesShowProfilePicToGuestUsers" {
-  const UserPreferencesShowProfilePicToGuestUsers:boolean;
+  const UserPreferencesShowProfilePicToGuestUsers: boolean;
   export default UserPreferencesShowProfilePicToGuestUsers;
 }
 declare module "@salesforce/schema/User.UserPreferencesShowTitleToGuestUsers" {
-  const UserPreferencesShowTitleToGuestUsers:boolean;
+  const UserPreferencesShowTitleToGuestUsers: boolean;
   export default UserPreferencesShowTitleToGuestUsers;
 }
 declare module "@salesforce/schema/User.UserPreferencesShowCityToGuestUsers" {
-  const UserPreferencesShowCityToGuestUsers:boolean;
+  const UserPreferencesShowCityToGuestUsers: boolean;
   export default UserPreferencesShowCityToGuestUsers;
 }
 declare module "@salesforce/schema/User.UserPreferencesShowStateToGuestUsers" {
-  const UserPreferencesShowStateToGuestUsers:boolean;
+  const UserPreferencesShowStateToGuestUsers: boolean;
   export default UserPreferencesShowStateToGuestUsers;
 }
 declare module "@salesforce/schema/User.UserPreferencesShowPostalCodeToGuestUsers" {
-  const UserPreferencesShowPostalCodeToGuestUsers:boolean;
+  const UserPreferencesShowPostalCodeToGuestUsers: boolean;
   export default UserPreferencesShowPostalCodeToGuestUsers;
 }
 declare module "@salesforce/schema/User.UserPreferencesShowCountryToGuestUsers" {
-  const UserPreferencesShowCountryToGuestUsers:boolean;
+  const UserPreferencesShowCountryToGuestUsers: boolean;
   export default UserPreferencesShowCountryToGuestUsers;
 }
 declare module "@salesforce/schema/User.UserPreferencesDisableFeedbackEmail" {
-  const UserPreferencesDisableFeedbackEmail:boolean;
+  const UserPreferencesDisableFeedbackEmail: boolean;
   export default UserPreferencesDisableFeedbackEmail;
 }
 declare module "@salesforce/schema/User.UserPreferencesDisableWorkEmail" {
-  const UserPreferencesDisableWorkEmail:boolean;
+  const UserPreferencesDisableWorkEmail: boolean;
   export default UserPreferencesDisableWorkEmail;
 }
 declare module "@salesforce/schema/User.UserPreferencesShowForecastingChangeSignals" {
-  const UserPreferencesShowForecastingChangeSignals:boolean;
+  const UserPreferencesShowForecastingChangeSignals: boolean;
   export default UserPreferencesShowForecastingChangeSignals;
 }
 declare module "@salesforce/schema/User.UserPreferencesHideS1BrowserUI" {
-  const UserPreferencesHideS1BrowserUI:boolean;
+  const UserPreferencesHideS1BrowserUI: boolean;
   export default UserPreferencesHideS1BrowserUI;
 }
 declare module "@salesforce/schema/User.UserPreferencesDisableEndorsementEmail" {
-  const UserPreferencesDisableEndorsementEmail:boolean;
+  const UserPreferencesDisableEndorsementEmail: boolean;
   export default UserPreferencesDisableEndorsementEmail;
 }
 declare module "@salesforce/schema/User.UserPreferencesPathAssistantCollapsed" {
-  const UserPreferencesPathAssistantCollapsed:boolean;
+  const UserPreferencesPathAssistantCollapsed: boolean;
   export default UserPreferencesPathAssistantCollapsed;
 }
 declare module "@salesforce/schema/User.UserPreferencesCacheDiagnostics" {
-  const UserPreferencesCacheDiagnostics:boolean;
+  const UserPreferencesCacheDiagnostics: boolean;
   export default UserPreferencesCacheDiagnostics;
 }
 declare module "@salesforce/schema/User.UserPreferencesShowEmailToGuestUsers" {
-  const UserPreferencesShowEmailToGuestUsers:boolean;
+  const UserPreferencesShowEmailToGuestUsers: boolean;
   export default UserPreferencesShowEmailToGuestUsers;
 }
 declare module "@salesforce/schema/User.UserPreferencesShowManagerToGuestUsers" {
-  const UserPreferencesShowManagerToGuestUsers:boolean;
+  const UserPreferencesShowManagerToGuestUsers: boolean;
   export default UserPreferencesShowManagerToGuestUsers;
 }
 declare module "@salesforce/schema/User.UserPreferencesShowWorkPhoneToGuestUsers" {
-  const UserPreferencesShowWorkPhoneToGuestUsers:boolean;
+  const UserPreferencesShowWorkPhoneToGuestUsers: boolean;
   export default UserPreferencesShowWorkPhoneToGuestUsers;
 }
 declare module "@salesforce/schema/User.UserPreferencesShowMobilePhoneToGuestUsers" {
-  const UserPreferencesShowMobilePhoneToGuestUsers:boolean;
+  const UserPreferencesShowMobilePhoneToGuestUsers: boolean;
   export default UserPreferencesShowMobilePhoneToGuestUsers;
 }
 declare module "@salesforce/schema/User.UserPreferencesShowFaxToGuestUsers" {
-  const UserPreferencesShowFaxToGuestUsers:boolean;
+  const UserPreferencesShowFaxToGuestUsers: boolean;
   export default UserPreferencesShowFaxToGuestUsers;
 }
 declare module "@salesforce/schema/User.UserPreferencesShowStreetAddressToGuestUsers" {
-  const UserPreferencesShowStreetAddressToGuestUsers:boolean;
+  const UserPreferencesShowStreetAddressToGuestUsers: boolean;
   export default UserPreferencesShowStreetAddressToGuestUsers;
 }
 declare module "@salesforce/schema/User.UserPreferencesLightningExperiencePreferred" {
-  const UserPreferencesLightningExperiencePreferred:boolean;
+  const UserPreferencesLightningExperiencePreferred: boolean;
   export default UserPreferencesLightningExperiencePreferred;
 }
 declare module "@salesforce/schema/User.UserPreferencesPreviewLightning" {
-  const UserPreferencesPreviewLightning:boolean;
+  const UserPreferencesPreviewLightning: boolean;
   export default UserPreferencesPreviewLightning;
 }
 declare module "@salesforce/schema/User.UserPreferencesHideEndUserOnboardingAssistantModal" {
-  const UserPreferencesHideEndUserOnboardingAssistantModal:boolean;
+  const UserPreferencesHideEndUserOnboardingAssistantModal: boolean;
   export default UserPreferencesHideEndUserOnboardingAssistantModal;
 }
 declare module "@salesforce/schema/User.UserPreferencesHideLightningMigrationModal" {
-  const UserPreferencesHideLightningMigrationModal:boolean;
+  const UserPreferencesHideLightningMigrationModal: boolean;
   export default UserPreferencesHideLightningMigrationModal;
 }
 declare module "@salesforce/schema/User.UserPreferencesHideSfxWelcomeMat" {
-  const UserPreferencesHideSfxWelcomeMat:boolean;
+  const UserPreferencesHideSfxWelcomeMat: boolean;
   export default UserPreferencesHideSfxWelcomeMat;
 }
 declare module "@salesforce/schema/User.UserPreferencesHideBiggerPhotoCallout" {
-  const UserPreferencesHideBiggerPhotoCallout:boolean;
+  const UserPreferencesHideBiggerPhotoCallout: boolean;
   export default UserPreferencesHideBiggerPhotoCallout;
 }
 declare module "@salesforce/schema/User.UserPreferencesGlobalNavBarWTShown" {
-  const UserPreferencesGlobalNavBarWTShown:boolean;
+  const UserPreferencesGlobalNavBarWTShown: boolean;
   export default UserPreferencesGlobalNavBarWTShown;
 }
 declare module "@salesforce/schema/User.UserPreferencesGlobalNavGridMenuWTShown" {
-  const UserPreferencesGlobalNavGridMenuWTShown:boolean;
+  const UserPreferencesGlobalNavGridMenuWTShown: boolean;
   export default UserPreferencesGlobalNavGridMenuWTShown;
 }
 declare module "@salesforce/schema/User.UserPreferencesCreateLEXAppsWTShown" {
-  const UserPreferencesCreateLEXAppsWTShown:boolean;
+  const UserPreferencesCreateLEXAppsWTShown: boolean;
   export default UserPreferencesCreateLEXAppsWTShown;
 }
 declare module "@salesforce/schema/User.UserPreferencesFavoritesWTShown" {
-  const UserPreferencesFavoritesWTShown:boolean;
+  const UserPreferencesFavoritesWTShown: boolean;
   export default UserPreferencesFavoritesWTShown;
 }
 declare module "@salesforce/schema/User.UserPreferencesRecordHomeSectionCollapseWTShown" {
-  const UserPreferencesRecordHomeSectionCollapseWTShown:boolean;
+  const UserPreferencesRecordHomeSectionCollapseWTShown: boolean;
   export default UserPreferencesRecordHomeSectionCollapseWTShown;
 }
 declare module "@salesforce/schema/User.UserPreferencesRecordHomeReservedWTShown" {
-  const UserPreferencesRecordHomeReservedWTShown:boolean;
+  const UserPreferencesRecordHomeReservedWTShown: boolean;
   export default UserPreferencesRecordHomeReservedWTShown;
 }
 declare module "@salesforce/schema/User.UserPreferencesFavoritesShowTopFavorites" {
-  const UserPreferencesFavoritesShowTopFavorites:boolean;
+  const UserPreferencesFavoritesShowTopFavorites: boolean;
   export default UserPreferencesFavoritesShowTopFavorites;
 }
 declare module "@salesforce/schema/User.UserPreferencesExcludeMailAppAttachments" {
-  const UserPreferencesExcludeMailAppAttachments:boolean;
+  const UserPreferencesExcludeMailAppAttachments: boolean;
   export default UserPreferencesExcludeMailAppAttachments;
 }
 declare module "@salesforce/schema/User.UserPreferencesSuppressTaskSFXReminders" {
-  const UserPreferencesSuppressTaskSFXReminders:boolean;
+  const UserPreferencesSuppressTaskSFXReminders: boolean;
   export default UserPreferencesSuppressTaskSFXReminders;
 }
 declare module "@salesforce/schema/User.UserPreferencesSuppressEventSFXReminders" {
-  const UserPreferencesSuppressEventSFXReminders:boolean;
+  const UserPreferencesSuppressEventSFXReminders: boolean;
   export default UserPreferencesSuppressEventSFXReminders;
 }
 declare module "@salesforce/schema/User.UserPreferencesPreviewCustomTheme" {
-  const UserPreferencesPreviewCustomTheme:boolean;
+  const UserPreferencesPreviewCustomTheme: boolean;
   export default UserPreferencesPreviewCustomTheme;
 }
 declare module "@salesforce/schema/User.UserPreferencesHasCelebrationBadge" {
-  const UserPreferencesHasCelebrationBadge:boolean;
+  const UserPreferencesHasCelebrationBadge: boolean;
   export default UserPreferencesHasCelebrationBadge;
 }
 declare module "@salesforce/schema/User.UserPreferencesUserDebugModePref" {
-  const UserPreferencesUserDebugModePref:boolean;
+  const UserPreferencesUserDebugModePref: boolean;
   export default UserPreferencesUserDebugModePref;
 }
 declare module "@salesforce/schema/User.UserPreferencesSRHOverrideActivities" {
-  const UserPreferencesSRHOverrideActivities:boolean;
+  const UserPreferencesSRHOverrideActivities: boolean;
   export default UserPreferencesSRHOverrideActivities;
 }
 declare module "@salesforce/schema/User.UserPreferencesNewLightningReportRunPageEnabled" {
-  const UserPreferencesNewLightningReportRunPageEnabled:boolean;
+  const UserPreferencesNewLightningReportRunPageEnabled: boolean;
   export default UserPreferencesNewLightningReportRunPageEnabled;
 }
 declare module "@salesforce/schema/User.UserPreferencesReverseOpenActivitiesView" {
-  const UserPreferencesReverseOpenActivitiesView:boolean;
+  const UserPreferencesReverseOpenActivitiesView: boolean;
   export default UserPreferencesReverseOpenActivitiesView;
 }
 declare module "@salesforce/schema/User.UserPreferencesShowTerritoryTimeZoneShifts" {
-  const UserPreferencesShowTerritoryTimeZoneShifts:boolean;
+  const UserPreferencesShowTerritoryTimeZoneShifts: boolean;
   export default UserPreferencesShowTerritoryTimeZoneShifts;
 }
 declare module "@salesforce/schema/User.UserPreferencesHasSentWarningEmail" {
-  const UserPreferencesHasSentWarningEmail:boolean;
+  const UserPreferencesHasSentWarningEmail: boolean;
   export default UserPreferencesHasSentWarningEmail;
 }
 declare module "@salesforce/schema/User.UserPreferencesHasSentWarningEmail238" {
-  const UserPreferencesHasSentWarningEmail238:boolean;
+  const UserPreferencesHasSentWarningEmail238: boolean;
   export default UserPreferencesHasSentWarningEmail238;
 }
 declare module "@salesforce/schema/User.UserPreferencesHasSentWarningEmail240" {
-  const UserPreferencesHasSentWarningEmail240:boolean;
+  const UserPreferencesHasSentWarningEmail240: boolean;
   export default UserPreferencesHasSentWarningEmail240;
 }
 declare module "@salesforce/schema/User.UserPreferencesNativeEmailClient" {
-  const UserPreferencesNativeEmailClient:boolean;
+  const UserPreferencesNativeEmailClient: boolean;
   export default UserPreferencesNativeEmailClient;
 }
 declare module "@salesforce/schema/User.UserPreferencesSendListEmailThroughExternalService" {
-  const UserPreferencesSendListEmailThroughExternalService:boolean;
+  const UserPreferencesSendListEmailThroughExternalService: boolean;
   export default UserPreferencesSendListEmailThroughExternalService;
 }
 declare module "@salesforce/schema/User.Contact" {
-  const Contact:any;
+  const Contact: any;
   export default Contact;
 }
 declare module "@salesforce/schema/User.ContactId" {
-  const ContactId:any;
+  const ContactId: any;
   export default ContactId;
 }
 declare module "@salesforce/schema/User.Account" {
-  const Account:any;
+  const Account: any;
   export default Account;
 }
 declare module "@salesforce/schema/User.AccountId" {
-  const AccountId:any;
+  const AccountId: any;
   export default AccountId;
 }
 declare module "@salesforce/schema/User.CallCenter" {
-  const CallCenter:any;
+  const CallCenter: any;
   export default CallCenter;
 }
 declare module "@salesforce/schema/User.CallCenterId" {
-  const CallCenterId:any;
+  const CallCenterId: any;
   export default CallCenterId;
 }
 declare module "@salesforce/schema/User.Extension" {
-  const Extension:string;
+  const Extension: string;
   export default Extension;
 }
 declare module "@salesforce/schema/User.FederationIdentifier" {
-  const FederationIdentifier:string;
+  const FederationIdentifier: string;
   export default FederationIdentifier;
 }
 declare module "@salesforce/schema/User.AboutMe" {
-  const AboutMe:string;
+  const AboutMe: string;
   export default AboutMe;
 }
 declare module "@salesforce/schema/User.FullPhotoUrl" {
-  const FullPhotoUrl:string;
+  const FullPhotoUrl: string;
   export default FullPhotoUrl;
 }
 declare module "@salesforce/schema/User.SmallPhotoUrl" {
-  const SmallPhotoUrl:string;
+  const SmallPhotoUrl: string;
   export default SmallPhotoUrl;
 }
 declare module "@salesforce/schema/User.IsExtIndicatorVisible" {
-  const IsExtIndicatorVisible:boolean;
+  const IsExtIndicatorVisible: boolean;
   export default IsExtIndicatorVisible;
 }
 declare module "@salesforce/schema/User.OutOfOfficeMessage" {
-  const OutOfOfficeMessage:string;
+  const OutOfOfficeMessage: string;
   export default OutOfOfficeMessage;
 }
 declare module "@salesforce/schema/User.MediumPhotoUrl" {
-  const MediumPhotoUrl:string;
+  const MediumPhotoUrl: string;
   export default MediumPhotoUrl;
 }
 declare module "@salesforce/schema/User.DigestFrequency" {
-  const DigestFrequency:string;
+  const DigestFrequency: string;
   export default DigestFrequency;
 }
 declare module "@salesforce/schema/User.DefaultGroupNotificationFrequency" {
-  const DefaultGroupNotificationFrequency:string;
+  const DefaultGroupNotificationFrequency: string;
   export default DefaultGroupNotificationFrequency;
 }
 declare module "@salesforce/schema/User.JigsawImportLimitOverride" {
-  const JigsawImportLimitOverride:number;
+  const JigsawImportLimitOverride: number;
   export default JigsawImportLimitOverride;
 }
 declare module "@salesforce/schema/User.LastViewedDate" {
-  const LastViewedDate:any;
+  const LastViewedDate: any;
   export default LastViewedDate;
 }
 declare module "@salesforce/schema/User.LastReferencedDate" {
-  const LastReferencedDate:any;
+  const LastReferencedDate: any;
   export default LastReferencedDate;
 }
 declare module "@salesforce/schema/User.BannerPhotoUrl" {
-  const BannerPhotoUrl:string;
+  const BannerPhotoUrl: string;
   export default BannerPhotoUrl;
 }
 declare module "@salesforce/schema/User.SmallBannerPhotoUrl" {
-  const SmallBannerPhotoUrl:string;
+  const SmallBannerPhotoUrl: string;
   export default SmallBannerPhotoUrl;
 }
 declare module "@salesforce/schema/User.MediumBannerPhotoUrl" {
-  const MediumBannerPhotoUrl:string;
+  const MediumBannerPhotoUrl: string;
   export default MediumBannerPhotoUrl;
 }
 declare module "@salesforce/schema/User.IsProfilePhotoActive" {
-  const IsProfilePhotoActive:boolean;
+  const IsProfilePhotoActive: boolean;
   export default IsProfilePhotoActive;
 }
 declare module "@salesforce/schema/User.Individual" {
-  const Individual:any;
+  const Individual: any;
   export default Individual;
 }
 declare module "@salesforce/schema/User.IndividualId" {
-  const IndividualId:any;
+  const IndividualId: any;
   export default IndividualId;
 }

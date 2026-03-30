@@ -3664,9 +3664,7 @@
       "name": "UserRoleId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "UserRole"
-      ],
+      "referenceTo": ["UserRole"],
       "relationshipName": "UserRole",
       "sortable": true,
       "type": "reference"
@@ -5454,9 +5452,7 @@
       "name": "ProfileId",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "Profile"
-      ],
+      "referenceTo": ["Profile"],
       "relationshipName": "Profile",
       "sortable": true,
       "type": "reference"
@@ -5708,10 +5704,7 @@
       "name": "DelegatedApproverId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Group",
-        "User"
-      ],
+      "referenceTo": ["Group", "User"],
       "relationshipName": null,
       "sortable": true,
       "type": "reference"
@@ -5728,9 +5721,7 @@
       "name": "ManagerId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "Manager",
       "sortable": true,
       "type": "reference"
@@ -5798,9 +5789,7 @@
       "name": "CreatedById",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "CreatedBy",
       "sortable": true,
       "type": "reference"
@@ -5834,9 +5823,7 @@
       "name": "LastModifiedById",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "LastModifiedBy",
       "sortable": true,
       "type": "reference"
@@ -7621,9 +7608,7 @@
       "name": "ContactId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Contact"
-      ],
+      "referenceTo": ["Contact"],
       "relationshipName": "Contact",
       "sortable": true,
       "type": "reference"
@@ -7640,9 +7625,7 @@
       "name": "AccountId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Account"
-      ],
+      "referenceTo": ["Account"],
       "relationshipName": "Account",
       "sortable": true,
       "type": "reference"
@@ -7659,9 +7642,7 @@
       "name": "CallCenterId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "CallCenter"
-      ],
+      "referenceTo": ["CallCenter"],
       "relationshipName": null,
       "sortable": true,
       "type": "reference"
@@ -8018,9 +7999,7 @@
       "name": "IndividualId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Individual"
-      ],
+      "referenceTo": ["Individual"],
       "relationshipName": "Individual",
       "sortable": true,
       "type": "reference"

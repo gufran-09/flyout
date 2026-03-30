@@ -1,5 +1,12 @@
 "use client";
-import { createContext, useContext, useEffect, useState, ReactNode, useMemo } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  ReactNode,
+  useMemo,
+} from "react";
 import { User, Session } from "@supabase/supabase-js";
 import { createSupabaseBrowserClient } from "@/lib/supabase/client";
 import { toast } from "sonner";
@@ -10,12 +17,19 @@ interface AuthContextType {
   user: User | null;
   session: Session | null;
   loading: boolean;
-  signUp: (email: string, password: string, fullName?: string) => Promise<{ error: Error | null }>;
+  signUp: (
+    email: string,
+    password: string,
+    fullName?: string,
+  ) => Promise<{ error: Error | null }>;
   signIn: (email: string, password: string) => Promise<{ error: Error | null }>;
   signInWithGoogle: () => Promise<{ error: Error | null }>;
   signInWithPhone: (phone: string) => Promise<{ error: Error | null }>;
   verifyOTP: (phone: string, token: string) => Promise<{ error: Error | null }>;
-  verifyEmailOTP: (email: string, token: string) => Promise<{ error: Error | null }>;
+  verifyEmailOTP: (
+    email: string,
+    token: string,
+  ) => Promise<{ error: Error | null }>;
   resendEmailOTP: (email: string) => Promise<{ error: Error | null }>;
   signOut: () => Promise<void>;
   resetPassword: (email: string) => Promise<{ error: Error | null }>;
@@ -30,13 +44,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     // Set up auth state listener FIRST
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (event, session) => {
-        setSession(session);
-        setUser(session?.user ?? null);
-        setLoading(false);
-      }
-    );
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((event, session) => {
+      setSession(session);
+      setUser(session?.user ?? null);
+      setLoading(false);
+    });
 
     // THEN check for existing session
     supabase.auth.getSession().then(({ data: { session } }) => {
@@ -127,20 +141,23 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   return (
     <AuthContext.Provider
-      value={useMemo(() => ({
-        user,
-        session,
-        loading,
-        signUp,
-        signIn,
-        signInWithGoogle,
-        signInWithPhone,
-        verifyOTP,
-        verifyEmailOTP,
-        resendEmailOTP,
-        signOut,
-        resetPassword,
-      }), [user, session, loading])}
+      value={useMemo(
+        () => ({
+          user,
+          session,
+          loading,
+          signUp,
+          signIn,
+          signInWithGoogle,
+          signInWithPhone,
+          verifyOTP,
+          verifyEmailOTP,
+          resendEmailOTP,
+          signOut,
+          resetPassword,
+        }),
+        [user, session, loading],
+      )}
     >
       {children}
     </AuthContext.Provider>

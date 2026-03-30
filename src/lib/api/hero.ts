@@ -1,1 +1,1 @@
-export { getHeroContent, getSeoMeta } from '@backend/api/hero'
+export { getHeroContent, getSeoMeta } from "@backend/api/hero";

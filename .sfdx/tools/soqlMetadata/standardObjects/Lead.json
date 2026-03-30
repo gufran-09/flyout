@@ -46,9 +46,7 @@
       "name": "MasterRecordId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Lead"
-      ],
+      "referenceTo": ["Lead"],
       "relationshipName": "MasterRecord",
       "sortable": true,
       "type": "reference"
@@ -974,10 +972,7 @@
       "name": "OwnerId",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "Group",
-        "User"
-      ],
+      "referenceTo": ["Group", "User"],
       "relationshipName": "Owner",
       "sortable": true,
       "type": "reference"
@@ -1028,9 +1023,7 @@
       "name": "ConvertedAccountId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Account"
-      ],
+      "referenceTo": ["Account"],
       "relationshipName": "ConvertedAccount",
       "sortable": true,
       "type": "reference"
@@ -1047,9 +1040,7 @@
       "name": "ConvertedContactId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Contact"
-      ],
+      "referenceTo": ["Contact"],
       "relationshipName": "ConvertedContact",
       "sortable": true,
       "type": "reference"
@@ -1066,9 +1057,7 @@
       "name": "ConvertedOpportunityId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Opportunity"
-      ],
+      "referenceTo": ["Opportunity"],
       "relationshipName": "ConvertedOpportunity",
       "sortable": true,
       "type": "reference"
@@ -1119,9 +1108,7 @@
       "name": "CreatedById",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "CreatedBy",
       "sortable": true,
       "type": "reference"
@@ -1155,9 +1142,7 @@
       "name": "LastModifiedById",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "LastModifiedBy",
       "sortable": true,
       "type": "reference"
@@ -1367,9 +1352,7 @@
       "name": "DandbCompanyId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "DandBCompany"
-      ],
+      "referenceTo": ["DandBCompany"],
       "relationshipName": "DandbCompany",
       "sortable": true,
       "type": "reference"
@@ -1420,9 +1403,7 @@
       "name": "IndividualId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Individual"
-      ],
+      "referenceTo": ["Individual"],
       "relationshipName": "Individual",
       "sortable": true,
       "type": "reference"

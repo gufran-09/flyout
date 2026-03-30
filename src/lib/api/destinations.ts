@@ -1,1 +1,4 @@
-export { getDestinations, getDestinationBySlug } from '@backend/api/destinations'
+export {
+  getDestinations,
+  getDestinationBySlug,
+} from "@backend/api/destinations";

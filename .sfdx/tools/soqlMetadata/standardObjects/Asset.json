@@ -29,9 +29,7 @@
       "name": "ContactId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Contact"
-      ],
+      "referenceTo": ["Contact"],
       "relationshipName": "Contact",
       "sortable": true,
       "type": "reference"
@@ -48,9 +46,7 @@
       "name": "AccountId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Account"
-      ],
+      "referenceTo": ["Account"],
       "relationshipName": "Account",
       "sortable": true,
       "type": "reference"
@@ -67,9 +63,7 @@
       "name": "ParentId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Asset"
-      ],
+      "referenceTo": ["Asset"],
       "relationshipName": "Parent",
       "sortable": true,
       "type": "reference"
@@ -86,9 +80,7 @@
       "name": "RootAssetId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Asset"
-      ],
+      "referenceTo": ["Asset"],
       "relationshipName": "RootAsset",
       "sortable": true,
       "type": "reference"
@@ -105,9 +97,7 @@
       "name": "Product2Id",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Product2"
-      ],
+      "referenceTo": ["Product2"],
       "relationshipName": "Product2",
       "sortable": true,
       "type": "reference"
@@ -175,9 +165,7 @@
       "name": "CreatedById",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "CreatedBy",
       "sortable": true,
       "type": "reference"
@@ -211,9 +199,7 @@
       "name": "LastModifiedById",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "LastModifiedBy",
       "sortable": true,
       "type": "reference"
@@ -487,9 +473,7 @@
       "name": "OwnerId",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "Owner",
       "sortable": true,
       "type": "reference"
@@ -506,9 +490,7 @@
       "name": "LocationId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Location"
-      ],
+      "referenceTo": ["Location"],
       "relationshipName": "Location",
       "sortable": true,
       "type": "reference"
@@ -525,9 +507,7 @@
       "name": "AssetProvidedById",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Account"
-      ],
+      "referenceTo": ["Account"],
       "relationshipName": "AssetProvidedBy",
       "sortable": true,
       "type": "reference"
@@ -544,9 +524,7 @@
       "name": "AssetServicedById",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Account"
-      ],
+      "referenceTo": ["Account"],
       "relationshipName": "AssetServicedBy",
       "sortable": true,
       "type": "reference"

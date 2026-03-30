@@ -1,40 +1,50 @@
-'use client'
+"use client";
 
-import { useMemo, useState } from 'react'
-import { CalendarIcon } from 'lucide-react'
-import { createBooking } from '@backend/api/bookings'
-import { Product } from '@backend/types'
-import { useCart } from '@/contexts/CartContext'
-import { Button } from '@/components/ui/button'
-import { Calendar } from '@/components/ui/calendar'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
-import { toast } from 'sonner'
+import { useMemo, useState } from "react";
+import { CalendarIcon } from "lucide-react";
+import { createBooking } from "@backend/api/bookings";
+import { Product } from "@backend/types";
+import { useCart } from "@/contexts/CartContext";
+import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { toast } from "sonner";
 
 type BookingCardProps = {
-  product: Product
-  lowestPrice: number
-  originalPrice: number | null
-}
+  product: Product;
+  lowestPrice: number;
+  originalPrice: number | null;
+};
 
-export default function BookingCard({ product, lowestPrice, originalPrice }: BookingCardProps) {
-  const { addToCart } = useCart()
-  const [guests, setGuests] = useState(1)
-  const [date, setDate] = useState<Date | undefined>(new Date())
-  const [isSubmitting, setIsSubmitting] = useState(false)
+export default function BookingCard({
+  product,
+  lowestPrice,
+  originalPrice,
+}: BookingCardProps) {
+  const { addToCart } = useCart();
+  const [guests, setGuests] = useState(1);
+  const [date, setDate] = useState<Date | undefined>(new Date());
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const selectedSupplier = useMemo(
-    () => product.product_suppliers.find((s) => s.is_active) ?? product.product_suppliers[0],
-    [product.product_suppliers]
-  )
+    () =>
+      product.product_suppliers.find((s) => s.is_active) ??
+      product.product_suppliers[0],
+    [product.product_suppliers],
+  );
   const selectedPricing = useMemo(
     () =>
       selectedSupplier?.product_pricing.find((p) => p.is_active) ??
       selectedSupplier?.product_pricing[0],
-    [selectedSupplier]
-  )
+    [selectedSupplier],
+  );
 
-  const unitPrice = selectedPricing?.price ?? lowestPrice
-  const totalPrice = unitPrice * guests
+  const unitPrice = selectedPricing?.price ?? lowestPrice;
+  const totalPrice = unitPrice * guests;
 
   const handleAddToCart = () => {
     addToCart(
@@ -47,26 +57,28 @@ export default function BookingCard({ product, lowestPrice, originalPrice }: Boo
         originalPrice: originalPrice ?? undefined,
         rating: product.rating,
         reviewCount: product.review_count,
-        duration: selectedPricing ? `${selectedPricing.duration_minutes}m` : 'Flexible',
-        image: product.thumbnail_url ?? '/placeholder.jpg',
+        duration: selectedPricing
+          ? `${selectedPricing.duration_minutes}m`
+          : "Flexible",
+        image: product.thumbnail_url ?? "/placeholder.jpg",
         badge: product.badge ?? undefined,
         link: `/experiences/${product.destination.slug}/${product.category.slug}/${product.slug}`,
         productSupplierId: selectedSupplier?.id,
         productPricingId: selectedPricing?.id,
       },
       guests,
-      date?.toISOString()
-    )
-    toast.success('Added to cart')
-  }
+      date?.toISOString(),
+    );
+    toast.success("Added to cart");
+  };
 
   const handleCreateBooking = async () => {
     if (!selectedSupplier?.id || !selectedPricing?.id || !date) {
-      toast.error('Please select a date before booking')
-      return
+      toast.error("Please select a date before booking");
+      return;
     }
 
-    setIsSubmitting(true)
+    setIsSubmitting(true);
     try {
       const created = await createBooking({
         product_supplier_id: selectedSupplier.id,
@@ -74,26 +86,30 @@ export default function BookingCard({ product, lowestPrice, originalPrice }: Boo
         booking_date: date.toISOString(),
         guests,
         total_price: totalPrice,
-      })
+      });
 
       if (created) {
-        toast.success('Booking created successfully')
+        toast.success("Booking created successfully");
       } else {
-        toast.error('Unable to create booking right now')
+        toast.error("Unable to create booking right now");
       }
     } catch (error) {
-      toast.error(error instanceof Error ? error.message : 'Booking failed')
+      toast.error(error instanceof Error ? error.message : "Booking failed");
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   return (
     <div className="sticky top-4 border rounded-2xl p-6 shadow-lg bg-white">
       <div className="flex items-baseline gap-2">
-        <span className="text-3xl font-bold text-[#1A2B47]">AED {unitPrice.toLocaleString()}</span>
+        <span className="text-3xl font-bold text-[#1A2B47]">
+          AED {unitPrice.toLocaleString()}
+        </span>
         {originalPrice && (
-          <span className="text-gray-400 line-through text-sm">AED {originalPrice.toLocaleString()}</span>
+          <span className="text-gray-400 line-through text-sm">
+            AED {originalPrice.toLocaleString()}
+          </span>
         )}
       </div>
       <p className="text-sm text-gray-500">per person</p>
@@ -106,12 +122,17 @@ export default function BookingCard({ product, lowestPrice, originalPrice }: Boo
               type="button"
               className="w-full mt-2 border rounded-lg px-3 py-2 text-left text-sm flex items-center justify-between"
             >
-              <span>{date ? date.toLocaleDateString() : 'Pick a date'}</span>
+              <span>{date ? date.toLocaleDateString() : "Pick a date"}</span>
               <CalendarIcon className="h-4 w-4 text-gray-500" />
             </button>
           </PopoverTrigger>
           <PopoverContent className="w-auto p-0" align="start">
-            <Calendar mode="single" selected={date} onSelect={setDate} initialFocus />
+            <Calendar
+              mode="single"
+              selected={date}
+              onSelect={setDate}
+              initialFocus
+            />
           </PopoverContent>
         </Popover>
       </div>
@@ -159,8 +180,8 @@ export default function BookingCard({ product, lowestPrice, originalPrice }: Boo
         className="w-full mt-3"
         variant="outline"
       >
-        {isSubmitting ? 'Creating Booking...' : 'Book Now'}
+        {isSubmitting ? "Creating Booking..." : "Book Now"}
       </Button>
     </div>
-  )
+  );
 }

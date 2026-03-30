@@ -46,9 +46,7 @@
       "name": "MasterRecordId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Contact"
-      ],
+      "referenceTo": ["Contact"],
       "relationshipName": "MasterRecord",
       "sortable": true,
       "type": "reference"
@@ -65,9 +63,7 @@
       "name": "AccountId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Account"
-      ],
+      "referenceTo": ["Account"],
       "relationshipName": "Account",
       "sortable": true,
       "type": "reference"
@@ -759,9 +755,7 @@
       "name": "ReportsToId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Contact"
-      ],
+      "referenceTo": ["Contact"],
       "relationshipName": "ReportsTo",
       "sortable": true,
       "type": "reference"
@@ -933,9 +927,7 @@
       "name": "OwnerId",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "Owner",
       "sortable": true,
       "type": "reference"
@@ -969,9 +961,7 @@
       "name": "CreatedById",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "CreatedBy",
       "sortable": true,
       "type": "reference"
@@ -1005,9 +995,7 @@
       "name": "LastModifiedById",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "LastModifiedBy",
       "sortable": true,
       "type": "reference"
@@ -1302,9 +1290,7 @@
       "name": "IndividualId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Individual"
-      ],
+      "referenceTo": ["Individual"],
       "relationshipName": "Individual",
       "sortable": true,
       "type": "reference"

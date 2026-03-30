@@ -46,9 +46,7 @@
       "name": "AccountId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Account"
-      ],
+      "referenceTo": ["Account"],
       "relationshipName": "Account",
       "sortable": true,
       "type": "reference"
@@ -552,9 +550,7 @@
       "name": "CampaignId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Campaign"
-      ],
+      "referenceTo": ["Campaign"],
       "relationshipName": "Campaign",
       "sortable": true,
       "type": "reference"
@@ -588,9 +584,7 @@
       "name": "Pricebook2Id",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Pricebook2"
-      ],
+      "referenceTo": ["Pricebook2"],
       "relationshipName": "Pricebook2",
       "sortable": true,
       "type": "reference"
@@ -607,9 +601,7 @@
       "name": "OwnerId",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "Owner",
       "sortable": true,
       "type": "reference"
@@ -643,9 +635,7 @@
       "name": "CreatedById",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "CreatedBy",
       "sortable": true,
       "type": "reference"
@@ -679,9 +669,7 @@
       "name": "LastModifiedById",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "LastModifiedBy",
       "sortable": true,
       "type": "reference"
@@ -817,9 +805,7 @@
       "name": "ContactId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Contact"
-      ],
+      "referenceTo": ["Contact"],
       "relationshipName": null,
       "sortable": true,
       "type": "reference"
@@ -904,9 +890,7 @@
       "name": "LastAmountChangedHistoryId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "OpportunityHistory"
-      ],
+      "referenceTo": ["OpportunityHistory"],
       "relationshipName": "LastAmountChangedHistory",
       "sortable": true,
       "type": "reference"
@@ -923,9 +907,7 @@
       "name": "LastCloseDateChangedHistoryId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "OpportunityHistory"
-      ],
+      "referenceTo": ["OpportunityHistory"],
       "relationshipName": "LastCloseDateChangedHistory",
       "sortable": true,
       "type": "reference"

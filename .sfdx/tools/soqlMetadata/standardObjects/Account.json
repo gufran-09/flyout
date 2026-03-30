@@ -46,9 +46,7 @@
       "name": "MasterRecordId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Account"
-      ],
+      "referenceTo": ["Account"],
       "relationshipName": "MasterRecord",
       "sortable": true,
       "type": "reference"
@@ -149,9 +147,7 @@
       "name": "ParentId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Account"
-      ],
+      "referenceTo": ["Account"],
       "relationshipName": "Parent",
       "sortable": true,
       "type": "reference"
@@ -1144,9 +1140,7 @@
       "name": "OwnerId",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "Owner",
       "sortable": true,
       "type": "reference"
@@ -1180,9 +1174,7 @@
       "name": "CreatedById",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "CreatedBy",
       "sortable": true,
       "type": "reference"
@@ -1216,9 +1208,7 @@
       "name": "LastModifiedById",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "LastModifiedBy",
       "sortable": true,
       "type": "reference"
@@ -1566,9 +1556,7 @@
       "name": "DandbCompanyId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "DandBCompany"
-      ],
+      "referenceTo": ["DandBCompany"],
       "relationshipName": "DandbCompany",
       "sortable": true,
       "type": "reference"
@@ -1585,9 +1573,7 @@
       "name": "OperatingHoursId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "OperatingHours"
-      ],
+      "referenceTo": ["OperatingHours"],
       "relationshipName": "OperatingHours",
       "sortable": true,
       "type": "reference"

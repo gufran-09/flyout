@@ -1,5 +1,12 @@
 "use client";
-import { createContext, useContext, useState, useEffect, ReactNode, useMemo } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+  useMemo,
+} from "react";
 import { Tour } from "@/components/home/ExperienceSection";
 
 export interface CartItem {
@@ -33,7 +40,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
       // Migrate old cart items that might not have an ID
       return parsed.map((item: any) => ({
         ...item,
-        id: item.id || `${item.tour.id}-${item.tour.duration}-${item.selectedDate || 'no-date'}`
+        id:
+          item.id ||
+          `${item.tour.id}-${item.tour.duration}-${item.selectedDate || "no-date"}`,
       }));
     }
     return [];
@@ -44,18 +53,25 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }, [items]);
 
   const addToCart = (tour: Tour, guests: number = 1, selectedDate?: string) => {
-    const newItemId = `${tour.id}-${tour.duration}-${selectedDate || 'no-date'}`;
+    const newItemId = `${tour.id}-${tour.duration}-${selectedDate || "no-date"}`;
 
     setItems((prev) => {
       const existing = prev.find((item) => item.id === newItemId);
       if (existing) {
         return prev.map((item) =>
           item.id === newItemId
-            ? { ...item, quantity: item.quantity + 1, guests: guests || item.guests }
-            : item
+            ? {
+                ...item,
+                quantity: item.quantity + 1,
+                guests: guests || item.guests,
+              }
+            : item,
         );
       }
-      return [...prev, { id: newItemId, tour, quantity: 1, guests, selectedDate }];
+      return [
+        ...prev,
+        { id: newItemId, tour, quantity: 1, guests, selectedDate },
+      ];
     });
   };
 
@@ -69,17 +85,15 @@ export function CartProvider({ children }: { children: ReactNode }) {
       return;
     }
     setItems((prev) =>
-      prev.map((item) =>
-        item.id === itemId ? { ...item, quantity } : item
-      )
+      prev.map((item) => (item.id === itemId ? { ...item, quantity } : item)),
     );
   };
 
   const updateGuests = (itemId: string, guests: number) => {
     setItems((prev) =>
       prev.map((item) =>
-        item.id === itemId ? { ...item, guests: Math.max(1, guests) } : item
-      )
+        item.id === itemId ? { ...item, guests: Math.max(1, guests) } : item,
+      ),
     );
   };
 
@@ -87,28 +101,34 @@ export function CartProvider({ children }: { children: ReactNode }) {
     setItems([]);
   };
 
-  const totalItems = useMemo(() => items.reduce((sum, item) => sum + item.quantity, 0), [items]);
-  const totalPrice = useMemo(() => items.reduce(
-    (sum, item) => sum + item.tour.price * item.quantity * item.guests,
-    0
-  ), [items]);
-
-  const value = useMemo(() => ({
-    items,
-    addToCart,
-    removeFromCart,
-    updateQuantity,
-    updateGuests,
-    clearCart,
-    totalItems,
-    totalPrice,
-  }), [items, totalItems, totalPrice]);
-
-  return (
-    <CartContext.Provider value={value}>
-      {children}
-    </CartContext.Provider>
+  const totalItems = useMemo(
+    () => items.reduce((sum, item) => sum + item.quantity, 0),
+    [items],
   );
+  const totalPrice = useMemo(
+    () =>
+      items.reduce(
+        (sum, item) => sum + item.tour.price * item.quantity * item.guests,
+        0,
+      ),
+    [items],
+  );
+
+  const value = useMemo(
+    () => ({
+      items,
+      addToCart,
+      removeFromCart,
+      updateQuantity,
+      updateGuests,
+      clearCart,
+      totalItems,
+      totalPrice,
+    }),
+    [items, totalItems, totalPrice],
+  );
+
+  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }
 
 export function useCart() {

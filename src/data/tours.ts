@@ -33,18 +33,24 @@ function toTour(product: Product): Tour {
     rating: product.rating,
     reviewCount: product.reviewCount,
     duration: product.durationOptions[0]?.label || "Flexible",
-    image: product.images[0] || "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&q=80",
+    image:
+      product.images[0] ||
+      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&q=80",
     badge: product.badges[0],
     link: `/experiences/${product.destination}/${product.category}/${product.slug}`,
   };
 }
 
 function byCategory(category: string): Tour[] {
-  return PRODUCTS.filter((product) => product.category === category).map(toTour);
+  return PRODUCTS.filter((product) => product.category === category).map(
+    toTour,
+  );
 }
 
 function byDestination(destination: string): Tour[] {
-  return PRODUCTS.filter((product) => product.destination === destination).map(toTour);
+  return PRODUCTS.filter((product) => product.destination === destination).map(
+    toTour,
+  );
 }
 
 export const dubaiThemeParks = byCategory("theme-parks");

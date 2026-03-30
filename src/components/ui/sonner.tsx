@@ -48,8 +48,6 @@ const Toaster = ({ ...props }: ToasterProps) => {
           info: "border-sky-400/40",
         },
       }}
-
-
       {...props}
     />
   );

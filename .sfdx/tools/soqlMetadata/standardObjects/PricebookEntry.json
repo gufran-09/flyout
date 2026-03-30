@@ -46,9 +46,7 @@
       "name": "Pricebook2Id",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "Pricebook2"
-      ],
+      "referenceTo": ["Pricebook2"],
       "relationshipName": "Pricebook2",
       "sortable": true,
       "type": "reference"
@@ -65,9 +63,7 @@
       "name": "Product2Id",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "Product2"
-      ],
+      "referenceTo": ["Product2"],
       "relationshipName": "Product2",
       "sortable": true,
       "type": "reference"
@@ -152,9 +148,7 @@
       "name": "CreatedById",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "CreatedBy",
       "sortable": true,
       "type": "reference"
@@ -188,9 +182,7 @@
       "name": "LastModifiedById",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "LastModifiedBy",
       "sortable": true,
       "type": "reference"

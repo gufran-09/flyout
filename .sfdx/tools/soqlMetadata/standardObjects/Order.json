@@ -29,10 +29,7 @@
       "name": "OwnerId",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "Group",
-        "User"
-      ],
+      "referenceTo": ["Group", "User"],
       "relationshipName": "Owner",
       "sortable": true,
       "type": "reference"
@@ -49,9 +46,7 @@
       "name": "ContractId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Contract"
-      ],
+      "referenceTo": ["Contract"],
       "relationshipName": "Contract",
       "sortable": true,
       "type": "reference"
@@ -68,9 +63,7 @@
       "name": "AccountId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Account"
-      ],
+      "referenceTo": ["Account"],
       "relationshipName": "Account",
       "sortable": true,
       "type": "reference"
@@ -87,9 +80,7 @@
       "name": "Pricebook2Id",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Pricebook2"
-      ],
+      "referenceTo": ["Pricebook2"],
       "relationshipName": "Pricebook2",
       "sortable": true,
       "type": "reference"
@@ -106,9 +97,7 @@
       "name": "OriginalOrderId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Order"
-      ],
+      "referenceTo": ["Order"],
       "relationshipName": "OriginalOrder",
       "sortable": true,
       "type": "reference"
@@ -225,9 +214,7 @@
       "name": "CustomerAuthorizedById",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Contact"
-      ],
+      "referenceTo": ["Contact"],
       "relationshipName": "CustomerAuthorizedBy",
       "sortable": true,
       "type": "reference"
@@ -261,9 +248,7 @@
       "name": "CompanyAuthorizedById",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "CompanyAuthorizedBy",
       "sortable": true,
       "type": "reference"
@@ -844,9 +829,7 @@
       "name": "BillToContactId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Contact"
-      ],
+      "referenceTo": ["Contact"],
       "relationshipName": "BillToContact",
       "sortable": true,
       "type": "reference"
@@ -863,9 +846,7 @@
       "name": "ShipToContactId",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "Contact"
-      ],
+      "referenceTo": ["Contact"],
       "relationshipName": "ShipToContact",
       "sortable": true,
       "type": "reference"
@@ -899,9 +880,7 @@
       "name": "ActivatedById",
       "nillable": true,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "ActivatedBy",
       "sortable": true,
       "type": "reference"
@@ -1015,9 +994,7 @@
       "name": "CreatedById",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "CreatedBy",
       "sortable": true,
       "type": "reference"
@@ -1051,9 +1028,7 @@
       "name": "LastModifiedById",
       "nillable": false,
       "picklistValues": [],
-      "referenceTo": [
-        "User"
-      ],
+      "referenceTo": ["User"],
       "relationshipName": "LastModifiedBy",
       "sortable": true,
       "type": "reference"

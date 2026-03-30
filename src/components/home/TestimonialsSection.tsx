@@ -4,7 +4,8 @@ import { motion, useAnimation, useMotionValue, PanInfo } from "framer-motion";
 import { Star, MapPin, Quote, ExternalLink } from "lucide-react";
 
 // Google Maps Link
-const GOOGLE_MAPS_LINK = "https://www.google.com/maps/place/FLYOUT+TOURS+LLC/@25.3461555,55.4210932,17z/data=!4m8!3m7!1s0x3e5f590c2706c7e1:0x7eec8aa0c0001d83!8m2!3d25.3461555!4d55.4210932!9m1!1b1!16s%2Fg%2F11kc2lb57r";
+const GOOGLE_MAPS_LINK =
+  "https://www.google.com/maps/place/FLYOUT+TOURS+LLC/@25.3461555,55.4210932,17z/data=!4m8!3m7!1s0x3e5f590c2706c7e1:0x7eec8aa0c0001d83!8m2!3d25.3461555!4d55.4210932!9m1!1b1!16s%2Fg%2F11kc2lb57r";
 
 const testimonials = [
   {
@@ -13,7 +14,8 @@ const testimonials = [
     city: "Dubai",
     rating: 5,
     text: "Reviewing Flyout Tours was the best decision for our Dubai trip! The desert safari was absolutely magical at sunset. Top-tier luxury.",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150",
+    avatar:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150",
   },
   {
     id: 2,
@@ -21,7 +23,8 @@ const testimonials = [
     city: "Abu Dhabi",
     rating: 5,
     text: "Very professional team. We booked the private yacht tour and it was impeccable. The captain was knowledgeable and views were stunning.",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150",
+    avatar:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150",
   },
   {
     id: 3,
@@ -29,7 +32,8 @@ const testimonials = [
     city: "Sharjah",
     rating: 5,
     text: "An unforgettable experience in Sharjah! The cultural tour was deep and enriching. Flyout made everything seamless and comfortable.",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150&h=150",
+    avatar:
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150&h=150",
   },
   {
     id: 4,
@@ -37,7 +41,8 @@ const testimonials = [
     city: "Dubai",
     rating: 5,
     text: "Luxury at its finest. The Burj Khalifa VIP tickets were handled perfectly. No queues, personal guidance, and excellent support.",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150&h=150",
+    avatar:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150&h=150",
   },
   {
     id: 5,
@@ -45,7 +50,8 @@ const testimonials = [
     city: "Dubai",
     rating: 5,
     text: "We loved the Dhow Cruise dinner. The ambiance was perfect and the food was delicious. Thank you Flyout for such a romantic evening.",
-    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150&h=150",
+    avatar:
+      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150&h=150",
   },
   {
     id: 6,
@@ -53,7 +59,8 @@ const testimonials = [
     city: "Dubai",
     rating: 5,
     text: "Exceptional service! They organized our entire family vacation flawlessly. The helicopter tour was the highlight of our trip.",
-    avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150&h=150",
+    avatar:
+      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150&h=150",
   },
 ];
 
@@ -87,7 +94,7 @@ export function TestimonialsSection() {
             duration: 40,
             ease: "linear",
             repeat: Infinity,
-          }
+          },
         });
       } catch (e) {
         // Animation stopped/cancelled
@@ -115,10 +122,12 @@ export function TestimonialsSection() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-3">
-              Loved by Travelers <span className="text-flyout-gold">Across the UAE</span>
+              Loved by Travelers{" "}
+              <span className="text-flyout-gold">Across the UAE</span>
             </h2>
             <p className="text-slate-400 text-lg max-w-2xl mx-auto font-light leading-relaxed">
-              Hundreds of guests trust Flyout for unforgettable journeys across the Emirates.
+              Hundreds of guests trust Flyout for unforgettable journeys across
+              the Emirates.
             </p>
           </motion.div>
 
@@ -140,7 +149,9 @@ export function TestimonialsSection() {
             </div>
             <div className="flex flex-col items-start">
               <div className="flex items-center gap-1.5 line-height-none">
-                <span className="text-white font-bold text-lg leading-none">4.8</span>
+                <span className="text-white font-bold text-lg leading-none">
+                  4.8
+                </span>
                 <div className="flex text-flyout-gold">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} size={14} fill="currentColor" />
@@ -168,9 +179,9 @@ export function TestimonialsSection() {
           className="flex gap-6 w-max px-4"
           animate={controls}
           style={{ x }}
-        // We use simple animation instead of drag for the infinite effect to simple
-        // Drag on infinite loop is complex to handle seamless reset. 
-        // We'll trust the requested 'Auto-scroll' as primary interaction.
+          // We use simple animation instead of drag for the infinite effect to simple
+          // Drag on infinite loop is complex to handle seamless reset.
+          // We'll trust the requested 'Auto-scroll' as primary interaction.
         >
           {MARQUEE_ITEMS.map((item, index) => (
             <div
@@ -179,14 +190,24 @@ export function TestimonialsSection() {
             >
               {/* Google Icon Mini */}
               <div className="absolute top-6 right-6 opacity-20 group-hover:opacity-100 transition-opacity">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" className="w-5 h-5 grayscale group-hover:grayscale-0 transition-all" alt="G" />
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+                  className="w-5 h-5 grayscale group-hover:grayscale-0 transition-all"
+                  alt="G"
+                />
               </div>
 
               {/* User Info */}
               <div className="flex items-center gap-4 mb-4">
-                <img src={item.avatar} alt={item.name} className="w-12 h-12 rounded-full border border-white/10 object-cover" />
+                <img
+                  src={item.avatar}
+                  alt={item.name}
+                  className="w-12 h-12 rounded-full border border-white/10 object-cover"
+                />
                 <div>
-                  <h4 className="text-white font-medium text-base">{item.name}</h4>
+                  <h4 className="text-white font-medium text-base">
+                    {item.name}
+                  </h4>
                   <div className="flex items-center gap-2 text-xs text-slate-400">
                     <span className="text-flyout-gold">{item.city}</span>
                     <span>•</span>
@@ -198,7 +219,12 @@ export function TestimonialsSection() {
               {/* Rating */}
               <div className="flex gap-1 mb-3">
                 {[...Array(item.rating)].map((_, i) => (
-                  <Star key={i} size={14} fill="#B88E2F" className="text-flyout-gold" />
+                  <Star
+                    key={i}
+                    size={14}
+                    fill="#B88E2F"
+                    className="text-flyout-gold"
+                  />
                 ))}
               </div>
 
@@ -217,7 +243,10 @@ export function TestimonialsSection() {
           className="text-slate-500 text-sm hover:text-white transition-colors inline-flex items-center gap-2 group"
         >
           View us on Google Maps
-          <ExternalLink size={14} className="group-hover:translate-x-1 transition-transform" />
+          <ExternalLink
+            size={14}
+            className="group-hover:translate-x-1 transition-transform"
+          />
         </button>
       </div>
     </section>

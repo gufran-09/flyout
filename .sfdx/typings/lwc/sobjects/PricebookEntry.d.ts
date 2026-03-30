@@ -1,76 +1,76 @@
 declare module "@salesforce/schema/PricebookEntry.Id" {
-  const Id:any;
+  const Id: any;
   export default Id;
 }
 declare module "@salesforce/schema/PricebookEntry.Name" {
-  const Name:string;
+  const Name: string;
   export default Name;
 }
 declare module "@salesforce/schema/PricebookEntry.Pricebook2" {
-  const Pricebook2:any;
+  const Pricebook2: any;
   export default Pricebook2;
 }
 declare module "@salesforce/schema/PricebookEntry.Pricebook2Id" {
-  const Pricebook2Id:any;
+  const Pricebook2Id: any;
   export default Pricebook2Id;
 }
 declare module "@salesforce/schema/PricebookEntry.Product2" {
-  const Product2:any;
+  const Product2: any;
   export default Product2;
 }
 declare module "@salesforce/schema/PricebookEntry.Product2Id" {
-  const Product2Id:any;
+  const Product2Id: any;
   export default Product2Id;
 }
 declare module "@salesforce/schema/PricebookEntry.UnitPrice" {
-  const UnitPrice:number;
+  const UnitPrice: number;
   export default UnitPrice;
 }
 declare module "@salesforce/schema/PricebookEntry.IsActive" {
-  const IsActive:boolean;
+  const IsActive: boolean;
   export default IsActive;
 }
 declare module "@salesforce/schema/PricebookEntry.UseStandardPrice" {
-  const UseStandardPrice:boolean;
+  const UseStandardPrice: boolean;
   export default UseStandardPrice;
 }
 declare module "@salesforce/schema/PricebookEntry.CreatedDate" {
-  const CreatedDate:any;
+  const CreatedDate: any;
   export default CreatedDate;
 }
 declare module "@salesforce/schema/PricebookEntry.CreatedBy" {
-  const CreatedBy:any;
+  const CreatedBy: any;
   export default CreatedBy;
 }
 declare module "@salesforce/schema/PricebookEntry.CreatedById" {
-  const CreatedById:any;
+  const CreatedById: any;
   export default CreatedById;
 }
 declare module "@salesforce/schema/PricebookEntry.LastModifiedDate" {
-  const LastModifiedDate:any;
+  const LastModifiedDate: any;
   export default LastModifiedDate;
 }
 declare module "@salesforce/schema/PricebookEntry.LastModifiedBy" {
-  const LastModifiedBy:any;
+  const LastModifiedBy: any;
   export default LastModifiedBy;
 }
 declare module "@salesforce/schema/PricebookEntry.LastModifiedById" {
-  const LastModifiedById:any;
+  const LastModifiedById: any;
   export default LastModifiedById;
 }
 declare module "@salesforce/schema/PricebookEntry.SystemModstamp" {
-  const SystemModstamp:any;
+  const SystemModstamp: any;
   export default SystemModstamp;
 }
 declare module "@salesforce/schema/PricebookEntry.ProductCode" {
-  const ProductCode:string;
+  const ProductCode: string;
   export default ProductCode;
 }
 declare module "@salesforce/schema/PricebookEntry.IsDeleted" {
-  const IsDeleted:boolean;
+  const IsDeleted: boolean;
   export default IsDeleted;
 }
 declare module "@salesforce/schema/PricebookEntry.IsArchived" {
-  const IsArchived:boolean;
+  const IsArchived: boolean;
   export default IsArchived;
 }

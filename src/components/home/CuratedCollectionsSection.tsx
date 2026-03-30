@@ -61,7 +61,8 @@ const CollectionCard = ({ item }: { item: CategoryItem }) => {
 
         {/* Description */}
         <p className="text-[15px] text-neutral-500 mb-8 font-light leading-relaxed line-clamp-2">
-          {item.description ?? `Explore the best ${item.name} experiences in the UAE`}
+          {item.description ??
+            `Explore the best ${item.name} experiences in the UAE`}
         </p>
 
         {/* Footer / Action Row */}
@@ -69,9 +70,11 @@ const CollectionCard = ({ item }: { item: CategoryItem }) => {
           <span className="text-sm font-semibold tracking-wide text-flyout-gold group-hover:text-flyout-gold/80 transition-colors">
             View Collection
           </span>
-          <div className="w-10 h-10 rounded-full bg-neutral-50 border border-neutral-100 flex items-center justify-center
+          <div
+            className="w-10 h-10 rounded-full bg-neutral-50 border border-neutral-100 flex items-center justify-center
             text-neutral-400 group-hover:bg-flyout-gold group-hover:border-flyout-gold group-hover:text-white
-            transition-all duration-300 shadow-sm">
+            transition-all duration-300 shadow-sm"
+          >
             <ArrowUpRight className="w-4 h-4" />
           </div>
         </div>
